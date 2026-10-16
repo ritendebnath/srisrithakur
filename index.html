@@ -1008,8 +1008,8 @@ function loadLeaflet(){
   const js=document.createElement("script");js.src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
   js.onerror=()=>{$("#mapLoading").textContent="The map could not load. The list has every centre."};
   js.onload=()=>{
-    LM=L.map("leafletMap",{scrollWheelZoom:false,worldCopyJump:true,zoomControl:true,attributionControl:true}).setView([22,40],2);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{maxZoom:19,subdomains:"abcd",attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(LM);
+    LM=L.map("leafletMap",{maxZoom:16,scrollWheelZoom:false,worldCopyJump:true,zoomControl:true,attributionControl:true}).setView([22,40],2);
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",{maxZoom:16,attribution:'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors'}).addTo(LM);L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}",{maxZoom:16}).addTo(LM);
     LM.on("click",()=>LM.scrollWheelZoom.enable());LM.on("mouseout",()=>LM.scrollWheelZoom.disable());
     MK=CENTRES.map((c,i)=>L.circleMarker([c.lat,c.lon],pinStyle(true,false)).addTo(LM)
       .bindPopup(`<b>${c.n}</b><span>${c.city}, ${c.country}</span>`)
