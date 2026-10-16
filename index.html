@@ -263,10 +263,17 @@ main section.view{padding-block:0 40px}
 .centre .cn{font-family:var(--font-display);font-size:1.04rem;font-weight:500}
 .centre .cl{grid-column:1/-1;font-size:.86rem;color:var(--fg-2)}
 .map-pane{position:sticky;top:90px;display:grid;gap:14px}
-.map-box{position:relative;aspect-ratio:16/10;max-width:100%;border-radius:var(--r);border:1px solid var(--line);background:var(--surface);overflow:hidden}
-.map-box canvas{position:absolute;inset:0;width:100%;height:100%}
-.map-cover{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:12px;text-align:center;padding:20px;background:var(--surface)}
-.map-cover p{font-size:.88rem;color:var(--fg-2);max-width:34ch}
+.map-box{position:relative;height:clamp(340px,52vh,520px);max-width:100%;border-radius:var(--r);border:1px solid var(--line);background:#F2F1EC;overflow:hidden}
+#leafletMap{position:absolute;inset:0;font-family:var(--font-body)}
+.map-loading{position:absolute;inset:0;display:grid;place-items:center;font-size:.86rem;color:var(--fg-3)}
+.leaflet-container{background:#F2F1EC;font-family:var(--font-body)}
+.leaflet-popup-content-wrapper{border-radius:12px;box-shadow:0 10px 30px -12px rgba(20,20,15,.35)}
+.leaflet-popup-content{margin:12px 14px;font-size:.84rem;line-height:1.45;color:var(--fg)}
+.leaflet-popup-content b{display:block;font-weight:600;letter-spacing:-.01em;margin-bottom:2px}
+.leaflet-popup-content span{color:var(--fg-2)}
+.leaflet-control-zoom a{color:var(--fg)!important}
+.leaflet-control-attribution{font-size:10px}
+.map-hint{font-size:.78rem;color:var(--fg-3)}
 .detail{display:grid;gap:10px}
 .detail dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0;font-size:.88rem}
 .detail dt{color:var(--fg-3)}
@@ -574,7 +581,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
     <p class="eyebrow">Global Satsang Map</p>
     <h1>Find a centre near you</h1>
     <p class="bn">বিশ্ব সৎসঙ্গ মানচিত্র</p>
-    <p class="lede">Search by country, region, or city. The directory works on slow connections; the map loads only when you ask for it.</p>
+    <p class="lede">Search by country, region, or city, or explore the map. The list below works even on slow connections.</p>
   </div>
   <div class="wrap block">
     <div class="note" style="margin-bottom:28px"><svg><use href="#i-info"/></svg><span>Listings below are sample entries that show how the directory will work. Each will be replaced with verified, authorised details before launch. Centres are listed for information only. This site is not affiliated with Satsang or any Satsang Vihar and does not speak for them.</span></div>
@@ -588,13 +595,10 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
       </div>
       <div class="map-pane">
         <div class="map-box">
-          <canvas id="worldMap" aria-hidden="true"></canvas>
-          <div class="map-cover" id="mapCover">
-            <svg width="36" height="36" style="color:var(--saffron)"><use href="#i-globe"/></svg>
-            <p>The interactive map is off to keep this page light on mobile data.</p>
-            <button class="btn btn-ghost" type="button" id="loadMap">Show map</button>
-          </div>
+          <div class="map-loading" id="mapLoading">Loading map…</div>
+          <div id="leafletMap" role="application" aria-label="Map of Satsang centres. The list beside it has the same information."></div>
         </div>
+        <p class="map-hint">Click a pin or a centre in the list. Click the map to enable scroll-zoom.</p>
         <div class="card detail" id="mDetail"></div>
       </div>
     </div>
@@ -918,6 +922,7 @@ function route(){
   $$(".view").forEach(v=>v.hidden=v.dataset.view!==h);
   $$("nav.primary a, .drawer a").forEach(a=>{const href=a.getAttribute("href");if(href===(h==="home"?"/":"/"+h))a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   if(location.hash==="#apply") setTimeout(()=>$("#apply")&&$("#apply").scrollIntoView(),60);
+  if(h==="map")loadLeaflet();
   requestAnimationFrame(drawAll);
 }
 const QS=new URLSearchParams(location.search);
@@ -967,19 +972,52 @@ function renderLib(){
 const mState={area:"All",q:"",sel:0,loaded:false};
 const AREAS=["All",...new Set(CENTRES.map(c=>c.area))];
 $("#mRegions").innerHTML=AREAS.map(a=>`<button class="fchip" type="button" data-a="${a}">${a}</button>`).join("");
-$$("#mRegions .fchip").forEach(b=>b.addEventListener("click",()=>{mState.area=b.dataset.a;renderMap()}));
-$("#mq").addEventListener("input",e=>{mState.q=e.target.value;renderMap()});
+$$("#mRegions .fchip").forEach(b=>b.addEventListener("click",()=>{mState.area=b.dataset.a;renderMap();fitVisible()}));
+let mqT;$("#mq").addEventListener("input",e=>{mState.q=e.target.value;renderMap();clearTimeout(mqT);mqT=setTimeout(fitVisible,400)});
 function filteredCentres(){const q=norm(mState.q);return CENTRES.map((c,i)=>({...c,i})).filter(c=>(mState.area==="All"||c.area===mState.area)&&(!q||norm([c.n,c.city,c.region,c.country].join(" ")).includes(q)))}
 function renderMap(){
   $$("#mRegions .fchip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.a===mState.area));
   const list=filteredCentres();
   $("#mList").innerHTML=list.length?list.map(c=>`<button class="centre" type="button" data-i="${c.i}" aria-current="${c.i===mState.sel}"><span class="cn">${c.n}</span><span class="chip sample">Sample</span><span class="cl">${c.city}, ${c.region} · ${c.country}</span></button>`).join(""):`<p class="empty">No centres found. You can suggest one below.</p>`;
-  $$("#mList .centre").forEach(b=>b.addEventListener("click",()=>{mState.sel=+b.dataset.i;renderMap()}));
+  $$("#mList .centre").forEach(b=>b.addEventListener("click",()=>{mState.sel=+b.dataset.i;renderMap();focusCentre(true)}));
+  if(!list.some(x=>x.i===mState.sel)&&list.length)mState.sel=list[0].i;
   const c=CENTRES[mState.sel];
   $("#mDetail").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:start;flex-wrap:wrap"><h3>${c.n}</h3><span class="chip pending">Not yet verified</span></div><dl><dt>Location</dt><dd>${c.city}, ${c.region}, ${c.country}</dd><dt>Coordinates</dt><dd style="font-variant-numeric:tabular-nums">${Math.abs(c.lat).toFixed(2)}° ${c.lat>=0?"N":"S"}, ${Math.abs(c.lon).toFixed(2)}° ${c.lon>=0?"E":"W"}</dd><dt>Facilities</dt><dd>${c.f}</dd><dt>Contact</dt><dd>Published after the centre authorises it</dd><dt>Last verified</dt><dd>Pending</dd></dl>`;
-  drawWorld();
+  updateMarkers();
 }
-$("#loadMap").addEventListener("click",()=>{mState.loaded=true;$("#mapCover").hidden=true;drawWorld()});
+/* Leaflet map (loaded only on the map page) */
+let LM=null,MK=[];
+function pinStyle(on,sel){return {radius:sel?9:6,color:"#FFFFFF",weight:2,fillColor:sel?"#B87532":"#465B48",fillOpacity:on?1:.25,opacity:on?1:.4}}
+function updateMarkers(){
+  if(!LM)return;
+  const vis=new Set(filteredCentres().map(f=>f.i));
+  MK.forEach((m,i)=>{m.setStyle(pinStyle(vis.has(i),i===mState.sel));if(i===mState.sel)m.bringToFront()});
+}
+function focusCentre(fly){
+  if(!LM)return;const c=CENTRES[mState.sel];
+  if(fly)LM.flyTo([c.lat,c.lon],Math.max(LM.getZoom(),6),{duration:.8});
+  MK[mState.sel].openPopup();
+}
+function fitVisible(){
+  if(!LM)return;const pts=filteredCentres().map(c=>[c.lat,c.lon]);
+  if(pts.length===1)LM.flyTo(pts[0],7,{duration:.8});else if(pts.length)LM.flyToBounds(pts,{padding:[40,40],maxZoom:6,duration:.8});
+}
+function loadLeaflet(){
+  if(LM||window.__lfLoading)return;window.__lfLoading=true;
+  const css=document.createElement("link");css.rel="stylesheet";css.href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";document.head.appendChild(css);
+  const js=document.createElement("script");js.src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+  js.onerror=()=>{$("#mapLoading").textContent="The map could not load. The list has every centre."};
+  js.onload=()=>{
+    LM=L.map("leafletMap",{scrollWheelZoom:false,worldCopyJump:true,zoomControl:true,attributionControl:true}).setView([22,40],2);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{maxZoom:19,subdomains:"abcd",attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(LM);
+    LM.on("click",()=>LM.scrollWheelZoom.enable());LM.on("mouseout",()=>LM.scrollWheelZoom.disable());
+    MK=CENTRES.map((c,i)=>L.circleMarker([c.lat,c.lon],pinStyle(true,false)).addTo(LM)
+      .bindPopup(`<b>${c.n}</b><span>${c.city}, ${c.country}</span>`)
+      .on("click",()=>{mState.sel=i;renderMap();}));
+    $("#mapLoading").hidden=true;updateMarkers();if(QS.get("centre"))focusCentre(true);else fitVisible();
+  };
+  document.head.appendChild(js);
+}
 $("#suggestForm").addEventListener("submit",e=>{e.preventDefault();const t=$("#sToast");t.hidden=false;t.textContent=`Thank you. "${$("#sName").value}" is ready for moderator review. Submissions will be sent once the moderation service is connected.`;e.target.reset()});
 
 /* ---------- CONTRIBUTE ---------- */
@@ -1057,18 +1095,7 @@ function drawBand(){
   const proj=drawDots(c,{step:3.2,r:1.1,land:"rgba(243,241,234,.28)"});
   CENTRES.forEach(ct=>{const [px,py]=proj(ct.lon,ct.lat);const x=c.x;x.fillStyle="rgba(231,199,161,.25)";x.beginPath();x.arc(px,py,7,0,Math.PI*2);x.fill();x.fillStyle="#E7C7A1";x.beginPath();x.arc(px,py,2.8,0,Math.PI*2);x.fill()});
 }
-function drawWorld(){
-  if(!mState.loaded)return;
-  const cv=$("#worldMap"),c=fit(cv); if(!c)return;
-  const proj=drawDots(c,{step:2.6,r:1,land:css("--line-2")});
-  const vis=new Set(filteredCentres().map(f=>f.i));
-  CENTRES.forEach((ct,i)=>{const [px,py]=proj(ct.lon,ct.lat);const x=c.x;const on=vis.has(i),sel=i===mState.sel;
-    x.globalAlpha=on?1:.25;x.fillStyle=sel?css("--saffron"):css("--forest");
-    if(sel){x.globalAlpha=.2;x.beginPath();x.arc(px,py,12,0,Math.PI*2);x.fill();x.globalAlpha=1}
-    x.beginPath();x.arc(px,py,sel?4.5:3.2,0,Math.PI*2);x.fill();x.globalAlpha=1;
-    if(sel){x.fillStyle=css("--fg");x.font="500 12px "+css("--font-body");const tw=x.measureText(ct.city).width;const lx=Math.min(Math.max(px+10,4),c.w-tw-6);x.fillText(ct.city,lx,py-8)}});
-}
-function drawAll(){drawDawn();drawBand();drawWorld()}
+function drawAll(){drawDawn();drawBand()}
 let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(drawAll,120)});
 
 /* ---------- INIT ---------- */
