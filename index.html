@@ -257,6 +257,9 @@ main section.view{padding-block:0 40px}
 /* Map */
 .map-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:start}
 @media (max-width:900px){.map-layout{grid-template-columns:1fr}}
+.mstate-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:.88rem;color:var(--fg-2)}
+.mstate-row select{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line-2);border-radius:10px;padding:8px 12px;max-width:100%}
+.mcount{margin-left:auto}
 .centre-list{display:grid;gap:0;max-height:640px;overflow:auto;border-top:1px solid var(--line)}
 .centre{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:18px 4px;border-bottom:1px solid var(--line);cursor:pointer;text-align:left;background:none;border-left:0;border-right:0;border-top:0;font:inherit;color:inherit;width:100%}
 .centre:hover,.centre[aria-current="true"]{background:var(--bg-2)}
@@ -584,12 +587,13 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
     <p class="lede">Search by country, region, or city, or explore the map. The list below works even on slow connections.</p>
   </div>
   <div class="wrap block">
-    <div class="note" style="margin-bottom:28px"><svg><use href="#i-info"/></svg><span>39 centres sourced from public listings (Satsang's official social posts, community directories, and OpenStreetMap), checked October 2026. Some addresses come from older directories and may have changed, so please confirm before visiting. Centres are listed for information only. This site is not affiliated with Satsang or any Satsang Vihar and does not speak for them.</span></div>
+    <div class="note" style="margin-bottom:28px"><svg><use href="#i-info"/></svg><span>Over 700 centres across India, with the deepest coverage in East and North-East India. Most pins come from each centre's own Google Maps listing; others come from Satsang's official posts, community directories, and OpenStreetMap. Last checked October 2026. Details can change, so please confirm before visiting. Centres are listed for information only. This site is not affiliated with Satsang or any Satsang Vihar and does not speak for them.</span></div>
     <div class="map-layout">
       <div>
         <div class="toolbar">
           <div class="input"><svg><use href="#i-search"/></svg><input id="mq" type="search" placeholder="City, state, or country, e.g. Guwahati" aria-label="Search centres"></div>
           <div class="filter-row" id="mRegions" role="group" aria-label="Filter by region"></div>
+          <div class="mstate-row"><label for="mState">State</label><select id="mState" aria-label="Filter by state"></select><span class="mcount" id="mCount"></span></div>
         </div>
         <div class="centre-list" id="mList"></div>
       </div>
@@ -872,45 +876,7 @@ const TIMELINE=[
  {y:"1946",d:"September",h:"Move to Deoghar",p:"Moved to Deoghar, then in Bihar and now in Jharkhand, which became the lasting centre of Satsang."},
  {y:"1969",d:"27 January",h:"Passing at Deoghar",p:"Passed away at Deoghar. His teachings continue through his books, recorded discourses, and the Satsang community worldwide."}];
 
-const CENTRES=[{"n":"Satsang Ashram, Deoghar","a":"Satsang Nagar, P.O. Satsang, Deoghar 814116","city":"Deoghar","region":"Jharkhand","country":"India","area":"East India","lat":24.4815,"lon":86.6759,"p":"street","s":"Wikipedia; 2007 directory","u":"https://en.wikipedia.org/wiki/Satsang_(Deoghar)"},
- {"n":"Satsang Ashram, Himaitpur","a":"Pabna–Ishwardi Highway, Hemayetpur, Pabna","city":"Pabna","region":"Rajshahi","country":"Bangladesh","area":"Bangladesh","lat":23.99881,"lon":89.20596,"p":"exact","s":"OpenStreetMap; Banglapedia","u":"https://www.openstreetmap.org/?mlat=23.99881&mlon=89.20596#map=18/23.99881/89.20596"},
- {"n":"Satsang Vihar, Bengaluru","a":"1st Cross Rd, Karna Shree Layout, Medahalli, Bengaluru 560049","city":"Bengaluru","region":"Karnataka","country":"India","area":"South India","lat":13.03024,"lon":77.71825,"p":"exact","s":"satsangkarnataka.org; OpenStreetMap","u":"https://satsangkarnataka.org/"},
- {"n":"Satsang Vihar, New Delhi","a":"A-14/15 Satsang Vihar Marg, Qutab Institutional Area (near JNU East Gate)","city":"New Delhi","region":"Delhi","country":"India","area":"North India","lat":28.54292,"lon":77.17751,"p":"exact","s":"2007 directory; OpenStreetMap","u":"http://srisrithakur.blogspot.com/2007/01/satsang-vihar-list.html"},
- {"n":"Satsang Vihar, Chennai","a":"2, 19th Street, Shankar Nagar, near Shankar Nagar Police Station, Pammal, Chennai 600075","city":"Chennai","region":"Tamil Nadu","country":"India","area":"South India","lat":12.9654,"lon":80.1278,"p":"street","s":"Satsang official (X)","u":"https://x.com/satsangofficial/status/1265151369444569089"},
- {"n":"Satsang Vihar, Hyderabad","a":"Opp. Pillar 216, PVNR Expressway, next to IB Function Palace, Dairy Farm Jn, Rajendranagar, Hyderabad 500048","city":"Hyderabad","region":"Telangana","country":"India","area":"South India","lat":17.352,"lon":78.4178,"p":"street","s":"Satsang official (X)","u":"https://x.com/satsangofficial/status/1261940845173002241"},
- {"n":"Satsang Vihar, Surat","a":"Althan, Sarsana Road, Surat 395007","city":"Surat","region":"Gujarat","country":"India","area":"West India","lat":21.143,"lon":72.809,"p":"area","s":"Satsang official (X)","u":"https://x.com/satsangofficial/status/1259836618417926144"},
- {"n":"Satsang Vihar, Badlapur (Mumbai)","a":"DP Road, Hendre Pada, Kulgaon, Badlapur West 421503","city":"Badlapur","region":"Maharashtra","country":"India","area":"West India","lat":19.17279,"lon":73.24721,"p":"exact","s":"2007 directory; OpenStreetMap","u":"http://srisrithakur.blogspot.com/2007/01/satsang-vihar-list.html"},
- {"n":"Satsang Vihar, Chakan (Pune)","a":"Near Bank of India, Pune–Nashik Road, Chakan","city":"Chakan","region":"Maharashtra","country":"India","area":"West India","lat":18.7587,"lon":73.86006,"p":"exact","s":"2007 directory; OpenStreetMap","u":"http://srisrithakur.blogspot.com/2007/01/satsang-vihar-list.html"},
- {"n":"Satsang Vihar, Siliguri","a":"Atharo Khai, Shivmandir, P.O. Kadamtala, Siliguri 734011","city":"Siliguri","region":"West Bengal","country":"India","area":"East India","lat":26.7271,"lon":88.3953,"p":"area","s":"Satsang official (X)","u":"https://x.com/satsangofficial/status/1272388746420224000"},
- {"n":"Satsang Vihar, Balurghat","a":"Balurghat","city":"Balurghat","region":"West Bengal","country":"India","area":"East India","lat":25.24282,"lon":88.77682,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=25.24282&mlon=88.77682#map=18/25.24282/88.77682"},
- {"n":"Satsang Vihar, Sankrail (Howrah)","a":"Arabinda Sarani, Sankrail","city":"Sankrail","region":"West Bengal","country":"India","area":"East India","lat":22.56673,"lon":88.27004,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=22.56673&mlon=88.27004#map=18/22.56673/88.27004"},
- {"n":"Satsang Vihar, Sonamukhi","a":"Sonamukhi, Bankura","city":"Sonamukhi","region":"West Bengal","country":"India","area":"East India","lat":23.3035,"lon":87.4139,"p":"area","s":"Wikipedia","u":"https://en.wikipedia.org/wiki/Satsang_(Deoghar)"},
- {"n":"Anukul Temple, Malbazar","a":"Satsang Colony, Malbazar","city":"Malbazar","region":"West Bengal","country":"India","area":"East India","lat":26.86791,"lon":88.75132,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=26.86791&mlon=88.75132#map=18/26.86791/88.75132"},
- {"n":"Satsanga Ashram, Dinhata","a":"Baranachina Road, Dinhata","city":"Dinhata","region":"West Bengal","country":"India","area":"East India","lat":26.14592,"lon":89.46065,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=26.14592&mlon=89.46065#map=18/26.14592/89.46065"},
- {"n":"Satsang Vihar, Bihar Sharif","a":"Bihar Sharif, Nalanda","city":"Bihar Sharif","region":"Bihar","country":"India","area":"East India","lat":25.1939,"lon":85.5209,"p":"area","s":"Wikipedia","u":"https://en.wikipedia.org/wiki/Satsang_(Deoghar)"},
- {"n":"Satsang Vihar, Bhubaneswar","a":"Vani Vihar, Bhubaneswar, Khordha 751007","city":"Bhubaneswar","region":"Odisha","country":"India","area":"East India","lat":20.299,"lon":85.844,"p":"area","s":"Satsang official (X)","u":"https://x.com/satsangofficial/status/1274656400501702657"},
- {"n":"Satsang Thakurbari, Puri","a":"Puri","city":"Puri","region":"Odisha","country":"India","area":"East India","lat":19.8076,"lon":85.8253,"p":"area","s":"2007 directory","u":"http://srisrithakur.blogspot.com/2007/01/satsang-vihar-list.html"},
- {"n":"Satsang Vihar, Narasinghpur","a":"State Highway 65, Champeswar","city":"Narasinghpur","region":"Odisha","country":"India","area":"East India","lat":20.46318,"lon":85.08669,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=20.46318&mlon=85.08669#map=18/20.46318/85.08669"},
- {"n":"Satsang Vihar, Anandapur","a":"Anandapur, Kendujhar","city":"Anandapur","region":"Odisha","country":"India","area":"East India","lat":21.214,"lon":86.125,"p":"area","s":"Wikipedia","u":"https://en.wikipedia.org/wiki/Satsang_(Deoghar)"},
- {"n":"Satsang Vihar, Guwahati","a":"P.O. & P.S. Bhangagarh, G.S. Road, Guwahati 781005","city":"Guwahati","region":"Assam","country":"India","area":"North-East India","lat":26.165,"lon":91.767,"p":"area","s":"Satsang official (X)","u":"https://x.com/satsangofficial/status/1277660176732938243"},
- {"n":"Satsang Vihar, Shillong","a":"Rilbong Circular Road, Bishnupur, Shillong 793004","city":"Shillong","region":"Meghalaya","country":"India","area":"North-East India","lat":25.56467,"lon":91.87108,"p":"exact","s":"2011 directory; OpenStreetMap","u":"http://viswaguru.blogspot.com/2011/05/satsang-kendras-and-other-sri-sri.html"},
- {"n":"Satsang Vihar, Dhemaji","a":"Vill. Rup Nagar, P.O. Dhemaji 787057","city":"Dhemaji","region":"Assam","country":"India","area":"North-East India","lat":27.4833,"lon":94.5833,"p":"area","s":"Satsang official (Facebook)","u":"https://www.facebook.com/satsangofficial/photos/a.3145525838801888/4180994465255015/"},
- {"n":"Satsang Vihar, Silapathar","a":"Silapathar Road, Memberchuk, Silapathar","city":"Silapathar","region":"Assam","country":"India","area":"North-East India","lat":27.58306,"lon":94.7276,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=27.58306&mlon=94.7276#map=18/27.58306/94.7276"},
- {"n":"Satsang Vihar, Moran","a":"Moran","city":"Moran","region":"Assam","country":"India","area":"North-East India","lat":27.2365,"lon":94.8791,"p":"area","s":"2007 directory","u":"http://srisrithakur.blogspot.com/2007/01/satsang-vihar-list.html"},
- {"n":"Rangapara Satsang Vihar","a":"P.O. Rangapara 784505","city":"Rangapara","region":"Assam","country":"India","area":"North-East India","lat":26.8178,"lon":92.6862,"p":"area","s":"2007 directory","u":"http://srisrithakur.blogspot.com/2007/01/satsang-vihar-list.html"},
- {"n":"Polofield Satsang Vihar, Tezpur","a":"Polofield, Tezpur 784001","city":"Tezpur","region":"Assam","country":"India","area":"North-East India","lat":26.623,"lon":92.7976,"p":"area","s":"2007 directory","u":"http://srisrithakur.blogspot.com/2007/01/satsang-vihar-list.html"},
- {"n":"Satsang Vihar, Phuloni","a":"Phuloni","city":"Phuloni","region":"Assam","country":"India","area":"North-East India","lat":26.20507,"lon":93.12492,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=26.20507&mlon=93.12492#map=18/26.20507/93.12492"},
- {"n":"Satsang Vihar, Howraghat","a":"Howraghat","city":"Howraghat","region":"Assam","country":"India","area":"North-East India","lat":26.10828,"lon":93.02964,"p":"street","s":"Explurger place listing","u":"https://www.explurger.com/pd/71wfm2pgjxus7ldu7"},
- {"n":"Anukul Thakur Ashram, Lakhipur","a":"Binnakandi, Lakhipur, Cachar","city":"Lakhipur","region":"Assam","country":"India","area":"North-East India","lat":24.79239,"lon":93.00919,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=24.79239&mlon=93.00919#map=18/24.79239/93.00919"},
- {"n":"Satsang Kendra, Noida","a":"H-59, Sector 11 (opp. Rashtriya Sahara), Noida","city":"Noida","region":"Uttar Pradesh","country":"India","area":"North India","lat":28.5981,"lon":77.3338,"p":"area","s":"2011 directory","u":"http://viswaguru.blogspot.com/2011/05/satsang-kendras-and-other-sri-sri.html"},
- {"n":"Satsang Kendra, Gurugram","a":"H.No. 384, Pocket A, Sector 21, near Krishna Chowk, Kapashera Border Road","city":"Gurugram","region":"Haryana","country":"India","area":"North India","lat":28.5115,"lon":77.07,"p":"area","s":"2011 directory","u":"http://viswaguru.blogspot.com/2011/05/satsang-kendras-and-other-sri-sri.html"},
- {"n":"Satsang Kendra, Jaipur","a":"B-8, Motilal Atal Road, Jaipur 302001","city":"Jaipur","region":"Rajasthan","country":"India","area":"North India","lat":26.9124,"lon":75.7873,"p":"area","s":"2011 directory","u":"http://viswaguru.blogspot.com/2011/05/satsang-kendras-and-other-sri-sri.html"},
- {"n":"Satsang Kendra, Bathinda","a":"Dr. Nouriya Street, near Bus Stand, Bathinda","city":"Bathinda","region":"Punjab","country":"India","area":"North India","lat":30.2068,"lon":74.9464,"p":"area","s":"2011 directory","u":"http://viswaguru.blogspot.com/2011/05/satsang-kendras-and-other-sri-sri.html"},
- {"n":"Satsang, Dhaka","a":"140/1 Shankhari Bazar (beside Judges Court), Dhaka","city":"Dhaka","region":"Dhaka","country":"Bangladesh","area":"Bangladesh","lat":23.7101,"lon":90.4081,"p":"street","s":"2011 directory","u":"http://viswaguru.blogspot.com/2011/05/satsang-kendras-and-other-sri-sri.html"},
- {"n":"Satsang, Chattogram","a":"Dewanji Pukur Par, Chattogram","city":"Chattogram","region":"Chattogram","country":"Bangladesh","area":"Bangladesh","lat":22.341,"lon":91.82,"p":"area","s":"2011 directory; Banglapedia","u":"http://viswaguru.blogspot.com/2011/05/satsang-kendras-and-other-sri-sri.html"},
- {"n":"Sree Sree Thakur Anukulchandra Regional Temple, Sylhet","a":"Shamarchar village, Doulotpur","city":"Sylhet","region":"Sylhet","country":"Bangladesh","area":"Bangladesh","lat":24.74734,"lon":91.2399,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=24.74734&mlon=91.2399#map=18/24.74734/91.2399"},
- {"n":"Anukul Thakur Ashram, Madan","a":"Fochika Road, Madan, Netrokona","city":"Madan","region":"Mymensingh","country":"Bangladesh","area":"Bangladesh","lat":24.72253,"lon":90.95703,"p":"exact","s":"OpenStreetMap","u":"https://www.openstreetmap.org/?mlat=24.72253&mlon=90.95703#map=18/24.72253/90.95703"},
- {"n":"Sri Sri Thakur Anukulchandra Satsang USA","a":"Elmhurst, Queens (registered non-profit; street address not public)","city":"New York","region":"New York","country":"United States","area":"Abroad","lat":40.7366,"lon":-73.8784,"p":"area","s":"ProPublica non-profit record","u":"https://projects.propublica.org/nonprofits/organizations/461179156"}];
+let CENTRES=[];
 
 const OPPS=[
  {t:"Digitise historical Bengali publications",skills:["Archiving","Scanning","Bengali"],time:"2–4 hrs / week",where:"Remote or Deoghar",owner:"Library team",status:"Open",d:"Scan, clean, and catalogue early printed editions so they can be read and cited online."},
@@ -993,26 +959,32 @@ function renderLib(){
 }
 
 /* ---------- MAP ---------- */
-const mState={area:"All",q:"",sel:0,loaded:false};
-const AREAS=["All","East India","North-East India","North India","West India","South India","Bangladesh","Abroad"].filter(a=>a==="All"||CENTRES.some(c=>c.area===a));
-const PREC={exact:["verified","Exact pin"],street:["pending","Street-level pin"],area:["sample","Approximate pin"]};
-$("#mRegions").innerHTML=AREAS.map(a=>`<button class="fchip" type="button" data-a="${a}">${a}</button>`).join("");
-$$("#mRegions .fchip").forEach(b=>b.addEventListener("click",()=>{mState.area=b.dataset.a;renderMap();fitVisible()}));
+const mState={area:"All",st:"All",q:"",sel:0,loaded:false};
+
+const PREC={gmap:["verified","Google Maps pin"],exact:["verified","Exact pin"],street:["pending","Street-level pin"],area:["sample","Approximate pin"]};
+const PDESC={gmap:"Pin is taken from the centre's own Google Maps listing",exact:"Pin is on the mapped building",street:"Pin is at the street or address",area:"Pin marks the town or locality. Use the address for directions"};
+
+function renderAreas(){const AREAS=["All","East India","North-East India","North India","West India","South India","Bangladesh","Abroad"].filter(a=>a==="All"||CENTRES.some(c=>c.area===a));$("#mRegions").innerHTML=AREAS.map(a=>`<button class="fchip" type="button" data-a="${a}">${a}</button>`).join("");$$("#mRegions .fchip").forEach(b=>b.addEventListener("click",()=>{mState.area=b.dataset.a;mState.st="All";renderMap();fitVisible()}))}
+function loadCentres(){if(mState.loading)return;mState.loading=true;fetch("/data/centres.json").then(r=>r.json()).then(d=>{const AR={"West Bengal":"East India",Odisha:"East India",Jharkhand:"East India",Bihar:"East India",Assam:"North-East India",Tripura:"North-East India",Meghalaya:"North-East India",Manipur:"North-East India",Mizoram:"North-East India",Nagaland:"North-East India","Arunachal Pradesh":"North-East India",Sikkim:"North-East India",Delhi:"North India","Uttar Pradesh":"North India",Haryana:"North India",Rajasthan:"North India",Punjab:"North India",Gujarat:"West India",Maharashtra:"West India",Karnataka:"South India","Tamil Nadu":"South India",Telangana:"South India","Andhra Pradesh":"South India"};const GM="https://www.google.com/maps?cid=";CENTRES=d.map(x=>({n:x.n,a:x.a,city:x.c,d:x.d,region:x.r,country:x.y||"India",area:x.ar||AR[x.r]||"Abroad",lat:x.la,lon:x.lo,p:x.p,s:x.s||"Google Maps listing",u:x.u||GM+x.cid,g:x.g?GM+x.g:""}));mState.loaded=true;renderAreas();const ci=+QS.get("centre");if(QS.get("centre")&&CENTRES[ci])mState.sel=ci;INDEX.push(...CENTRES.map((c,i)=>({type:"Centre",title:c.n,ctx:[c.city,c.d,c.region].filter(Boolean).join(", "),status:"verified",href:"/map?centre="+i,ci:i,text:[c.n,c.a,c.city,c.d||"",c.region,c.country].join(" ")})));renderMap();addMarkers();if($("#gq")&&$("#gq").value)runSearch()}).catch(()=>{$("#mList").innerHTML=`<p class="empty">The centre list could not load. Please refresh the page.</p>`})}
+$("#mState").addEventListener("change",e=>{mState.st=e.target.value;renderMap();fitVisible()});
 let mqT;$("#mq").addEventListener("input",e=>{mState.q=e.target.value;renderMap();clearTimeout(mqT);mqT=setTimeout(fitVisible,400)});
-function filteredCentres(){const q=norm(mState.q);return CENTRES.map((c,i)=>({...c,i})).filter(c=>(mState.area==="All"||c.area===mState.area)&&(!q||norm([c.n,c.a,c.city,c.region,c.country].join(" ")).includes(q)))}
+function filteredCentres(){const q=norm(mState.q);return CENTRES.map((c,i)=>({...c,i})).filter(c=>(mState.area==="All"||c.area===mState.area)&&(mState.st==="All"||c.region===mState.st)&&(!q||norm([c.n,c.a,c.city,c.d||"",c.region,c.country].join(" ")).includes(q)))}
 function renderMap(){
+  if(!CENTRES.length){$("#mList").innerHTML=`<p class="empty">Loading centres…</p>`;$("#mDetail").innerHTML="";return}
   $$("#mRegions .fchip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.a===mState.area));
-  const list=filteredCentres();
+  const sts=[...new Set(CENTRES.filter(c=>mState.area==="All"||c.area===mState.area).map(c=>c.region))].sort();if(mState.st!=="All"&&!sts.includes(mState.st))mState.st="All";
+  $("#mState").innerHTML=`<option value="All">All states (${CENTRES.filter(c=>mState.area==="All"||c.area===mState.area).length})</option>`+sts.map(s=>`<option ${s===mState.st?"selected":""}>${s}</option>`).join("");
+  const list=filteredCentres();$("#mCount").textContent=`${list.length} centre${list.length===1?"":"s"}`;
   $("#mList").innerHTML=list.length?list.map(c=>`<button class="centre" type="button" data-i="${c.i}" aria-current="${c.i===mState.sel}"><span class="cn">${c.n}</span><span class="chip ${PREC[c.p][0]}">${PREC[c.p][1]}</span><span class="cl">${c.city}, ${c.region} · ${c.country}</span></button>`).join(""):`<p class="empty">No centres found. You can suggest one below.</p>`;
   $$("#mList .centre").forEach(b=>b.addEventListener("click",()=>{mState.sel=+b.dataset.i;renderMap();focusCentre(true)}));
   if(!list.some(x=>x.i===mState.sel)&&list.length)mState.sel=list[0].i;
   const c=CENTRES[mState.sel];
-  $("#mDetail").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:start;flex-wrap:wrap"><h3>${c.n}</h3><span class="chip ${PREC[c.p][0]}">${PREC[c.p][1]}</span></div><dl><dt>Address</dt><dd>${c.a}</dd><dt>Location</dt><dd>${c.city}, ${c.region}, ${c.country}</dd><dt>Coordinates</dt><dd style="font-variant-numeric:tabular-nums">${Math.abs(c.lat).toFixed(4)}° ${c.lat>=0?"N":"S"}, ${Math.abs(c.lon).toFixed(4)}° ${c.lon>=0?"E":"W"}</dd><dt>Pin accuracy</dt><dd>${c.p==="exact"?"Pin is on the mapped building":c.p==="street"?"Pin is at the street or address":"Pin marks the town or locality. Use the address for directions"}</dd><dt>Source</dt><dd><a href="${c.u}" target="_blank" rel="noopener">${c.s}</a></dd><dt>Last checked</dt><dd>October 2026</dd></dl><p style="margin-top:14px"><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.p==="exact"?c.lat+","+c.lon:c.n+", "+c.a+", "+c.country)}" target="_blank" rel="noopener">Get directions</a></p>`;
+  $("#mDetail").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:start;flex-wrap:wrap"><h3>${c.n}</h3><span class="chip ${PREC[c.p][0]}">${PREC[c.p][1]}</span></div><dl><dt>Address</dt><dd>${c.a}</dd><dt>Location</dt><dd>${[c.city,c.d,c.region,c.country].filter((x,i,a)=>x&&a.indexOf(x)===i).join(", ")}</dd><dt>Coordinates</dt><dd style="font-variant-numeric:tabular-nums">${Math.abs(c.lat).toFixed(4)}° ${c.lat>=0?"N":"S"}, ${Math.abs(c.lon).toFixed(4)}° ${c.lon>=0?"E":"W"}</dd><dt>Pin accuracy</dt><dd>${PDESC[c.p]}</dd><dt>Source</dt><dd><a href="${c.u}" target="_blank" rel="noopener">${c.s}</a>${c.g?` · <a href="${c.g}" target="_blank" rel="noopener">Google Maps listing</a>`:""}</dd><dt>Last checked</dt><dd>October 2026</dd></dl><p style="margin-top:14px"><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.p==="exact"||c.p==="gmap"?c.lat+","+c.lon:c.n+", "+c.a+", "+c.country)}" target="_blank" rel="noopener">Get directions</a></p>`;
   updateMarkers();
 }
 /* Leaflet map (loaded only on the map page) */
 let LM=null,MK=[];
-function pinStyle(on,sel){return {radius:sel?9:6,color:"#FFFFFF",weight:2,fillColor:sel?"#B87532":"#465B48",fillOpacity:on?1:.25,opacity:on?1:.4}}
+function pinStyle(on,sel){return {radius:sel?9:5,color:"#FFFFFF",weight:sel?2:1.2,fillColor:sel?"#B87532":"#465B48",fillOpacity:on?.95:.12,opacity:on?1:.15}}
 function updateMarkers(){
   if(!LM)return;
   const vis=new Set(filteredCentres().map(f=>f.i));
@@ -1027,19 +999,23 @@ function fitVisible(){
   if(!LM)return;const pts=filteredCentres().map(c=>[c.lat,c.lon]);
   if(pts.length===1)LM.flyTo(pts[0],7,{duration:.8});else if(pts.length)LM.flyToBounds(pts,{padding:[40,40],maxZoom:6,duration:.8});
 }
+function addMarkers(){
+  if(!LM||!CENTRES.length||MK.length)return;
+  MK=CENTRES.map((c,i)=>L.circleMarker([c.lat,c.lon],pinStyle(true,false)).addTo(LM)
+    .bindPopup(`<b>${c.n}</b><span>${c.a}</span>`)
+    .on("click",()=>{mState.sel=i;renderMap();}));
+  updateMarkers();if(QS.get("centre"))focusCentre(true);else fitVisible();
+}
 function loadLeaflet(){
   if(LM||window.__lfLoading)return;window.__lfLoading=true;
   const css=document.createElement("link");css.rel="stylesheet";css.href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";document.head.appendChild(css);
   const js=document.createElement("script");js.src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
   js.onerror=()=>{$("#mapLoading").textContent="The map could not load. The list has every centre."};
   js.onload=()=>{
-    LM=L.map("leafletMap",{maxZoom:16,scrollWheelZoom:false,worldCopyJump:true,zoomControl:true,attributionControl:true}).setView([22,40],2);
+    LM=L.map("leafletMap",{preferCanvas:true,maxZoom:16,scrollWheelZoom:false,worldCopyJump:true,zoomControl:true,attributionControl:true}).setView([22,40],2);
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",{maxZoom:16,attribution:'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors'}).addTo(LM);L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}",{maxZoom:16}).addTo(LM);
     LM.on("click",()=>LM.scrollWheelZoom.enable());LM.on("mouseout",()=>LM.scrollWheelZoom.disable());
-    MK=CENTRES.map((c,i)=>L.circleMarker([c.lat,c.lon],pinStyle(true,false)).addTo(LM)
-      .bindPopup(`<b>${c.n}</b><span>${c.a}</span>`)
-      .on("click",()=>{mState.sel=i;renderMap();}));
-    $("#mapLoading").hidden=true;updateMarkers();if(QS.get("centre"))focusCentre(true);else fitVisible();
+    $("#mapLoading").hidden=true;addMarkers();
   };
   document.head.appendChild(js);
 }
@@ -1069,7 +1045,6 @@ const INDEX=[
  ...CONCEPTS.map(c=>({type:"Core idea",title:c.t+" · "+c.bn,ctx:c.d,status:"sample",href:"/teachings",text:c.t+" "+c.bn+" "+c.d})),
  ...BOOKS.map(b=>({type:"Library · "+b.type,title:b.t+" · "+b.bn,ctx:b.d,status:"pending",href:"/library",text:b.t+" "+b.bn+" "+b.d})),
  ...TIMELINE.map(e=>({type:"Life · "+e.y,title:e.h,ctx:e.p,status:"pending",href:"/life",text:e.h+" "+e.p})),
- ...CENTRES.map((c,i)=>({type:"Centre",title:c.n,ctx:`${c.city}, ${c.country}`,status:"verified",href:"/map?centre="+i,ci:i,text:[c.n,c.a,c.city,c.region,c.country].join(" ")})),
  ...OPPS.map(o=>({type:"Opportunity",title:o.t,ctx:o.skills.join(", ")+" · "+o.time,status:o.status==="Open"?"open":"closed",href:"/contribute",text:o.t+" "+o.skills.join(" ")+" "+o.d}))];
 const statusLabel={pending:"Pending verification",sample:"Sample",verified:"Sourced",open:"Open",closed:"Closed"};
 function runSearch(){
@@ -1125,8 +1100,8 @@ let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(drawAll,120
 
 /* ---------- INIT ---------- */
 try{const l=localStorage.getItem("sst-lang");if(l&&I18N[l])setLang(l)}catch(e){}
-if(QS.get("topic"))tState.topic=QS.get("topic");if(QS.get("centre")&&CENTRES[+QS.get("centre")])mState.sel=+QS.get("centre");
-renderTeachings();renderLib();renderMap();renderOpps();route();
+if(QS.get("topic"))tState.topic=QS.get("topic");
+renderTeachings();renderLib();renderMap();renderOpps();route();loadCentres();
 document.fonts&&document.fonts.ready.then(drawAll);
 })();
 </script>
