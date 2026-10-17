@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Noto+Serif+Bengali:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap">
 <style>
-/* Layout: Sacred Modernism, white edition — clean white ground, one tight sans throughout, arched "temple window" hero, hairline structure, saffron used sparingly */
+/* Layout: Sacred Modernism, white edition — clean white ground, one tight sans throughout, illustrated gateway hero, hairline structure, saffron used sparingly */
 :root{
   --bg:#FFFFFF; --bg-2:#F6F6F3; --surface:#FFFFFF;
   --fg:#1F211D; --fg-2:#5A5C56; --fg-3:#8C8D87;
@@ -129,7 +129,7 @@ main section.view{padding-block:0 40px}
 
 /* Hero */
 .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,88px);align-items:center;padding-block:clamp(40px,7vw,96px) clamp(48px,7vw,88px)}
-.hero-copy{display:grid;gap:26px;min-width:0}
+.hero-copy{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;min-width:0}
 .hero .bn-name{font-family:var(--font-bn);font-size:1.15rem;color:var(--saffron-ink)}
 .hero h1 em{font-style:normal;color:var(--forest)}
 .hero-search{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line-2);border-radius:999px;padding:6px 6px 6px 20px;max-width:520px;box-shadow:0 1px 2px rgba(20,20,15,.04),0 14px 34px -20px rgba(20,20,15,.22)}
@@ -138,14 +138,10 @@ main section.view{padding-block:0 40px}
 .hero-search input::placeholder{color:var(--fg-3)}
 .hero-search button{border:0;background:var(--saffron);color:#fff;font:inherit;font-weight:500;font-size:.9rem;padding:10px 18px;border-radius:999px;cursor:pointer}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
-.arch-wrap{position:relative;justify-self:center;width:100%;max-width:400px}
-.arch{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:999px 999px 18px 18px;overflow:hidden;background:radial-gradient(120% 80% at 50% 18%,var(--saffron-soft),var(--bg-2) 62%);border:1px solid var(--line-2)}
-.arch canvas{position:absolute;inset:0;width:100%;height:100%}
-.arch .lotus{position:absolute;left:50%;bottom:16%;width:62%;transform:translateX(-50%);color:var(--saffron)}
-.arch-inner{position:absolute;inset:12px;border-radius:999px 999px 10px 10px;border:1px solid color-mix(in srgb,var(--saffron) 35%,transparent);pointer-events:none}
-.caption{margin-top:14px;font-size:.8rem;color:var(--fg-3);display:flex;gap:8px;align-items:flex-start}
-.caption svg{width:14px;height:14px;flex-shrink:0;margin-top:3px}
-@media (max-width:820px){.hero{grid-template-columns:1fr}.arch-wrap{max-width:300px;order:-1}}
+.hero-art{position:relative;justify-self:center;width:100%;max-width:440px;margin:0}
+.hero-art img{display:block;width:100%;height:auto}
+.view:not([hidden]) .hero-art{animation:rise .9s .08s cubic-bezier(.2,.7,.2,1) both}
+@media (max-width:820px){.hero{grid-template-columns:1fr}.hero-art{max-width:320px;order:-1}}
 
 /* Quick nav */
 .quick{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
@@ -432,14 +428,9 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
         <a class="btn btn-ghost" href="/life">Discover His Life</a>
       </div>
     </div>
-    <div class="arch-wrap">
-      <div class="arch" role="img" aria-label="Placeholder for an archival portrait, shown as a lotus at dawn">
-        <canvas id="dawn"></canvas>
-        <svg class="lotus" viewBox="0 0 64 40"><use href="#i-lotus"/></svg>
-        <div class="arch-inner"></div>
-      </div>
-      <p class="caption"><svg><use href="#i-info"/></svg>Reserved for an authentic archival photograph, to be added with provenance and rights noted.</p>
-    </div>
+    <figure class="hero-art">
+      <img src="/images/satsang-deoghar-sri-sri-thakur.jpeg" width="1122" height="1402" fetchpriority="high" alt="Watercolour illustration of an ornate white temple gateway with blue gates, framed by greenery, with golden lines of light rising from it to points of light across a world map">
+    </figure>
   </div>
 
   <div class="wrap">
@@ -1065,20 +1056,6 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSearch();if(e.k
 /* ---------- CANVAS ART ---------- */
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 function fit(cv){const r=cv.getBoundingClientRect();if(!r.width)return null;const d=Math.min(devicePixelRatio||1,2);cv.width=r.width*d;cv.height=r.height*d;const x=cv.getContext("2d");x.setTransform(d,0,0,d,0,0);return {x,w:r.width,h:r.height}}
-function drawDawn(){
-  const cv=$("#dawn"),c=fit(cv); if(!c)return; const {x,w,h}=c;
-  x.clearRect(0,0,w,h);
-  const sx=w/2, sy=h*.5;
-  x.strokeStyle=css("--saffron");
-  for(let i=0;i<36;i++){const a=Math.PI+i/35*Math.PI;x.globalAlpha=.16;x.lineWidth=1;x.beginPath();x.moveTo(sx+Math.cos(a)*w*.2,sy+Math.sin(a)*w*.2);x.lineTo(sx+Math.cos(a)*w*.9,sy+Math.sin(a)*w*.9);x.stroke()}
-  x.globalAlpha=1;
-  const g=x.createRadialGradient(sx,sy,0,sx,sy,w*.2);g.addColorStop(0,css("--saffron"));g.addColorStop(1,"transparent");
-  x.globalAlpha=.35;x.fillStyle=g;x.beginPath();x.arc(sx,sy,w*.2,0,Math.PI*2);x.fill();x.globalAlpha=1;
-  x.strokeStyle=css("--saffron");x.globalAlpha=.55;x.lineWidth=1.2;x.beginPath();x.arc(sx,sy,w*.13,Math.PI,0);x.stroke();
-  x.globalAlpha=.25;
-  for(let i=0;i<5;i++){const y=h*.66+i*10;x.beginPath();for(let k=0;k<=w;k+=6){x.lineTo(k,y+Math.sin(k/22+i)*2.2)}x.stroke()}
-  x.globalAlpha=1;
-}
 // Land mask: coarse equirectangular approximation (lon -180..180, lat 75..-55) drawn as dot grid
 const LAND=[[-168,66,-140,70],[-140,70,-60,60],[-128,58,-60,48],[-125,48,-67,30],[-118,32,-82,15],[-92,18,-77,8],[-80,10,-35,-5],[-80,-5,-38,-23],[-72,-23,-48,-40],[-75,-40,-65,-55],[-55,82,-20,62],[-10,58,30,36],[-10,44,40,36],[5,70,40,55],[25,60,180,50],[30,50,140,40],[40,40,120,22],[68,30,92,8],[92,28,110,10],[100,20,122,0],[110,0,140,-8],[-17,35,35,5],[8,5,42,-15],[12,-15,40,-34],[43,-12,50,-25],[35,30,60,12],[114,-12,153,-38],[130,45,145,31],[166,-35,178,-46],[-24,66,-13,63],[-8,58,2,50],[95,5,105,-5],[120,18,126,6]];
 function isLand(lon,lat){return LAND.some(([a,b,c,d])=>lon>=a&&lon<=c&&lat<=b&&lat>=d)}
@@ -1095,7 +1072,7 @@ function drawBand(){
   const proj=drawDots(c,{step:3.2,r:1.1,land:"rgba(243,241,234,.28)"});
   CENTRES.forEach(ct=>{const [px,py]=proj(ct.lon,ct.lat);const x=c.x;x.fillStyle="rgba(231,199,161,.25)";x.beginPath();x.arc(px,py,7,0,Math.PI*2);x.fill();x.fillStyle="#E7C7A1";x.beginPath();x.arc(px,py,2.8,0,Math.PI*2);x.fill()});
 }
-function drawAll(){drawDawn();drawBand()}
+function drawAll(){drawBand()}
 let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(drawAll,120)});
 
 /* ---------- INIT ---------- */
