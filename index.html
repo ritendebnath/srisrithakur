@@ -57,6 +57,12 @@ p{margin:0}
 .notice .wrap{display:flex;align-items:center;justify-content:center;gap:10px;padding-block:9px;text-align:center;flex-wrap:wrap}
 .notice b{font-weight:600}
 .notice a{color:inherit;font-weight:500;text-underline-offset:3px}
+.notice{position:relative}
+.notice .wrap{padding-left:52px;padding-right:52px}
+.notice-x{position:absolute;top:50%;right:max(10px,env(safe-area-inset-right,0px));transform:translateY(-50%);width:32px;height:32px;padding:0;border:0;border-radius:999px;background:none;color:inherit;display:grid;place-items:center;cursor:pointer;opacity:.7;transition:opacity .2s,background .2s}
+.notice-x:hover{opacity:1;background:color-mix(in srgb,var(--saffron) 14%,transparent)}
+.notice-x svg{width:14px;height:14px}
+@media (max-width:640px){.notice-x{top:6px;transform:none}}
 .pulse{position:relative;width:8px;height:8px;border-radius:50%;background:var(--saffron);flex-shrink:0}
 .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--saffron);animation:pulse 2s ease-out infinite}
 @keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(3.2);opacity:0}}
@@ -319,6 +325,8 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
 .foot a{display:block;text-decoration:none;color:var(--fg-2);font-size:.9rem;padding:3px 0}
 .foot a:hover{color:var(--fg)}
 .fineprint{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.8rem;color:var(--fg-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.fineprint a{color:var(--fg-2);text-underline-offset:3px}
+.fineprint a:hover{color:var(--fg)}
 @media (max-width:760px){.foot{grid-template-columns:1fr 1fr}.foot > div:first-child{grid-column:1/-1}}
 
 @keyframes rise{from{opacity:.001;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -355,13 +363,15 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
   </defs>
 </svg>
 
-<div class="notice" role="note">
+<div class="notice" role="note" id="notice">
   <div class="wrap">
     <span class="pulse" aria-hidden="true"></span>
     <span class="notice-text"><b>Independent, non-commercial initiative.</b> Not affiliated with Satsang, Deoghar, any Satsang Vihar, or any official body.</span>
     <a href="/about">Read more</a>
   </div>
+  <button class="notice-x" id="noticeX" type="button" aria-label="Dismiss this notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
 </div>
+<script>(function(){var n=document.getElementById("notice");try{if(localStorage.getItem("sst-notice")==="hidden")n.hidden=true}catch(e){}document.getElementById("noticeX").addEventListener("click",function(){n.hidden=true;try{localStorage.setItem("sst-notice","hidden")}catch(e){}})})();</script>
 
 <header class="site">
   <div class="wrap bar">
@@ -811,7 +821,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
       <div><h4>Community</h4><a href="/map">Global Map</a><a href="/events">Events</a><a href="/contribute">Contribute</a><a href="/languages">Languages</a></div>
       <div><h4>About</h4><a href="/about">About this initiative</a><a href="/about">Not affiliated</a><a href="/contact">Contact</a></div>
     </div>
-    <div class="fineprint"><span>An independent, non-commercial initiative. Not affiliated with Satsang, Deoghar or any Satsang Vihar. Quotations appear only with a verified source.</span><span>English · বাংলা · हिन्दी</span></div>
+    <div class="fineprint"><span>An independent, non-commercial initiative. Not affiliated with Satsang, Deoghar or any Satsang Vihar. Quotations appear only with a verified source.</span><span>English · বাংলা · हिन्दी · <a href="https://ritendn.com/" target="_blank" rel="noopener">Created by Riten</a></span></div>
   </div>
 </footer>
 
