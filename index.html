@@ -408,6 +408,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
     <a href="/contribute" data-k="contribute">Contribute</a>
     <a href="/about" data-k="about">About this initiative</a>
     <a href="/daily-wisdom">Daily Wisdom</a>
+    <a href="/satsang-evening-prayer">Evening Prayer</a>
     <a href="/events">Events</a>
     <a href="/contact">Contact</a>
     <div class="lang" role="group" aria-label="Language">
@@ -817,7 +818,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
         <a class="brand" href="/"><svg viewBox="0 0 64 40" style="width:30px;height:30px;color:var(--saffron)"><use href="#i-lotus"/></svg><b>Sri Sri Thakur</b></a>
         <p class="small muted" style="max-width:36ch">A living digital home for wisdom, community, and service. Community-driven, source-verified.</p>
       </div>
-      <div><h4>Knowledge</h4><a href="/teachings">Teachings</a><a href="/daily-wisdom">Daily Wisdom</a><a href="/life">Life and Legacy</a><a href="/library">Library</a></div>
+      <div><h4>Knowledge</h4><a href="/teachings">Teachings</a><a href="/daily-wisdom">Daily Wisdom</a><a href="/satsang-evening-prayer">Evening Prayer</a><a href="/life">Life and Legacy</a><a href="/library">Library</a></div>
       <div><h4>Community</h4><a href="/map">Global Map</a><a href="/events">Events</a><a href="/contribute">Contribute</a><a href="/languages">Languages</a></div>
       <div><h4>About</h4><a href="/about">About this initiative</a><a href="/about">Not affiliated</a><a href="/contact">Contact</a></div>
     </div>
@@ -1038,26 +1039,32 @@ $("#dwDate").textContent=new Date().toLocaleDateString("en-GB",{day:"numeric",mo
 $("#eventForm").addEventListener("submit",e=>{e.preventDefault();const t=$("#eToast");t.hidden=false;t.textContent="Thank you. Event submissions open soon; your details were not sent yet. Please check back shortly.";e.target.reset()});
 $("#contactForm").addEventListener("submit",e=>{e.preventDefault();const t=$("#cToast");t.hidden=false;t.textContent="Thank you. The message inbox opens soon; your message was not sent yet. Please check back shortly.";});
 /* ---------- SEARCH ---------- */
-const VARIANTS=[["satyanushoron","satyanusaran"],["shatyanusaran","satyanusaran"],["সত্যানুসরণ","satyanusaran"],["anushruti","anushruti"],["anusruti","anushruti"],["deogarh","deoghar"],["devghar","deoghar"],["bangalore","bengaluru"],["calcutta","kolkata"],["isthabhriti","ishtabhriti"],["istabhrity","ishtabhriti"]];
+const VARIANTS=[["satyanushoron","satyanusaran"],["shatyanusaran","satyanusaran"],["সত্যানুসরণ","satyanusaran"],["anushruti","anushruti"],["anusruti","anushruti"],["deogarh","deoghar"],["devghar","deoghar"],["bangalore","bengaluru"],["calcutta","kolkata"],["isthabhriti","ishtabhriti"],["istabhrity","ishtabhriti"],["prarthona","prarthana"],["prathana","prarthana"],["sandhya","evening"],["sondhya","evening"],["সন্ধ্যা","evening"],["প্রার্থনা","prayer"],["संध्या","evening"],["प्रार्थना","prayer"],["anukul chandra","anukulchandra"],["radhasoami","radhaswami"]];
 function norm(s){s=String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,"").trim();VARIANTS.forEach(([a,b])=>{s=s.split(a).join(b)});return s}
 const INDEX=[
  ...TEACHINGS.map(t=>({type:"Teaching",title:t.title,ctx:t.source,status:"pending",href:"/teachings",text:t.title+" "+t.topic+" "+t.source})),
  ...CONCEPTS.map(c=>({type:"Core idea",title:c.t+" · "+c.bn,ctx:c.d,status:"sample",href:"/teachings",text:c.t+" "+c.bn+" "+c.d})),
  ...BOOKS.map(b=>({type:"Library · "+b.type,title:b.t+" · "+b.bn,ctx:b.d,status:"pending",href:"/library",text:b.t+" "+b.bn+" "+b.d})),
  ...TIMELINE.map(e=>({type:"Life · "+e.y,title:e.h,ctx:e.p,status:"pending",href:"/life",text:e.h+" "+e.p})),
+ {type:"Prayer",title:"Satsang Evening Prayer · সন্ধ্যা প্রার্থনা",ctx:"Three evening prayers and the Joy Radhe Radhe kirtan, full lyrics with images",status:"lyrics",href:"/satsang-evening-prayer",text:"Satsang evening prayer sandhya prarthana Sri Sri Thakur Anukulchandra lyrics prayer kirtan"},
+ {type:"Prayer",title:"Bar Bar Karoon Binati Radhaswami Aage",ctx:"Evening Prayer #1 · full lyrics",status:"lyrics",href:"/satsang-evening-prayer#prayer-1",text:"Bar bar karoon binati Radhaswami aage evening prayer 1 lyrics"},
+ {type:"Prayer",title:"Bar Bar Kar Jor Kar Savinay Karoon Pookar",ctx:"Evening Prayer #2 · full lyrics",status:"lyrics",href:"/satsang-evening-prayer#prayer-2",text:"Bar bar kar jor kar savinay karoon pookar pukar evening prayer 2 lyrics"},
+ {type:"Prayer",title:"Gururbrahmaa Gururvishnu Gururdevo Maheshwarah",ctx:"Evening Prayer #3 · Guru Stotram · full lyrics",status:"lyrics",href:"/satsang-evening-prayer#prayer-3",text:"Gururbrahma Guru Brahma Gururvishnu Guru Vishnu Gurudevo Maheshwara Akhandamandalakaram Guru Stotram evening prayer 3 lyrics"},
+ {type:"Kirtan",title:"Joy Radhe Radhe, Krishna Krishna Kirtan",ctx:"Sung with the evening prayer · full lyrics",status:"lyrics",href:"/satsang-evening-prayer#kirtan",text:"Joy Jai Radhe Radhe Krishna Krishna Gobindo Govinda bolo re kirtan evening prayer lyrics"},
  ...OPPS.map(o=>({type:"Opportunity",title:o.t,ctx:o.skills.join(", ")+" · "+o.time,status:o.status==="Open"?"open":"closed",href:"/contribute",text:o.t+" "+o.skills.join(" ")+" "+o.d}))];
-const statusLabel={pending:"Pending verification",sample:"Sample",verified:"Sourced",open:"Open",closed:"Closed"};
+const statusLabel={pending:"Pending verification",sample:"Sample",verified:"Sourced",open:"Open",closed:"Closed",lyrics:"Full lyrics"};
 function runSearch(){
   const q=norm($("#gq").value);
-  if(!q){$("#gResults").innerHTML=`<p class="hint">Try "Satyanusaran", "Deoghar", "translation", or "Guwahati". Spelling variants are understood.</p>`;return}
+  if(!q){$("#gResults").innerHTML=`<p class="hint">Try "Satyanusaran", "Deoghar", "evening prayer", or "Guwahati". Spelling variants are understood.</p>`;return}
   const words=q.split(/\s+/);
   const hits=INDEX.filter(r=>{const t=norm(r.text);return words.every(w=>t.includes(w))}).slice(0,30);
-  $("#gResults").innerHTML=hits.length?hits.map(r=>`<a class="res" href="${r.ci!=null?`/map?centre=${r.ci}`:r.href}"><span class="rt"><span class="type">${r.type}</span><b>${esc(r.title)}</b><span class="chip ${r.status==="open"?"open":r.status==="closed"?"closed":r.status==="sample"?"sample":"pending"}">${statusLabel[r.status]}</span></span><span class="ctx">${esc(r.ctx)}</span></a>`).join(""):`<p class="hint">No results for that search. Try a different spelling or a broader word.</p>`;
+  $("#gResults").innerHTML=hits.length?hits.map(r=>`<a class="res" href="${r.ci!=null?`/map?centre=${r.ci}`:r.href}"><span class="rt"><span class="type">${r.type}</span><b>${esc(r.title)}</b><span class="chip ${r.status==="open"||r.status==="lyrics"?"open":r.status==="closed"?"closed":r.status==="sample"?"sample":"pending"}">${statusLabel[r.status]}</span></span><span class="ctx">${esc(r.ctx)}</span></a>`).join(""):`<p class="hint">No results for that search. Try a different spelling or a broader word.</p>`;
   
 }
 function openSearch(v){$("#overlay").hidden=false;$("#gq").value=v||"";runSearch();setTimeout(()=>$("#gq").focus(),10)}
 function closeSearch(){$("#overlay").hidden=true}
 $("#openSearch").addEventListener("click",()=>openSearch(""));
+if(QS.has("q"))openSearch(QS.get("q"));
 $("#gq").addEventListener("input",runSearch);
 $("#overlay").addEventListener("click",e=>{if(e.target.id==="overlay")closeSearch()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSearch();if(e.key==="/"&&!/input|textarea|select/i.test(document.activeElement.tagName)){e.preventDefault();openSearch("")}});
