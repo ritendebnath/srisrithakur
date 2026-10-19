@@ -528,14 +528,14 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
   <div class="wrap" style="padding-block:24px 0">
     <div class="band">
       <div class="copy">
-        <p class="eyebrow">Global Community</p>
-        <h2>From Deoghar to Toronto, find Satsang near you.</h2>
-        <p>A searchable directory of Satsang centres worldwide. Every listing shows when it was last verified, and private addresses are never published.</p>
+        <p class="eyebrow" data-k="gcEyebrow">Global Community</p>
+        <h2 data-k="gcTitle">From Deoghar to Toronto, find Satsang near you.</h2>
+        <p data-k="gcLede">A searchable directory of Satsang centres worldwide. Every listing shows when it was last verified, and private addresses are never published.</p>
         <div class="stats">
-          <div><b id="statCentres">–</b><span>Satsang Vihar</span></div>
-          <div><b id="statCountries">–</b><span>Countries</span></div>
+          <div><b id="statCentres">–</b><span data-k="gcVihar">Satsang Vihar</span></div>
+          <div><b id="statCountries">–</b><span data-k="gcCountries">Countries</span></div>
         </div>
-        <div class="actions"><a class="btn btn-ghost" href="/map">Open the directory <svg><use href="#i-arrow"/></svg></a></div>
+        <div class="actions"><a class="btn btn-ghost" href="/map"><span data-k="gcCta">Open the directory</span> <svg><use href="#i-arrow"/></svg></a></div>
       </div>
       <figure class="wm" id="bandMap">
         <div class="wm-frame">
@@ -547,7 +547,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
           <div class="wm-layer"></div>
           <div class="wm-tip" role="status"></div>
         </div>
-        <figcaption class="wm-key"><span><i class="ramp"></i>Shade = number of centres</span><span><i class="dot"></i>Centre outside South Asia</span><span class="wm-hint">Hover for details, click a dot to open it</span></figcaption>
+        <figcaption class="wm-key"><span><i class="ramp"></i><span data-k="wmShade">Shade = number of centres</span></span><span><i class="dot"></i><span data-k="wmAbroad">Centre outside South Asia</span></span><span class="wm-hint" data-k="wmHint">Hover for details, click a dot to open it</span></figcaption>
         <ul class="wm-list" aria-label="Centres by country"></ul>
       </figure>
     </div>
@@ -934,14 +934,15 @@ const OPPS=[
 
 /* ---------- I18N (navigation labels) ---------- */
 const I18N={
- en:{home:"Home",teachings:"Teachings",life:"Life and Legacy",library:"Library",map:"Global Map",contribute:"Contribute",about:"About this initiative",searchShort:"Search teachings, books, centres"},
- bn:{home:"হোম",teachings:"বাণী",life:"জীবন ও উত্তরাধিকার",library:"গ্রন্থাগার",map:"বিশ্ব মানচিত্র",contribute:"অবদান",about:"এই উদ্যোগ সম্পর্কে",searchShort:"বাণী, গ্রন্থ, কেন্দ্র খুঁজুন"},
- hi:{home:"होम",teachings:"उपदेश",life:"जीवन और विरासत",library:"पुस्तकालय",map:"विश्व मानचित्र",contribute:"योगदान",about:"इस पहल के बारे में",searchShort:"उपदेश, पुस्तकें, केंद्र खोजें"}};
+ en:{home:"Home",teachings:"Teachings",life:"Life and Legacy",library:"Library",map:"Global Map",contribute:"Contribute",about:"About this initiative",searchShort:"Search teachings, books, centres",gcEyebrow:"Global Community",gcTitle:"From Deoghar to Toronto, find Satsang near you.",gcLede:"A searchable directory of Satsang centres worldwide. Every listing shows when it was last verified, and private addresses are never published.",gcVihar:"Satsang Vihar",gcCountries:"Countries",gcCta:"Open the directory",wmShade:"Shade = number of centres",wmAbroad:"Centre outside South Asia",wmHint:"Hover for details, click a dot to open it"},
+ bn:{home:"হোম",teachings:"বাণী",life:"জীবন ও উত্তরাধিকার",library:"গ্রন্থাগার",map:"বিশ্ব মানচিত্র",contribute:"অবদান",about:"এই উদ্যোগ সম্পর্কে",searchShort:"বাণী, গ্রন্থ, কেন্দ্র খুঁজুন",gcEyebrow:"বিশ্বজুড়ে সৎসঙ্গ",gcTitle:"দেওঘর থেকে টরন্টো, আপনার কাছের সৎসঙ্গ খুঁজে নিন।",gcLede:"বিশ্বজুড়ে সৎসঙ্গ কেন্দ্রগুলির একটি অনুসন্ধানযোগ্য তালিকা। প্রতিটি কেন্দ্রের তথ্য শেষ কবে যাচাই করা হয়েছে তা দেখানো হয়, এবং ব্যক্তিগত ঠিকানা কখনও প্রকাশ করা হয় না।",gcVihar:"সৎসঙ্গ বিহার",gcCountries:"দেশ",gcCta:"তালিকা খুলুন",wmShade:"রঙের গাঢ়তা = কেন্দ্রের সংখ্যা",wmAbroad:"দক্ষিণ এশিয়ার বাইরের কেন্দ্র",wmHint:"বিস্তারিত দেখতে মাউস রাখুন, খুলতে বিন্দুতে ক্লিক করুন"},
+ hi:{home:"होम",teachings:"उपदेश",life:"जीवन और विरासत",library:"पुस्तकालय",map:"विश्व मानचित्र",contribute:"योगदान",about:"इस पहल के बारे में",searchShort:"उपदेश, पुस्तकें, केंद्र खोजें",gcEyebrow:"विश्वभर में सत्संग",gcTitle:"देवघर से टोरंटो तक, अपने पास सत्संग खोजें।",gcLede:"दुनिया भर के सत्संग केंद्रों की खोज योग्य सूची। हर प्रविष्टि में दिखता है कि उसे आख़िरी बार कब सत्यापित किया गया, और निजी पते कभी प्रकाशित नहीं किए जाते।",gcVihar:"सत्संग विहार",gcCountries:"देश",gcCta:"सूची खोलें",wmShade:"रंग की गहराई = केंद्रों की संख्या",wmAbroad:"दक्षिण एशिया के बाहर केंद्र",wmHint:"विवरण के लिए माउस रखें, खोलने के लिए बिंदु पर क्लिक करें"}};
 function setLang(l){
   document.documentElement.lang=l;
   $$("[data-k]").forEach(el=>{const v=I18N[l][el.dataset.k]; if(v){el.textContent=v; el.classList.toggle("bn",l==="bn"); el.classList.toggle("hi",l==="hi");}});
   $$("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===l));
   try{localStorage.setItem("sst-lang",l)}catch(e){}
+  drawBand();
 }
 $$("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
 
@@ -1124,28 +1125,37 @@ function wmXY(lon,lat){const A1=1.340264,A2=-.081106,A3=.000893,A4=.003796,M=Mat
 const WM_SHADE=["India","Bangladesh","Nepal","Bhutan","Sri Lanka"];
 // Label spot per country: [lon, lat, align l|c|r, size tier 1-3, optional leader-line start [lon,lat]]
 const WM_LABEL={India:[76,.5,"c",1],Bangladesh:[97,22.5,"l",2,[90.3,23.8]],Nepal:[80,39,"c",2,[84.1,28.3]],"United States":[-66,34,"l",3],Canada:[-84,53,"c",3],"United Kingdom":[-12,52,"r",3],Netherlands:[10,60,"l",3],"United Arab Emirates":[50,17,"r",3],Malaysia:[104,-3,"l",3]};
-const WM_SHORT={"United States":"USA","United Kingdom":"UK","United Arab Emirates":"UAE"};
-let wmDone=0;
+// Map text per language: country names, centre counts and tooltip sentences (place names from the data stay as written)
+const WM_T={
+ en:{c:n=>`${n.toLocaleString("en-IN")} centre${n===1?"":"s"}`,and:a=>a.length>1?a.slice(0,-1).join(", ")+" and "+a.at(-1):a[0],india:(s,t)=>`Across ${s} states &amp; UTs, most in ${t}. Home of Satsang Ashram, Deoghar.`,most:t=>`Most in ${t}.`,
+  names:{"United States":"USA","United Kingdom":"UK","United Arab Emirates":"UAE"}},
+ bn:{c:n=>`${n.toLocaleString("en-IN")}টি কেন্দ্র`,and:a=>a.join(", "),india:(s,t)=>`${s}টি রাজ্য ও কেন্দ্রশাসিত অঞ্চলে। সবচেয়ে বেশি: ${t}। দেওঘরে সৎসঙ্গ আশ্রম অবস্থিত।`,most:t=>`সবচেয়ে বেশি: ${t}।`,
+  names:{India:"ভারত",Bangladesh:"বাংলাদেশ",Nepal:"নেপাল",Bhutan:"ভুটান","Sri Lanka":"শ্রীলঙ্কা","United States":"আমেরিকা",Canada:"কানাডা","United Kingdom":"ব্রিটেন",Netherlands:"নেদারল্যান্ডস","United Arab Emirates":"সংযুক্ত আরব আমিরাত",Malaysia:"মালয়েশিয়া"}},
+ hi:{c:n=>`${n.toLocaleString("en-IN")} केंद्र`,and:a=>a.join(", "),india:(s,t)=>`${s} राज्यों और केंद्रशासित प्रदेशों में। सबसे अधिक: ${t}। देवघर में सत्संग आश्रम स्थित है।`,most:t=>`सबसे अधिक: ${t}।`,
+  names:{India:"भारत",Bangladesh:"बांग्लादेश",Nepal:"नेपाल",Bhutan:"भूटान","Sri Lanka":"श्रीलंका","United States":"अमेरिका",Canada:"कनाडा","United Kingdom":"ब्रिटेन",Netherlands:"नीदरलैंड्स","United Arab Emirates":"यूएई",Malaysia:"मलेशिया"}}};
+let wmDone="";
 function drawBand(){
-  const fig=$("#bandMap");if(!fig||!CENTRES.length||wmDone===CENTRES.length)return;wmDone=CENTRES.length;
-  const nf=n=>n.toLocaleString("en-IN"),pl=n=>`${nf(n)} centre${n===1?"":"s"}`,nm=c=>WM_SHORT[c]||c,pc=(v,t)=>(100*v/t).toFixed(2)+"%",pos=([x,y])=>`left:${pc(x,WM.W)};top:${pc(y,WM.H)}`;
+  const lg=WM_T[document.documentElement.lang]?document.documentElement.lang:"en",T=WM_T[lg];
+  const fig=$("#bandMap");if(!fig||!CENTRES.length||wmDone===CENTRES.length+lg)return;wmDone=CENTRES.length+lg;
+  fig.classList.toggle("bn",lg==="bn");fig.classList.toggle("hi",lg==="hi");
+  const nf=n=>n.toLocaleString("en-IN"),pl=n=>T.c(n),nm=c=>T.names[c]||WM_T.en.names[c]||c,pc=(v,t)=>(100*v/t).toFixed(2)+"%",pos=([x,y])=>`left:${pc(x,WM.W)};top:${pc(y,WM.H)}`;
   const by={};CENTRES.forEach((c,i)=>{if(isFinite(c.lat)&&isFinite(c.lon))(by[c.country]=by[c.country]||[]).push({...c,i})});
   const names=Object.keys(by).sort((a,b)=>by[b].length-by[a].length),max=by[names[0]].length;
   const spread=list=>{const m={};list.forEach(c=>{const k=c.region||c.city;if(k)m[k]=(m[k]||0)+1});return Object.entries(m).sort((a,b)=>b[1]-a[1]).map(x=>x[0])};
-  const most=t=>t.length>1?`most in ${t.slice(0,3).slice(0,-1).join(", ")} and ${t.slice(0,3).at(-1)}`:t.length?`in ${t[0]}`:"";
+  const top3=t=>esc(T.and(t.slice(0,3)));
   $$("#bandMap .wm-land path.has").forEach(p=>{p.classList.remove("has");p.removeAttribute("style");p.removeAttribute("tabindex");p.removeAttribute("data-tip")});
   let pins="",labels="",lines="";
   names.forEach(c=>{
     const list=by[c],n=list.length,shade=WM_SHADE.includes(c),path=fig.querySelector(`.wm-land path[data-c="${CSS.escape(c)}"]`);
     if(path){
       path.classList.add("has");path.style.fillOpacity=shade?(.32+.68*Math.log(n)/Math.log(Math.max(max,2))).toFixed(2):.12;
-      if(shade){const t=spread(list);path.setAttribute("tabindex","0");path.dataset.tip=`<b>${esc(c)}</b> · ${pl(n)}`+(t.length?`<br><span>${c==="India"?`Across ${t.length} states &amp; UTs, ${esc(most(t))}. Home of Satsang Ashram, Deoghar.`:esc(most(t).replace(/^./,s=>s.toUpperCase()))+"."}</span>`:"")}
+      if(shade){const t=spread(list);path.setAttribute("tabindex","0");path.dataset.tip=`<b>${esc(nm(c))}</b> · ${pl(n)}`+(t.length?`<br><span>${c==="India"?T.india(t.length,top3(t)):T.most(top3(t))}</span>`:"")}
     }
     let at;
     if(!shade){
       const groups=[];list.forEach(x=>{const g=groups.find(g=>Math.abs(g.lat-x.lat)<.5&&Math.abs(g.lon-x.lon)<.5);g?g.items.push(x):groups.push({lat:x.lat,lon:x.lon,items:[x]})});
       groups.forEach(g=>{const f=g.items[0],k=g.items.length,where=[...new Set(g.items.map(x=>[x.city,x.region].filter(Boolean).join(", ")))].join(" · ");
-        const tip=k>1?`<b>${esc(nm(c))} · ${k} centres</b><br><span>${esc(where)}</span>`:`<b>${esc(f.n)}</b><br><span>${esc([where,nm(c)].filter(Boolean).join(", "))}</span>`;
+        const tip=k>1?`<b>${esc(nm(c))} · ${pl(k)}</b><br><span>${esc(where)}</span>`:`<b>${esc(f.n)}</b><br><span>${esc([where,nm(c)].filter(Boolean).join(", "))}</span>`;
         pins+=`<a class="wm-pin" href="/map?centre=${f.i}" style="${pos(wmXY(g.lon,g.lat))}" data-tip="${esc(tip)}" aria-label="${esc(g.items.map(x=>x.n).join("; ")+", "+(where||nm(c)))}"></a>`});
       at=groups[0];
     }else{at={lat:list.reduce((s,x)=>s+x.lat,0)/n,lon:list.reduce((s,x)=>s+x.lon,0)/n}}
