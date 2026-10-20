@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sri Sri Thakur — Home for the devotees of Sri Sri Thakur Anukulchandra</title>
-<meta name="description" content="An independent, non-commercial home for the devotees of Sri Sri Thakur Anukulchandra: teachings with sources, his life, a library, and a worldwide Satsang directory.">
-<meta property="og:title" content="Sri Sri Thakur — Home for the devotees of Sri Sri Thakur Anukulchandra">
-<meta property="og:description" content="An independent, non-commercial home for the devotees of Sri Sri Thakur Anukulchandra: teachings with sources, his life, a library, and a worldwide Satsang directory.">
+<title>Sri Sri Thakur Anukulchandra: Teachings, Life and Satsang</title>
+<meta name="description" content="Read Sri Sri Thakur Anukulchandra's teachings in the original Bengali with translation and sources, plus his life, library and Satsang centres worldwide.">
+<meta property="og:title" content="Sri Sri Thakur Anukulchandra: Teachings, Life and Satsang">
+<meta property="og:description" content="Read Sri Sri Thakur Anukulchandra's teachings in the original Bengali with translation and sources, plus his life, library and Satsang centres worldwide.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://srisrithakur.com/">
 <link rel="canonical" href="https://srisrithakur.com/">
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Noto+Serif+Bengali:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap">
 <style>
-/* Layout: Sacred Modernism, white edition — clean white ground, one tight sans throughout, illustrated gateway hero, hairline structure, saffron used sparingly */
+/* Layout: Sacred Modernism, white edition: clean white ground, one tight sans throughout, illustrated gateway hero, hairline structure, saffron used sparingly */
 :root{
   --bg:#FFFFFF; --bg-2:#F6F6F3; --surface:#FFFFFF;
   --fg:#1F211D; --fg-2:#5A5C56; --fg-3:#8C8D87;
@@ -492,7 +492,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
       </div>
       <article class="quote-card" aria-label="Today's teaching">
         <div class="quote-mark" aria-hidden="true">“</div>
-        <p class="quote-original" lang="bn">মূল বাংলা বাণী এখানে প্রদর্শিত হবে — যাচাইকৃত উৎস সহ।</p>
+        <p class="quote-original" lang="bn">মূল বাংলা বাণী এখানে প্রদর্শিত হবে, যাচাইকৃত উৎস সহ।</p>
         <p class="quote-trans">The verified original teaching appears here each morning, followed by its English translation.</p>
         <div class="cite">
           <dl>
@@ -769,7 +769,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
       <div class="today-meta"><p class="eyebrow">Today</p><p class="date" id="dwDate">Today</p><p class="small muted">Verified text, translation, and source.</p></div>
       <article class="quote-card">
         <div class="quote-mark" aria-hidden="true">“</div>
-        <p class="quote-original" lang="bn">মূল বাংলা বাণী এখানে প্রদর্শিত হবে — যাচাইকৃত উৎস সহ।</p>
+        <p class="quote-original" lang="bn">মূল বাংলা বাণী এখানে প্রদর্শিত হবে, যাচাইকৃত উৎস সহ।</p>
         <p class="quote-trans">The first verified teachings are being prepared by the editorial team.</p>
         <div class="cite"><dl><div><dt>Source</dt><dd>Work, edition, page</dd></div><div><dt>Language</dt><dd>Bengali · English</dd></div></dl><span class="chip pending" style="margin-left:auto">Awaiting verification</span></div>
       </article>
@@ -975,8 +975,21 @@ const VIEWS=["home","teachings","life","library","map","contribute","about","dai
 const PAGE=(document.body.dataset.page)||(location.pathname.replace(/^\/|\/$/g,"").split("/")[0]||"home");
 function route(){
   const h=VIEWS.includes(PAGE)?PAGE:"home";
-  const T={home:"Sri Sri Thakur — Home for the devotees of Sri Sri Thakur Anukulchandra",teachings:"Teachings",life:"Life and Legacy",library:"Library",map:"Global Satsang Map",contribute:"Contribute",about:"About this initiative","daily-wisdom":"Daily Wisdom",events:"Events",languages:"Languages",contact:"Contact"};
-  document.title=h==="home"?T.home:T[h]+" — Sri Sri Thakur";
+  const META={
+   home:["Sri Sri Thakur Anukulchandra: Teachings, Life and Satsang","Read Sri Sri Thakur Anukulchandra's teachings in the original Bengali with translation and sources, plus his life, library and Satsang centres worldwide."],
+   teachings:["Teachings of Sri Sri Thakur Anukulchandra, with Sources","Sayings of Sri Sri Thakur Anukulchandra in the original Bengali with English translation, context and a full citation. Searchable by topic."],
+   life:["Life of Sri Sri Thakur Anukulchandra (1888 to 1969)","A timeline of the life of Sri Sri Thakur Anukulchandra: his biography and the places linked to him, with every entry tied to its source."],
+   library:["Books and Discourses of Sri Sri Thakur Anukulchandra","Browse the books, discourses and magazines of Sri Sri Thakur Anukulchandra, with the language, translations and sources for every entry."],
+   map:["Satsang Centres Near You: Worldwide Satsang Vihar Map","Find a Satsang Vihar or centre near you. Search by country, region or city on a worldwide map for devotees of Sri Sri Thakur Anukulchandra."],
+   contribute:["Volunteer and Contribute | Sri Sri Thakur","Offer your skills to build, verify, translate and preserve the teachings of Sri Sri Thakur Anukulchandra. Each role lists its scope, skills and time."],
+   about:["About This Initiative | Sri Sri Thakur","An independent, non-commercial offering to share the teachings of Sri Sri Thakur Anukulchandra and connect devotees. Not affiliated with Satsang, Deoghar."],
+   "daily-wisdom":["Daily Bani: One Teaching of Sri Sri Thakur Every Day","One verified teaching of Sri Sri Thakur Anukulchandra each morning, in the original Bengali with English translation and a full citation."],
+   events:["Satsang Events and Utsavs Worldwide | Sri Sri Thakur","Satsang gatherings, utsavs and community events from centres worldwide, each confirmed with the hosting centre before it is listed."],
+   languages:["Sri Sri Thakur's Teachings in Bengali, English and More","Read the teachings of Sri Sri Thakur Anukulchandra in the original Bengali alongside translations, in the language closest to you."],
+   contact:["Contact | Sri Sri Thakur","Send corrections, sources and suggestions to srisrithakur.com, an independent, volunteer-run initiative for devotees of Sri Sri Thakur Anukulchandra."]};
+  const setMeta=(sel,v)=>{const m=document.querySelector(sel);if(m)m.setAttribute("content",v)};
+  document.title=META[h][0];
+  setMeta('meta[name="description"]',META[h][1]);setMeta('meta[property="og:title"]',META[h][0]);setMeta('meta[property="og:description"]',META[h][1]);
   $$(".view").forEach(v=>v.hidden=v.dataset.view!==h);
   $$("nav.primary a, .drawer a").forEach(a=>{const href=a.getAttribute("href");if(href===(h==="home"?"/":"/"+h))a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   if(location.hash==="#apply") setTimeout(()=>$("#apply")&&$("#apply").scrollIntoView(),60);
