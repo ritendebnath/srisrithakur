@@ -91,6 +91,7 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgrou
 nav.primary{display:flex;gap:2px;margin-left:8px}
 nav.primary a{text-decoration:none;font-size:.9rem;color:var(--fg-2);padding:8px 12px;border-radius:999px;white-space:nowrap;transition:color .2s,background .2s}
 nav.primary a:hover{color:var(--fg)}
+.nav-dd{position:relative}.nav-dd-btn{display:inline-flex;align-items:center;gap:4px;font:inherit;font-size:.9rem;color:var(--fg-2);background:none;border:0;padding:8px 12px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s}.nav-dd-btn .dd-chev{width:12px;height:12px;transition:transform .2s}.nav-dd-btn:hover,.nav-dd.open .nav-dd-btn{color:var(--fg)}.nav-dd-btn.is-current{color:var(--fg);background:var(--bg-2)}.nav-dd.open .dd-chev{transform:rotate(180deg)}.nav-dd-menu{position:absolute;top:calc(100% + 6px);left:0;min-width:210px;display:none;flex-direction:column;gap:2px;padding:6px;background:var(--bg);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(31,33,29,.10);z-index:60}.nav-dd-menu::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px}.nav-dd.open .nav-dd-menu{display:flex}nav.primary .nav-dd-menu a{border-radius:10px;padding:10px 12px}nav.primary .nav-dd-menu a:hover,nav.primary .nav-dd-menu a[aria-current="page"]{background:var(--bg-2);color:var(--fg)}@media (hover:hover){.nav-dd:hover .nav-dd-menu{display:flex}.nav-dd:hover .dd-chev{transform:rotate(180deg)}}
 nav.primary a[aria-current="page"]{color:var(--fg);background:var(--bg-2)}
 .bar-right{margin-left:auto;display:flex;align-items:center;gap:8px}
 .search-mini{display:flex;align-items:center;gap:8px;border:1px solid var(--line-2);border-radius:999px;padding:0 12px;height:38px;background:var(--surface);color:var(--fg-3);cursor:text;font-size:.88rem;min-width:190px}
@@ -412,11 +413,14 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
     </a>
     <nav class="primary" aria-label="Primary">
       <a href="/" data-k="home">Home</a>
-      <a href="/teachings" data-k="teachings">Teachings</a>
-      <a href="/life" data-k="life">Life and Legacy</a>
-      <a href="/library" data-k="library">Library</a>
+      <div class="nav-dd">
+        <button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="prayersMenu"><span data-k="prayers">Prayers</span><svg class="dd-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dd-menu" id="prayersMenu">
+          <a href="/satsang-morning-prayer" data-k="morningPrayer">Morning Prayer</a>
+          <a href="/satsang-evening-prayer" data-k="eveningPrayer">Evening Prayer</a>
+        </div>
+      </div>
       <a href="/map" data-k="map">Global Map</a>
-      <a href="/contribute" data-k="contribute">Contribute</a>
     </nav>
     <div class="bar-right">
       <button class="search-mini" id="openSearch" type="button" aria-label="Search">
@@ -432,17 +436,9 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
   </div>
   <div class="wrap drawer" id="drawer">
     <a href="/" data-k="home">Home</a>
-    <a href="/teachings" data-k="teachings">Teachings</a>
-    <a href="/life" data-k="life">Life and Legacy</a>
-    <a href="/library" data-k="library">Library</a>
+    <a href="/satsang-morning-prayer" data-k="morningPrayer">Morning Prayer</a>
+    <a href="/satsang-evening-prayer" data-k="eveningPrayer">Evening Prayer</a>
     <a href="/map" data-k="map">Global Map</a>
-    <a href="/contribute" data-k="contribute">Contribute</a>
-    <a href="/about" data-k="about">About this initiative</a>
-    <a href="/daily-wisdom">Daily Wisdom</a>
-    <a href="/satsang-morning-prayer">Morning Prayer</a>
-    <a href="/satsang-evening-prayer">Evening Prayer</a>
-    <a href="/events">Events</a>
-    <a href="/contact">Contact</a>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-lang="en" aria-pressed="true">English</button>
       <button type="button" data-lang="bn" aria-pressed="false" class="bn">বাংলা</button>
@@ -934,9 +930,9 @@ const OPPS=[
 
 /* ---------- I18N (navigation labels) ---------- */
 const I18N={
- en:{home:"Home",teachings:"Teachings",life:"Life and Legacy",library:"Library",map:"Global Map",contribute:"Contribute",about:"About this initiative",searchShort:"Search teachings, books, centres",gcEyebrow:"Global Community",gcTitle:"From Deoghar to Toronto, find Satsang near you.",gcLede:"A searchable directory of Satsang centres worldwide. Every listing shows when it was last verified, and private addresses are never published.",gcVihar:"Satsang Vihar",gcCountries:"Countries",gcCta:"Open the directory",wmShade:"Shade = number of centres",wmAbroad:"Centre outside South Asia",wmHint:"Hover for details, click a dot to open it"},
- bn:{home:"হোম",teachings:"বাণী",life:"জীবন ও উত্তরাধিকার",library:"গ্রন্থাগার",map:"বিশ্ব মানচিত্র",contribute:"অবদান",about:"এই উদ্যোগ সম্পর্কে",searchShort:"বাণী, গ্রন্থ, কেন্দ্র খুঁজুন",gcEyebrow:"বিশ্বজুড়ে সৎসঙ্গ",gcTitle:"দেওঘর থেকে টরন্টো, আপনার কাছের সৎসঙ্গ খুঁজে নিন।",gcLede:"বিশ্বজুড়ে সৎসঙ্গ কেন্দ্রগুলির একটি অনুসন্ধানযোগ্য তালিকা। প্রতিটি কেন্দ্রের তথ্য শেষ কবে যাচাই করা হয়েছে তা দেখানো হয়, এবং ব্যক্তিগত ঠিকানা কখনও প্রকাশ করা হয় না।",gcVihar:"সৎসঙ্গ বিহার",gcCountries:"দেশ",gcCta:"তালিকা খুলুন",wmShade:"রঙের গাঢ়তা = কেন্দ্রের সংখ্যা",wmAbroad:"দক্ষিণ এশিয়ার বাইরের কেন্দ্র",wmHint:"বিস্তারিত দেখতে মাউস রাখুন, খুলতে বিন্দুতে ক্লিক করুন"},
- hi:{home:"होम",teachings:"उपदेश",life:"जीवन और विरासत",library:"पुस्तकालय",map:"विश्व मानचित्र",contribute:"योगदान",about:"इस पहल के बारे में",searchShort:"उपदेश, पुस्तकें, केंद्र खोजें",gcEyebrow:"विश्वभर में सत्संग",gcTitle:"देवघर से टोरंटो तक, अपने पास सत्संग खोजें।",gcLede:"दुनिया भर के सत्संग केंद्रों की खोज योग्य सूची। हर प्रविष्टि में दिखता है कि उसे आख़िरी बार कब सत्यापित किया गया, और निजी पते कभी प्रकाशित नहीं किए जाते।",gcVihar:"सत्संग विहार",gcCountries:"देश",gcCta:"सूची खोलें",wmShade:"रंग की गहराई = केंद्रों की संख्या",wmAbroad:"दक्षिण एशिया के बाहर केंद्र",wmHint:"विवरण के लिए माउस रखें, खोलने के लिए बिंदु पर क्लिक करें"}};
+ en:{home:"Home",prayers:"Prayers",morningPrayer:"Morning Prayer",eveningPrayer:"Evening Prayer",teachings:"Teachings",life:"Life and Legacy",library:"Library",map:"Global Map",contribute:"Contribute",about:"About this initiative",searchShort:"Search teachings, books, centres",gcEyebrow:"Global Community",gcTitle:"From Deoghar to Toronto, find Satsang near you.",gcLede:"A searchable directory of Satsang centres worldwide. Every listing shows when it was last verified, and private addresses are never published.",gcVihar:"Satsang Vihar",gcCountries:"Countries",gcCta:"Open the directory",wmShade:"Shade = number of centres",wmAbroad:"Centre outside South Asia",wmHint:"Hover for details, click a dot to open it"},
+ bn:{home:"হোম",prayers:"প্রার্থনা",morningPrayer:"প্রাতঃকালীন প্রার্থনা",eveningPrayer:"সান্ধ্য প্রার্থনা",teachings:"বাণী",life:"জীবন ও উত্তরাধিকার",library:"গ্রন্থাগার",map:"বিশ্ব মানচিত্র",contribute:"অবদান",about:"এই উদ্যোগ সম্পর্কে",searchShort:"বাণী, গ্রন্থ, কেন্দ্র খুঁজুন",gcEyebrow:"বিশ্বজুড়ে সৎসঙ্গ",gcTitle:"দেওঘর থেকে টরন্টো, আপনার কাছের সৎসঙ্গ খুঁজে নিন।",gcLede:"বিশ্বজুড়ে সৎসঙ্গ কেন্দ্রগুলির একটি অনুসন্ধানযোগ্য তালিকা। প্রতিটি কেন্দ্রের তথ্য শেষ কবে যাচাই করা হয়েছে তা দেখানো হয়, এবং ব্যক্তিগত ঠিকানা কখনও প্রকাশ করা হয় না।",gcVihar:"সৎসঙ্গ বিহার",gcCountries:"দেশ",gcCta:"তালিকা খুলুন",wmShade:"রঙের গাঢ়তা = কেন্দ্রের সংখ্যা",wmAbroad:"দক্ষিণ এশিয়ার বাইরের কেন্দ্র",wmHint:"বিস্তারিত দেখতে মাউস রাখুন, খুলতে বিন্দুতে ক্লিক করুন"},
+ hi:{home:"होम",prayers:"प्रार्थना",morningPrayer:"प्रातः प्रार्थना",eveningPrayer:"संध्या प्रार्थना",teachings:"उपदेश",life:"जीवन और विरासत",library:"पुस्तकालय",map:"विश्व मानचित्र",contribute:"योगदान",about:"इस पहल के बारे में",searchShort:"उपदेश, पुस्तकें, केंद्र खोजें",gcEyebrow:"विश्वभर में सत्संग",gcTitle:"देवघर से टोरंटो तक, अपने पास सत्संग खोजें।",gcLede:"दुनिया भर के सत्संग केंद्रों की खोज योग्य सूची। हर प्रविष्टि में दिखता है कि उसे आख़िरी बार कब सत्यापित किया गया, और निजी पते कभी प्रकाशित नहीं किए जाते।",gcVihar:"सत्संग विहार",gcCountries:"देश",gcCta:"सूची खोलें",wmShade:"रंग की गहराई = केंद्रों की संख्या",wmAbroad:"दक्षिण एशिया के बाहर केंद्र",wmHint:"विवरण के लिए माउस रखें, खोलने के लिए बिंदु पर क्लिक करें"}};
 function setLang(l){
   document.documentElement.lang=l;
   $$("[data-k]").forEach(el=>{const v=I18N[l][el.dataset.k]; if(v){el.textContent=v; el.classList.toggle("bn",l==="bn"); el.classList.toggle("hi",l==="hi");}});
@@ -964,6 +960,8 @@ function route(){
 }
 const QS=new URLSearchParams(location.search);
 $("#menuBtn").addEventListener("click",()=>{const o=$("#drawer").classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",o)});
+/* ---------- PRAYERS DROPDOWN ---------- */
+(function(){const dd=document.querySelector(".nav-dd");if(!dd)return;const b=dd.querySelector(".nav-dd-btn");const set=o=>{dd.classList.toggle("open",o);b.setAttribute("aria-expanded",o)};b.addEventListener("click",e=>{e.stopPropagation();set(!dd.classList.contains("open"))});document.addEventListener("click",e=>{if(!dd.contains(e.target))set(false)});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&dd.classList.contains("open")){set(false);b.focus()}});dd.addEventListener("focusout",e=>{if(!dd.contains(e.relatedTarget))set(false)})})();
 
 /* ---------- HOME ---------- */
 const now=new Date();
