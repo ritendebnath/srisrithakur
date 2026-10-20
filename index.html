@@ -916,7 +916,7 @@ const LSRC={
  bl:{n:"His Literature (2007)",u:"https://srisrithakur.blogspot.com/2007/01/his-literature.html",c:"\"Sri Sri Thakur Anukulchandra: His Literature\", srisrithakur.blogspot.com, January 2007, a devotee-compiled list"}};
 
 const BOOKS=[
- {t:"Satyanusaran",bn:"সত্যানুসরণ",type:"Books",lang:"Bengali",tr:"English, Hindi, Odia, Assamese, Telugu and 9 more",d:"Written in his own hand in 1910, when he was 22, to guide a devotee, Atulchandra Bhattacharya. The English translation, The Pursuit of Truth, first appeared in 1950.",color:"#8E5520",src:["pt","wd","sp"],f:true},
+ {t:"Satyanusaran",bn:"সত্যানুসরণ",href:"/satyanusaran",type:"Books",lang:"Bengali",tr:"English, Hindi, Odia, Assamese, Telugu and 9 more",d:"Written in his own hand in 1910, when he was 22, to guide a devotee, Atulchandra Bhattacharya. The English translation, The Pursuit of Truth, first appeared in 1950.",color:"#8E5520",src:["pt","wd","sp"],f:true},
  {t:"Anushruti",bn:"অনুশ্রুতি",type:"Books",lang:"Bengali",tr:"Hindi",d:"Teachings in rhyming verse on many subjects of daily life, published in several volumes.",color:"#465B48",src:["bp","sp"],f:true},
  {t:"Alochana Prasange",bn:"আলোচনা প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"English, Hindi, Odia",d:"Conversations with devotees and visitors, compiled by Prafulla Kumar Das across many volumes.",color:"#5E4A3A",src:["tp","bl","sp"],f:true},
  {t:"Punya Punthi",bn:"পুণ্যপুঁথি",type:"Books",lang:"Bengali",d:"A collection of the words he uttered while in states of devotional trance.",color:"#6B5B3E",src:["bp","sp"]},
@@ -1007,7 +1007,7 @@ $("#todayDate").textContent=now.toLocaleDateString("en-GB",{day:"numeric",month:
 $("#topicGrid").innerHTML=TOPICS.map(t=>`<button class="topic" type="button" data-topic="${esc(t.en)}"><span class="b">${t.bn}</span><span class="t">${t.en}</span><span class="n">${TEACHINGS.filter(x=>x.topic===t.en).length} records</span></button>`).join("");
 $$("#topicGrid .topic").forEach(b=>b.addEventListener("click",()=>{location.href="/teachings?topic="+encodeURIComponent(b.dataset.topic)}));
 const srcLinks=b=>(b.src||[]).map(k=>{const x=LSRC[k];return x.u?`<a href="${x.u}" target="_blank" rel="noopener">${x.n}</a>`:`<span>${x.n}</span>`}).join(", ");
-const bookCard=b=>`<article class="card book"><div class="spine${b.en?" en":""}" style="background:${b.color}">${b.en||b.bn}</div><div style="display:grid;gap:8px;min-width:0"><span class="eyebrow">${b.type} · ${b.lang}</span><h3>${b.t}</h3><p class="small muted">${b.d}</p>${b.tr?`<div class="meta"><span>Also in ${b.tr}</span></div>`:""}<p class="bsrc">Source: ${srcLinks(b)}</p></div></article>`;
+const bookCard=b=>`<article class="card book"><div class="spine${b.en?" en":""}" style="background:${b.color}">${b.en||b.bn}</div><div style="display:grid;gap:8px;min-width:0"><span class="eyebrow">${b.type} · ${b.lang}</span><h3>${b.href?`<a href="${b.href}" style="text-decoration:none">${b.t}</a>`:b.t}</h3><p class="small muted">${b.d}</p>${b.tr?`<div class="meta"><span>Also in ${b.tr}</span></div>`:""}<p class="bsrc">Source: ${srcLinks(b)}</p>${b.href?`<a class="textlink" href="${b.href}" style="justify-self:start">Summary and download</a>`:""}</div></article>`;
 $("#featuredBooks").innerHTML=BOOKS.filter(b=>b.f).map(bookCard).join("");
 function setStats(){if(!CENTRES.length)return;$("#statCentres").textContent=CENTRES.length;$("#statCountries").textContent=new Set(CENTRES.map(c=>c.country)).size}
 $("#heroSearch").addEventListener("submit",e=>{e.preventDefault();openSearch($("#heroQ").value)});
@@ -1127,7 +1127,7 @@ function norm(s){s=String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,
 const INDEX=[
  ...TEACHINGS.map(t=>({type:"Teaching",title:t.title,ctx:t.source,status:"pending",href:"/teachings",text:t.title+" "+t.topic+" "+t.source})),
  ...CONCEPTS.map(c=>({type:"Core idea",title:c.t+" · "+c.bn,ctx:c.d,status:"sample",href:"/teachings",text:c.t+" "+c.bn+" "+c.d})),
- ...BOOKS.map(b=>({type:"Library · "+b.type,title:b.t+" · "+b.bn,ctx:b.d,status:"verified",href:"/library",text:b.t+" "+b.bn+" "+b.d})),
+ ...BOOKS.map(b=>({type:"Library · "+b.type,title:b.t+" · "+b.bn,ctx:b.d,status:"verified",href:b.href||"/library",text:b.t+" "+b.bn+" "+b.d})),
  ...TIMELINE.map(e=>({type:"Life · "+e.y,title:e.h,ctx:e.p,status:"pending",href:"/life",text:e.h+" "+e.p})),
  {type:"Prayer",title:"Satsang Morning Prayer · সকালের প্রার্থনা",ctx:"Three morning prayers and the Joy Radhe Radhe kirtan, full lyrics with images",status:"lyrics",href:"/satsang-morning-prayer",text:"Satsang morning prayer pratah prarthana Sri Sri Thakur Anukulchandra lyrics prayer kirtan"},
  {type:"Prayer",title:"Radhaswami Naam Jo Gaawe Soi Tare",ctx:"Morning Prayer #1 · full lyrics",status:"lyrics",href:"/satsang-morning-prayer#prayer-1",text:"Radhaswami naam jo gaawe soi tare Karoon bandage Radhaswami aage morning prayer 1 lyrics"},
