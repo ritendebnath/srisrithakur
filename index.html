@@ -268,6 +268,7 @@ main section.view{padding-block:0 40px}
 
 .note{display:flex;gap:14px;background:var(--bg-2);border-radius:12px;padding:16px 18px;font-size:.88rem;color:var(--fg-2);align-items:flex-start}
 .note svg{width:18px;height:18px;flex-shrink:0;color:var(--saffron);margin-top:2px}
+.spine.en{font-family:var(--font-display);font-size:.74rem;letter-spacing:-.01em}.bsrc{font-size:.78rem;color:var(--fg-3);margin:0}.bsrc a{color:var(--saffron-ink)}.lib-sources{margin-top:56px;border-top:1px solid var(--line);padding-top:28px;display:grid;gap:12px;max-width:72ch}.lib-sources h2{font-size:1.25rem}.lib-sources ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:.86rem;color:var(--fg-2)}.lib-sources a{color:var(--saffron-ink)}
 
 /* Timeline */
 .timeline{position:relative;display:grid;gap:0;margin-top:12px}
@@ -607,16 +608,22 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
 <section class="view" data-view="library" hidden>
   <div class="wrap page-head">
     <p class="eyebrow">Digital Library</p>
-    <h1>Books, discourses, letters, and recordings</h1>
+    <h1>His books, discourses and magazines</h1>
     <p class="bn">গ্রন্থাগার</p>
-    <p class="lede">Browse first, download only when you choose. Every item shows its language, rights, and source status.</p>
+    <p class="lede">A catalogue of the published works of Sri Sri Thakur Anukulchandra. Every entry shows its language, translations and source.</p>
   </div>
   <div class="wrap block">
+    <div class="note" style="margin-bottom:28px"><svg><use href="#i-info"/></svg><span>Banglapedia records 94 books by Sri Sri Thakur, 82 in Bengali and 12 in English, and many have been translated into other Indian languages. This catalogue starts with his best-known works and grows as each entry is checked against a printed edition. The books are published by Satsang Publishing House, Deoghar, and are not hosted on this site. For a copy, ask at your nearest <a href="/map">Satsang Vihar</a>.</span></div>
     <div class="toolbar">
       <div class="input"><svg><use href="#i-search"/></svg><input id="lq" type="search" placeholder="Search titles, e.g. Satyanusaran" aria-label="Search library"></div>
       <div class="filter-row" id="lTypes" role="group" aria-label="Filter by type"></div>
     </div>
     <div class="grid g3" id="lGrid"></div>
+    <div class="lib-sources">
+      <h2>Sources</h2>
+      <ol id="lSources"></ol>
+      <p class="small muted">Found an error, or have a printed edition we can check against? <a href="/contact">Write to us</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -899,17 +906,35 @@ const TEACHINGS=TOPICS.flatMap((tp,i)=>[0,1].map(j=>({
   body:"Original Bengali text, English translation, and citation will appear once the editorial review is complete.",
   lang:"Bengali",source:j?"Alochana Prasange (volume pending)":"Satyanusaran (edition pending)",status:"pending"})));
 
+const LSRC={
+ pt:{n:"English edition preface",u:"",c:"Satyanusaran (The Pursuit of Truth), English edition, Satsang, Deoghar: prefaces to the first English edition (1950) and the 12th edition (2006)"},
+ tp:{n:"Title page",u:"",c:"Alochana Prasange, title page: compiled by Prafulla Kumar Das, published by Satsang Publishing House, Deoghar"},
+ bp:{n:"Banglapedia",u:"https://en.banglapedia.org/index.php/Anukulchandra,_Thakur",c:"Banglapedia, the National Encyclopedia of Bangladesh: \"Anukulchandra, Thakur\""},
+ wd:{n:"Wikipedia",u:"https://en.wikipedia.org/wiki/Satsang_(Deoghar)",c:"Wikipedia: \"Satsang (Deoghar)\""},
+ wa:{n:"Wikipedia",u:"https://en.wikipedia.org/wiki/Satsang_Ashram",c:"Wikipedia: \"Satsang Ashram\", citing satsang.org.in"},
+ sp:{n:"Satsang Pune",u:"https://satsangpune.wordpress.com/literature/publications/",c:"Satsang Pune: \"Publications\", a list of Satsang Publishing House titles by language"},
+ bl:{n:"His Literature (2007)",u:"https://srisrithakur.blogspot.com/2007/01/his-literature.html",c:"\"Sri Sri Thakur Anukulchandra: His Literature\", srisrithakur.blogspot.com, January 2007, a devotee-compiled list"}};
+
 const BOOKS=[
- {t:"Satyanusaran",bn:"সত্যানুসরণ",type:"Books",lang:"Bengali",d:"Widely regarded as his first book; a short guide to living by truth.",color:"#8E5520",rights:"Rights review pending",f:true},
- {t:"Anushruti",bn:"অনুশ্রুতি",type:"Books",lang:"Bengali",d:"Teachings in verse, gathered across several volumes and organised by theme.",color:"#465B48",rights:"Rights review pending",f:true},
- {t:"Alochana Prasange",bn:"আলোচনা প্রসঙ্গে",type:"Discourses",lang:"Bengali",d:"Recorded conversations with devotees and visitors, published in many volumes.",color:"#5E4A3A",rights:"Rights review pending",f:true},
- {t:"Nana Prasange",bn:"নানা প্রসঙ্গে",type:"Discourses",lang:"Bengali",d:"Conversations on a wide range of subjects, from family to work to society.",color:"#6B5B3E",rights:"Rights review pending"},
- {t:"Chalar Sathi",bn:"চলার সাথী",type:"Books",lang:"Bengali",d:"Short sayings meant as a companion for everyday life.",color:"#7A6A4F",rights:"Rights review pending"},
- {t:"Islam Prasange",bn:"ইসলাম প্রসঙ্গে",type:"Discourses",lang:"Bengali",d:"Discussions on Islam and the shared ground between faiths.",color:"#3F5560",rights:"Rights review pending"},
- {t:"Letters collection",bn:"পত্রাবলী",type:"Letters",lang:"Bengali",d:"Catalogue of letters awaiting digitisation and description.",color:"#8A7560",rights:"Catalogue in progress"},
- {t:"Archival discourse recordings",bn:"শ্রুতি সংরক্ষণ",type:"Audio",lang:"Bengali",d:"Audio archive; transcripts to follow after restoration.",color:"#55604A",rights:"Catalogue in progress"},
- {t:"Documentary footage",bn:"চলচ্চিত্র",type:"Video",lang:"Bengali · English",d:"Video holdings to be catalogued with date, speaker, and subtitles.",color:"#4A4F5C",rights:"Catalogue in progress"},
- {t:"Ashram records and scans",bn:"নথিপত্র",type:"Documents",lang:"Bengali",d:"Historical documents and scanned periodicals.",color:"#6E6252",rights:"Catalogue in progress"}];
+ {t:"Satyanusaran",bn:"সত্যানুসরণ",type:"Books",lang:"Bengali",tr:"English, Hindi, Odia, Assamese, Telugu and 9 more",d:"Written in his own hand in 1910, when he was 22, to guide a devotee, Atulchandra Bhattacharya. The English translation, The Pursuit of Truth, first appeared in 1950.",color:"#8E5520",src:["pt","wd","sp"],f:true},
+ {t:"Anushruti",bn:"অনুশ্রুতি",type:"Books",lang:"Bengali",tr:"Hindi",d:"Teachings in rhyming verse on many subjects of daily life, published in several volumes.",color:"#465B48",src:["bp","sp"],f:true},
+ {t:"Alochana Prasange",bn:"আলোচনা প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"English, Hindi, Odia",d:"Conversations with devotees and visitors, compiled by Prafulla Kumar Das across many volumes.",color:"#5E4A3A",src:["tp","bl","sp"],f:true},
+ {t:"Punya Punthi",bn:"পুণ্যপুঁথি",type:"Books",lang:"Bengali",d:"A collection of the words he uttered while in states of devotional trance.",color:"#6B5B3E",src:["bp","sp"]},
+ {t:"Chalar Sathi",bn:"চলার সাথী",type:"Books",lang:"Bengali",tr:"Hindi, Odia, Assamese",d:"Short sayings to keep close in daily life. The title means companion on the way.",color:"#7A6A4F",src:["bp","sp"]},
+ {t:"Shashwati",bn:"শাশ্বতী",type:"Books",lang:"Bengali",tr:"Hindi, Odia",d:"Sayings on eternal truths, published in three volumes.",color:"#3F5560",src:["bp","bl","sp"]},
+ {t:"Preeti Binayak",bn:"প্রীতি বিনায়ক",type:"Books",lang:"Bengali",tr:"Hindi, Odia",d:"Sayings on love and on directing it toward the Ideal, in two volumes.",color:"#8A7560",src:["bp","bl","sp"]},
+ {t:"Dhriti Vidhayana",bn:"ধৃতি বিধায়না",type:"Books",lang:"Bengali",d:"Sayings on the principles that uphold and sustain life, in more than one volume.",color:"#55604A",src:["wd","bl","sp"]},
+ {t:"Narir Niti",bn:"নারীর নীতি",type:"Books",lang:"Bengali",tr:"Hindi, Odia, Telugu, Assamese, Santhali, Nepali, Bodo",d:"Guidance for women on conduct, character and family life.",color:"#4A4F5C",src:["sp","bl"]},
+ {t:"Upasana",bn:"উপাসনা",type:"Books",lang:"Bengali",tr:"Hindi, Odia, Telugu, Assamese, Santhali, Marathi, Tamil",d:"On prayer and worship in daily life.",color:"#6E6252",src:["sp"]},
+ {t:"Nana Prasange",bn:"নানা প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"Odia",d:"Conversations on a wide range of subjects, from family and work to society.",color:"#8E5520",src:["sp","bl"]},
+ {t:"Islam Prasange",bn:"ইসলাম প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"Hindi",d:"Discussions on Islam, aimed at easing sectarian conflict and showing the common ground between faiths.",color:"#465B48",src:["bl","sp"]},
+ {t:"Ishta Prasange",bn:"ইষ্ট প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"Hindi, Odia",d:"Conversations centred on the Ishta, the living Ideal.",color:"#5E4A3A",src:["sp"]},
+ {t:"Sri Sri Thakur O Deshbandhu Chittaranjan Das",bn:"শ্রীশ্রীঠাকুর ও দেশবন্ধু",type:"Discourses",lang:"Bengali",tr:"Hindi",d:"His conversations with Deshbandhu Chittaranjan Das on Indian independence and social reform.",color:"#6B5B3E",src:["bl","sp"]},
+ {t:"The Message",bn:"দি মেসেজ",en:"The Message",type:"Books",lang:"English",d:"His sayings in English on religion, education, society, politics, industry and more, in a multi-volume set.",color:"#3F5560",src:["sp","bl"]},
+ {t:"Magna Dicta",bn:"ম্যাগনা ডিক্টা",en:"Magna Dicta",type:"Books",lang:"English",d:"Sayings in English that offer analytical answers to the many problems people face.",color:"#7A6A4F",src:["sp","bl"]},
+ {t:"Discourses",bn:"ডিসকোর্সেস",en:"Discourses",type:"Discourses",lang:"English",d:"A short record, in English, of his discussions with eminent visitors.",color:"#55604A",src:["bl","sp"]},
+ {t:"Who Thou the Revolutionary?",bn:"হু দাউ দ্য রেভোলিউশনারি",en:"Who Thou the Revolutionary?",type:"Books",lang:"English",d:"An account of several days spent with Sri Sri Thakur by a visitor who came as a political agnostic.",color:"#8A7560",src:["bl","sp"]},
+ {t:"Satsang monthly magazines",bn:"মাসিক পত্রিকা",type:"Magazines",lang:"Bengali, Hindi, Odia, English, Assamese",d:"Alochana (Bengali), Sattwati (Hindi), Urjana (Odia), Ligate (English) and Agamvani (Assamese), published monthly by Satsang.",color:"#4A4F5C",src:["wa","sp"]}];
 
 const TIMELINE=[
  {y:"1888",d:"14 September",h:"Born in Himaitpur",p:"Born in the village of Himaitpur in Pabna, Bengal (present-day Bangladesh), to Shibchandra Chakraborty and Manmohini Devi."},
@@ -968,7 +993,8 @@ const now=new Date();
 $("#todayDate").textContent=now.toLocaleDateString("en-GB",{day:"numeric",month:"long"});
 $("#topicGrid").innerHTML=TOPICS.map(t=>`<button class="topic" type="button" data-topic="${esc(t.en)}"><span class="b">${t.bn}</span><span class="t">${t.en}</span><span class="n">${TEACHINGS.filter(x=>x.topic===t.en).length} records</span></button>`).join("");
 $$("#topicGrid .topic").forEach(b=>b.addEventListener("click",()=>{location.href="/teachings?topic="+encodeURIComponent(b.dataset.topic)}));
-const bookCard=b=>`<article class="card book"><div class="spine" style="background:${b.color}">${b.bn}</div><div style="display:grid;gap:8px;min-width:0"><span class="eyebrow">${b.type}</span><h3>${b.t}</h3><p class="small muted">${b.d}</p><div class="meta"><span>${b.lang}</span><span>${b.rights}</span></div></div></article>`;
+const srcLinks=b=>(b.src||[]).map(k=>{const x=LSRC[k];return x.u?`<a href="${x.u}" target="_blank" rel="noopener">${x.n}</a>`:`<span>${x.n}</span>`}).join(", ");
+const bookCard=b=>`<article class="card book"><div class="spine${b.en?" en":""}" style="background:${b.color}">${b.en||b.bn}</div><div style="display:grid;gap:8px;min-width:0"><span class="eyebrow">${b.type} · ${b.lang}</span><h3>${b.t}</h3><p class="small muted">${b.d}</p>${b.tr?`<div class="meta"><span>Also in ${b.tr}</span></div>`:""}<p class="bsrc">Source: ${srcLinks(b)}</p></div></article>`;
 $("#featuredBooks").innerHTML=BOOKS.filter(b=>b.f).map(bookCard).join("");
 function setStats(){if(!CENTRES.length)return;$("#statCentres").textContent=CENTRES.length;$("#statCountries").textContent=new Set(CENTRES.map(c=>c.country)).size}
 $("#heroSearch").addEventListener("submit",e=>{e.preventDefault();openSearch($("#heroQ").value)});
@@ -991,10 +1017,11 @@ $("#timeline").innerHTML=TIMELINE.map(e=>`<div class="tl"><div class="yr">${e.y}
 
 /* ---------- LIBRARY ---------- */
 const lState={type:"All",q:""};
-const TYPES=["All","Books","Discourses","Letters","Audio","Video","Documents"];
+const TYPES=["All","Books","Discourses","Magazines"];
 $("#lTypes").innerHTML=TYPES.map(t=>`<button class="fchip" type="button" data-t="${t}">${t}</button>`).join("");
 $$("#lTypes .fchip").forEach(b=>b.addEventListener("click",()=>{lState.type=b.dataset.t;renderLib()}));
 $("#lq").addEventListener("input",e=>{lState.q=e.target.value;renderLib()});
+$("#lSources").innerHTML=Object.values(LSRC).map(x=>`<li>${x.u?`<a href="${x.u}" target="_blank" rel="noopener">${x.c}</a>`:x.c}</li>`).join("");
 function renderLib(){
   $$("#lTypes .fchip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===lState.type));
   const q=norm(lState.q);
@@ -1087,7 +1114,7 @@ function norm(s){s=String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,
 const INDEX=[
  ...TEACHINGS.map(t=>({type:"Teaching",title:t.title,ctx:t.source,status:"pending",href:"/teachings",text:t.title+" "+t.topic+" "+t.source})),
  ...CONCEPTS.map(c=>({type:"Core idea",title:c.t+" · "+c.bn,ctx:c.d,status:"sample",href:"/teachings",text:c.t+" "+c.bn+" "+c.d})),
- ...BOOKS.map(b=>({type:"Library · "+b.type,title:b.t+" · "+b.bn,ctx:b.d,status:"pending",href:"/library",text:b.t+" "+b.bn+" "+b.d})),
+ ...BOOKS.map(b=>({type:"Library · "+b.type,title:b.t+" · "+b.bn,ctx:b.d,status:"verified",href:"/library",text:b.t+" "+b.bn+" "+b.d})),
  ...TIMELINE.map(e=>({type:"Life · "+e.y,title:e.h,ctx:e.p,status:"pending",href:"/life",text:e.h+" "+e.p})),
  {type:"Prayer",title:"Satsang Morning Prayer · সকালের প্রার্থনা",ctx:"Three morning prayers and the Joy Radhe Radhe kirtan, full lyrics with images",status:"lyrics",href:"/satsang-morning-prayer",text:"Satsang morning prayer pratah prarthana Sri Sri Thakur Anukulchandra lyrics prayer kirtan"},
  {type:"Prayer",title:"Radhaswami Naam Jo Gaawe Soi Tare",ctx:"Morning Prayer #1 · full lyrics",status:"lyrics",href:"/satsang-morning-prayer#prayer-1",text:"Radhaswami naam jo gaawe soi tare Karoon bandage Radhaswami aage morning prayer 1 lyrics"},
