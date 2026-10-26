@@ -1,0 +1,25 @@
+name: Build section pages
+on:
+  push:
+    branches: [main]
+    paths: ["index.html", "tools/build-pages.mjs"]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tools/build-pages.mjs
+      - name: Commit regenerated pages
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Regenerate section pages from index.html"
+            git push
+          fi
