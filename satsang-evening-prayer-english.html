@@ -212,7 +212,7 @@
   --fg:#1F211D; --fg-2:#5A5C56; --fg-3:#8C8D87;
   --line:#ECEBE6; --line-2:#DEDDD6;
   --saffron:#B87532; --saffron-soft:#FBF3EA; --saffron-ink:#9A5F24;
-  --forest:#465B48; --forest-soft:#EDF2EC;
+  --blue:#13235B; --blue-soft:#EBEEF7;
   --font-body:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --font-bn:"Noto Serif Bengali","Bangla Sangam MN",serif;
   --font-hi:"Noto Sans Devanagari","Kohinoor Devanagari",sans-serif;
@@ -267,7 +267,7 @@ nav.primary a:hover{color:var(--fg)}
 @media (max-width:1060px){nav.primary{display:none}.menu-btn{display:grid}.search-mini{min-width:0;width:38px;padding:0;justify-content:center}.search-mini span{display:none}.bar-right .lang{display:none}.drawer.open{display:block}}
 .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:inherit;font-size:.95rem;font-weight:500;padding:13px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
 .btn svg{width:16px;height:16px;flex-shrink:0}
-.btn-primary{background:var(--fg);color:var(--bg)} .btn-primary:hover{background:var(--forest);color:#fff}
+.btn-primary{background:var(--fg);color:var(--bg)} .btn-primary:hover{background:var(--blue);color:#fff}
 .btn-ghost{border-color:var(--line-2);color:var(--fg);background:transparent} .btn-ghost:hover{border-color:var(--fg)}
 .btn.sm{font-size:.86rem;padding:9px 16px}
 .textlink{font-size:.9rem;color:var(--saffron-ink);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;white-space:nowrap}
@@ -313,8 +313,8 @@ nav.primary a:hover{color:var(--fg)}
 /* After */
 .block{padding-block:clamp(48px,7vw,88px)}
 .block + .block{border-top:1px solid var(--line)}
-.band{background:var(--forest);color:#F3F1EA;border-radius:22px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
-.band .eyebrow{color:#E7C7A1} .band p{color:#D7DDD3}
+.band{background:var(--blue);color:#F3F1EA;border-radius:22px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.band .eyebrow{color:#E7C7A1} .band p{color:#D3D9EA}
 .band .btn{background:#F3F1EA;color:var(--fg)} .band .btn:hover{background:#fff}
 @media (max-width:760px){.band{grid-template-columns:1fr}}
 .two-col{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:start}
