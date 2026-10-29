@@ -11,8 +11,12 @@
 //          when subjoined (ସ୍ୱ). Assamese va is partly lexical, so a native-script file wins.
 //   - ra:  Assamese uses ৰ.
 //   - Final or pre-sibilant t+virama becomes khanda ta (ৎ) in Bengali and Assamese.
-//   - Anusvara before a stop is written as the matching nasal conjunct (गोविंद -> গোবিন্দ),
-//     which is how these scripts spell it; before य र ल व श ष स ह it stays anusvara.
+//   - Anusvara in Hindi and Bengali text (mode "hi"/"bn"): before a stop it becomes the
+//     matching nasal conjunct (गोविंद -> গোবিন্দ, संत -> সন্ত); before a nasal, a vowel or the
+//     end of a word it is nasalisation and becomes chandrabindu (में -> মেঁ, नहीं -> নহীঁ);
+//     before य र ल व श ष स ह it stays anusvara. Sanskrit (mode "sa") keeps anusvara as is.
+//   - Candra e (ॅ), used when Bengali is written in Devanagari (बॅलो), is dropped so the
+//     inherent vowel reads as in the original (বলো).
 //   - Om becomes ওঁ / ଓଁ. Danda (। ॥), digits in Latin, punctuation and spaces pass through.
 
 const DEVA_START = 0x0900, DEVA_END = 0x097f;
@@ -35,13 +39,14 @@ const TARGETS = {
 // Devanagari letters with no direct counterpart, mapped to the closest Devanagari letter first.
 const FOLD = new Map([
   [0x0904, 0x090f], [0x090d, 0x090f], [0x090e, 0x090f], [0x0911, 0x0913], [0x0912, 0x0913],
-  [0x0945, 0x0947], [0x0946, 0x0947], [0x0949, 0x094b], [0x094a, 0x094b],
+  [0x0946, 0x0947], [0x0949, 0x094b], [0x094a, 0x094b],
   [0x0929, 0x0928], [0x0931, 0x0930], [0x0934, 0x0933],
   [0x0958, 0x0915], [0x0959, 0x0916], [0x095a, 0x0917], [0x095b, 0x091c], [0x095e, 0x092b],
 ]);
+const NASALS = new Set([0x0919, 0x091e, 0x0923, 0x0928, 0x092e]);
 const KHANDA_TA_BEFORE = new Set([0x0938, 0x0915, 0x092a, 0x0916, 0x092b, 0x0936, 0x0937, 0x0939]);
 
-export function convertDevanagari(text, target) {
+export function convertDevanagari(text, target, mode = "hi") {
   const t = TARGETS[target];
   if (!t) throw new Error(`Unknown target script: ${target}`);
   // Work on code points; decompose precomposed nukta letters so one rule handles both forms.
@@ -79,9 +84,16 @@ export function convertDevanagari(text, target) {
       out.push(String.fromCodePoint(t.va));
       continue;
     }
-    if (c === ANUSVARA && next !== undefined && VARGA_NASAL.has(next)) {
-      out.push(String.fromCodePoint(VARGA_NASAL.get(next) + t.offset, VIRAMA + t.offset));
-      continue;
+    if (c === 0x0945) continue; // candra e: see header
+    if (c === ANUSVARA && mode !== "sa") {
+      if (next !== undefined && VARGA_NASAL.has(next)) {
+        out.push(String.fromCodePoint(VARGA_NASAL.get(next) + t.offset, VIRAMA + t.offset));
+        continue;
+      }
+      if (next === undefined || !isConsonant(next) || NASALS.has(next)) {
+        out.push(String.fromCodePoint(0x0901 + t.offset));
+        continue;
+      }
     }
     if (t.khandaTa && c === 0x0924 && next === VIRAMA) {
       const after = src[i + 2];
