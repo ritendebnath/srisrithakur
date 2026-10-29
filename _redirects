@@ -1,8 +1,20 @@
-/evening-prayer          /satsang-evening-prayer  301
-/sandhya-prarthana       /satsang-evening-prayer  301
-/prayer                  /satsang-evening-prayer  302
-/morning-prayer          /satsang-morning-prayer  301
-/pratah-prarthana        /satsang-morning-prayer  301
+# Prayer pages: every prayer URL carries its language. The original unsuffixed
+# URLs (indexed since Oct 2026) pass to the English page.
+/satsang-morning-prayer            /satsang-morning-prayer-english  301
+/satsang-morning-prayer/           /satsang-morning-prayer-english  301
+/satsang-morning-prayer.html       /satsang-morning-prayer-english  301
+/satsang-evening-prayer            /satsang-evening-prayer-english  301
+/satsang-evening-prayer/           /satsang-evening-prayer-english  301
+/satsang-evening-prayer.html       /satsang-evening-prayer-english  301
+/satsang-morning-prayer-bangla     /satsang-morning-prayer-bengali  301
+/satsang-evening-prayer-bangla     /satsang-evening-prayer-bengali  301
+/satsang-morning-prayer-oriya      /satsang-morning-prayer-odia     301
+/satsang-evening-prayer-oriya      /satsang-evening-prayer-odia     301
+/evening-prayer          /satsang-evening-prayer-english  301
+/sandhya-prarthana       /satsang-evening-prayer-english  301
+/prayer                  /satsang-evening-prayer-english  302
+/morning-prayer          /satsang-morning-prayer-english  301
+/pratah-prarthana        /satsang-morning-prayer-english  301
 /pursuit-of-truth        /satyanusaran            301
 /satyanusaran-english    /satyanusaran            301
 /satyanusaran-pdf        /satyanusaran            301

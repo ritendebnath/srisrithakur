@@ -418,8 +418,8 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
       <div class="nav-dd">
         <button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="prayersMenu"><span data-k="prayers">Prayers</span><svg class="dd-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="nav-dd-menu" id="prayersMenu">
-          <a href="/satsang-morning-prayer" data-k="morningPrayer">Morning Prayer</a>
-          <a href="/satsang-evening-prayer" data-k="eveningPrayer">Evening Prayer</a>
+          <a href="/satsang-morning-prayer-english" data-k="morningPrayer">Morning Prayer</a>
+          <a href="/satsang-evening-prayer-english" data-k="eveningPrayer">Evening Prayer</a>
         </div>
       </div>
       <a href="/map" data-k="map">Global Map</a>
@@ -438,8 +438,8 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
   </div>
   <div class="wrap drawer" id="drawer">
     <a href="/" data-k="home">Home</a>
-    <a href="/satsang-morning-prayer" data-k="morningPrayer">Morning Prayer</a>
-    <a href="/satsang-evening-prayer" data-k="eveningPrayer">Evening Prayer</a>
+    <a href="/satsang-morning-prayer-english" data-k="morningPrayer">Morning Prayer</a>
+    <a href="/satsang-evening-prayer-english" data-k="eveningPrayer">Evening Prayer</a>
     <a href="/map" data-k="map">Global Map</a>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-lang="en" aria-pressed="true">English</button>
@@ -823,6 +823,13 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
       <div class="card"><span class="eyebrow">Translation</span><h3 class="hi">हिन्दी</h3><p class="small muted">Hindi. Navigation is available; translations of teachings are planned.</p><span class="chip pending" style="width:max-content">Translations planned</span></div>
     </div>
   </div>
+  <div class="wrap block">
+    <p class="eyebrow" style="margin-bottom:14px">Prayers in five languages</p>
+    <div class="grid g3">
+      <div class="card"><span class="eyebrow">Prayer</span><h3>Satsang Morning Prayer</h3><p class="small"><a class="textlink" href="/satsang-morning-prayer-english" hreflang="en" lang="en">English</a> · <a class="textlink hi" href="/satsang-morning-prayer-hindi" hreflang="hi" lang="hi">हिन्दी</a> · <a class="textlink" href="/satsang-morning-prayer-odia" hreflang="or" lang="or">ଓଡ଼ିଆ</a> · <a class="textlink bn" href="/satsang-morning-prayer-bengali" hreflang="bn" lang="bn">বাংলা</a> · <a class="textlink bn" href="/satsang-morning-prayer-assamese" hreflang="as" lang="as">অসমীয়া</a></p></div>
+      <div class="card"><span class="eyebrow">Prayer</span><h3>Satsang Evening Prayer</h3><p class="small"><a class="textlink" href="/satsang-evening-prayer-english" hreflang="en" lang="en">English</a> · <a class="textlink hi" href="/satsang-evening-prayer-hindi" hreflang="hi" lang="hi">हिन्दी</a> · <a class="textlink" href="/satsang-evening-prayer-odia" hreflang="or" lang="or">ଓଡ଼ିଆ</a> · <a class="textlink bn" href="/satsang-evening-prayer-bengali" hreflang="bn" lang="bn">বাংলা</a> · <a class="textlink bn" href="/satsang-evening-prayer-assamese" hreflang="as" lang="as">অসমীয়া</a></p></div>
+    </div>
+  </div>
   <div class="wrap invite">
     <h2>Help translate</h2>
     <p class="lede">Translators who read Bengali closely can help bring these teachings to more people.</p>
@@ -863,7 +870,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
         <a class="brand" href="/"><svg viewBox="0 0 64 40" style="width:30px;height:30px;color:var(--saffron)"><use href="#i-lotus"/></svg><b>Sri Sri Thakur</b></a>
         <p class="small muted" style="max-width:36ch">A living digital home for wisdom, community, and service. Community-driven, source-verified.</p>
       </div>
-      <div><h4>Knowledge</h4><a href="/teachings">Teachings</a><a href="/daily-wisdom">Daily Wisdom</a><a href="/satsang-morning-prayer">Morning Prayer</a><a href="/satsang-evening-prayer">Evening Prayer</a><a href="/life">Life and Legacy</a><a href="/library">Library</a></div>
+      <div><h4>Knowledge</h4><a href="/teachings">Teachings</a><a href="/daily-wisdom">Daily Wisdom</a><a href="/satsang-morning-prayer-english">Morning Prayer</a><a href="/satsang-evening-prayer-english">Evening Prayer</a><a href="/life">Life and Legacy</a><a href="/library">Library</a></div>
       <div><h4>Community</h4><a href="/map">Global Map</a><a href="/events">Events</a><a href="/contribute">Contribute</a><a href="/languages">Languages</a></div>
       <div><h4>About</h4><a href="/about">About this initiative</a><a href="/about">Not affiliated</a><a href="/contact">Contact</a></div>
     </div>
@@ -1147,13 +1154,21 @@ const INDEX=[
  ...CONCEPTS.map(c=>({type:"Core idea",title:c.t+" · "+c.bn,ctx:c.d,status:"sample",href:"/teachings",text:c.t+" "+c.bn+" "+c.d})),
  ...BOOKS.map(b=>({type:"Library · "+b.type,title:b.t+" · "+b.bn,ctx:b.d,status:"verified",href:b.href||"/library",text:b.t+" "+b.bn+" "+b.d})),
  ...TIMELINE.map(e=>({type:"Life · "+e.y,title:e.h,ctx:e.p,status:"pending",href:"/life",text:e.h+" "+e.p})),
- {type:"Prayer",title:"Satsang Morning Prayer · সকালের প্রার্থনা",ctx:"Three morning prayers and the Joy Radhe Radhe kirtan, full lyrics with images",status:"lyrics",href:"/satsang-morning-prayer",text:"Satsang morning prayer pratah prarthana Sri Sri Thakur Anukulchandra lyrics prayer kirtan"},
- {type:"Prayer",title:"Radhaswami Naam Jo Gaawe Soi Tare",ctx:"Morning Prayer #1 · full lyrics",status:"lyrics",href:"/satsang-morning-prayer#prayer-1",text:"Radhaswami naam jo gaawe soi tare Karoon bandage Radhaswami aage morning prayer 1 lyrics"},
- {type:"Prayer",title:"Satsang Evening Prayer · সন্ধ্যা প্রার্থনা",ctx:"Three evening prayers and the Joy Radhe Radhe kirtan, full lyrics with images",status:"lyrics",href:"/satsang-evening-prayer",text:"Satsang evening prayer sandhya prarthana Sri Sri Thakur Anukulchandra lyrics prayer kirtan"},
- {type:"Prayer",title:"Bar Bar Karoon Binati Radhaswami Aage",ctx:"Evening Prayer #1 · full lyrics",status:"lyrics",href:"/satsang-evening-prayer#prayer-1",text:"Bar bar karoon binati Radhaswami aage evening prayer 1 lyrics"},
- {type:"Prayer",title:"Bar Bar Kar Jor Kar Savinay Karoon Pookar",ctx:"Evening Prayer #2 · full lyrics",status:"lyrics",href:"/satsang-evening-prayer#prayer-2",text:"Bar bar kar jor kar savinay karoon pookar pukar evening prayer 2 lyrics"},
- {type:"Prayer",title:"Gururbrahmaa Gururvishnu Gururdevo Maheshwarah",ctx:"Evening Prayer #3 · Guru Stotram · full lyrics",status:"lyrics",href:"/satsang-evening-prayer#prayer-3",text:"Gururbrahma Guru Brahma Gururvishnu Guru Vishnu Gurudevo Maheshwara Akhandamandalakaram Guru Stotram evening prayer 3 lyrics"},
- {type:"Kirtan",title:"Joy Radhe Radhe, Krishna Krishna Kirtan",ctx:"Sung with the evening prayer · full lyrics",status:"lyrics",href:"/satsang-evening-prayer#kirtan",text:"Joy Jai Radhe Radhe Krishna Krishna Gobindo Govinda bolo re kirtan evening prayer lyrics"},
+ {type:"Prayer",title:"Satsang Morning Prayer · সকালের প্রার্থনা",ctx:"Three morning prayers and the Joy Radhe Radhe kirtan, full lyrics with images",status:"lyrics",href:"/satsang-morning-prayer-english",text:"Satsang morning prayer pratah prarthana Sri Sri Thakur Anukulchandra lyrics prayer kirtan"},
+ {type:"Prayer",title:"Radhaswami Naam Jo Gaawe Soi Tare",ctx:"Morning Prayer #1 · full lyrics",status:"lyrics",href:"/satsang-morning-prayer-english#prayer-1",text:"Radhaswami naam jo gaawe soi tare Karoon bandage Radhaswami aage morning prayer 1 lyrics"},
+ {type:"Prayer",title:"Satsang Evening Prayer · সন্ধ্যা প্রার্থনা",ctx:"Three evening prayers and the Joy Radhe Radhe kirtan, full lyrics with images",status:"lyrics",href:"/satsang-evening-prayer-english",text:"Satsang evening prayer sandhya prarthana Sri Sri Thakur Anukulchandra lyrics prayer kirtan"},
+ {type:"Prayer",title:"Bar Bar Karoon Binati Radhaswami Aage",ctx:"Evening Prayer #1 · full lyrics",status:"lyrics",href:"/satsang-evening-prayer-english#prayer-1",text:"Bar bar karoon binati Radhaswami aage evening prayer 1 lyrics"},
+ {type:"Prayer",title:"Bar Bar Kar Jor Kar Savinay Karoon Pookar",ctx:"Evening Prayer #2 · full lyrics",status:"lyrics",href:"/satsang-evening-prayer-english#prayer-2",text:"Bar bar kar jor kar savinay karoon pookar pukar evening prayer 2 lyrics"},
+ {type:"Prayer",title:"Gururbrahmaa Gururvishnu Gururdevo Maheshwarah",ctx:"Evening Prayer #3 · Guru Stotram · full lyrics",status:"lyrics",href:"/satsang-evening-prayer-english#prayer-3",text:"Gururbrahma Guru Brahma Gururvishnu Guru Vishnu Gurudevo Maheshwara Akhandamandalakaram Guru Stotram evening prayer 3 lyrics"},
+ {type:"Kirtan",title:"Joy Radhe Radhe, Krishna Krishna Kirtan",ctx:"Sung with the evening prayer · full lyrics",status:"lyrics",href:"/satsang-evening-prayer-english#kirtan",text:"Joy Jai Radhe Radhe Krishna Krishna Gobindo Govinda bolo re kirtan evening prayer lyrics"},
+ {type:"Prayer",title:"Satsang Morning Prayer in Hindi",ctx:"The morning prayer page in Hindi · हिन्दी",status:"lyrics",href:"/satsang-morning-prayer-hindi",text:"Satsang morning prayer in Hindi हिन्दी हिंदी pratah prarthana lyrics"},
+ {type:"Prayer",title:"Satsang Morning Prayer in Odia",ctx:"The morning prayer page in Odia · ଓଡ଼ିଆ",status:"lyrics",href:"/satsang-morning-prayer-odia",text:"Satsang morning prayer in Odia ଓଡ଼ିଆ Oriya pratah prarthana lyrics"},
+ {type:"Prayer",title:"Satsang Morning Prayer in Bengali",ctx:"The morning prayer page in Bengali · বাংলা",status:"lyrics",href:"/satsang-morning-prayer-bengali",text:"Satsang morning prayer in Bengali বাংলা Bangla pratah prarthana lyrics"},
+ {type:"Prayer",title:"Satsang Morning Prayer in Assamese",ctx:"The morning prayer page in Assamese · অসমীয়া",status:"lyrics",href:"/satsang-morning-prayer-assamese",text:"Satsang morning prayer in Assamese অসমীয়া Asamiya pratah prarthana lyrics"},
+ {type:"Prayer",title:"Satsang Evening Prayer in Hindi",ctx:"The evening prayer page in Hindi · हिन्दी",status:"lyrics",href:"/satsang-evening-prayer-hindi",text:"Satsang evening prayer in Hindi हिन्दी हिंदी sandhya prarthana lyrics"},
+ {type:"Prayer",title:"Satsang Evening Prayer in Odia",ctx:"The evening prayer page in Odia · ଓଡ଼ିଆ",status:"lyrics",href:"/satsang-evening-prayer-odia",text:"Satsang evening prayer in Odia ଓଡ଼ିଆ Oriya sandhya prarthana lyrics"},
+ {type:"Prayer",title:"Satsang Evening Prayer in Bengali",ctx:"The evening prayer page in Bengali · বাংলা",status:"lyrics",href:"/satsang-evening-prayer-bengali",text:"Satsang evening prayer in Bengali বাংলা Bangla sandhya prarthana lyrics"},
+ {type:"Prayer",title:"Satsang Evening Prayer in Assamese",ctx:"The evening prayer page in Assamese · অসমীয়া",status:"lyrics",href:"/satsang-evening-prayer-assamese",text:"Satsang evening prayer in Assamese অসমীয়া Asamiya sandhya prarthana lyrics"},
  ...OPPS.map(o=>({type:"Opportunity",title:o.t,ctx:o.skills.join(", ")+" · "+o.time,status:o.status==="Open"?"open":"closed",href:"/contribute",text:o.t+" "+o.skills.join(" ")+" "+o.d}))];
 const statusLabel={pending:"Pending verification",sample:"Sample",verified:"Sourced",open:"Open",closed:"Closed",lyrics:"Full lyrics"};
 function runSearch(){
