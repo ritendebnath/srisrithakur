@@ -328,6 +328,15 @@ form.f{display:grid;gap:16px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media (max-width:560px){.two{grid-template-columns:1fr}}
 .toast{font-size:.9rem;color:var(--forest);background:var(--forest-soft);padding:12px 16px;border-radius:10px}
+/* Contact: direct email, WhatsApp, call */
+.reach{display:grid;gap:10px}
+.reach a{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line-2);border-radius:12px;text-decoration:none;color:var(--fg);transition:border-color .2s,background .2s}
+.reach a:hover,.reach a:focus-visible{border-color:var(--fg);background:var(--bg-2)}
+.reach .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--saffron-soft);color:var(--saffron-ink)}
+.reach .ic svg{width:20px;height:20px}
+.reach b{display:block;font-weight:500;font-size:.98rem}
+.reach span.v{display:block;font-size:.88rem;color:var(--fg-2);overflow-wrap:anywhere}
+.reach .go{width:16px;height:16px;color:var(--fg-3)}
 
 /* Contribute */
 .communities{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -395,6 +404,9 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
     <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></symbol>
     <symbol id="i-lang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h9M8.5 4v2c0 4-2 7-4.5 8.5M6 10c1 2 3 3.5 5.5 4"/><path d="m12 20 4-9 4 9M13.5 17h5"/></symbol>
     <symbol id="i-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.4 0 2-1 1.5-2.2-.6-1.4.3-2.8 1.8-2.8H17a3.5 3.5 0 0 0 3.5-3.5c0-4.7-3.8-8.5-8.5-8.5Z"/><circle cx="8" cy="11" r="1"/><circle cx="11.5" cy="7.5" r="1"/><circle cx="15.5" cy="9" r="1"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.8a8.2 8.2 0 0 0-7.1 12.3L3.8 20.2l4.2-1.1A8.2 8.2 0 1 0 12 3.8Z"/><path d="M9 9.2c0 3 2.5 5.6 5.6 5.6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.8h2.6l1.4 4-1.9 1.3a11 11 0 0 0 6.2 6.2l1.3-1.9 4 1.4v2.6a2 2 0 0 1-2.2 2A16.4 16.4 0 0 1 4.6 6a2 2 0 0 1 2-2.2Z"/></symbol>
   </defs>
 </svg>
 
@@ -848,17 +860,19 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
   </div>
   <div class="wrap block">
     <div class="grid g2" style="align-items:start">
+      <div class="card" id="reach">
+        <h3>Email, WhatsApp or call</h3>
+        <p class="small muted">For corrections, sources or material to share, volunteering, or anything else. Please mention the page or teaching you are writing about.</p>
+        <div class="reach">
+          <a href="mailto:riten@fueler.io?subject=srisrithakur.com"><span class="ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><span><b>Email</b><span class="v">riten@fueler.io</span></span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://wa.me/917059429668?text=Hello%2C%20I%20am%20writing%20about%20srisrithakur.com" target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><span><b>WhatsApp</b><span class="v">+91 70594 29668</span></span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="tel:+917059429668"><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span><b>Call</b><span class="v">+91 70594 29668</span></span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
       <div class="grid" style="gap:16px">
         <div class="card"><h3>Report a correction</h3><p class="small muted">If a teaching, date, or listing looks wrong, tell us where it appears and the source you are relying on.</p></div>
         <div class="card"><h3>Official matters</h3><p class="small muted">For initiation, official publications, or events, please contact Satsang, Deoghar or your local Satsang Vihar directly.</p></div>
       </div>
-      <form class="f card" id="contactForm">
-        <div class="two"><div class="field"><label for="cName">Name</label><input id="cName" required autocomplete="name"></div><div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" required autocomplete="email"></div></div>
-        <div class="field"><label for="cTopic">Topic</label><select id="cTopic"><option>Correction</option><option>Source or material to share</option><option>Volunteering</option><option>Something else</option></select></div>
-        <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" required></textarea></div>
-        <button class="btn btn-primary" type="submit" style="justify-self:start">Send message</button>
-        <p class="toast" id="cToast" hidden></p>
-      </form>
     </div>
   </div>
 </section>
@@ -1146,7 +1160,6 @@ $("#applyForm").addEventListener("submit",e=>{e.preventDefault();const t=$("#aTo
 
 
 $("#eventForm").addEventListener("submit",e=>{e.preventDefault();const t=$("#eToast");t.hidden=false;t.textContent="Thank you. Event submissions open soon; your details were not sent yet. Please check back shortly.";e.target.reset()});
-$("#contactForm").addEventListener("submit",e=>{e.preventDefault();const t=$("#cToast");t.hidden=false;t.textContent="Thank you. The message inbox opens soon; your message was not sent yet. Please check back shortly.";});
 /* ---------- SEARCH ---------- */
 const VARIANTS=[["satyanushoron","satyanusaran"],["shatyanusaran","satyanusaran"],["সত্যানুসরণ","satyanusaran"],["anushruti","anushruti"],["anusruti","anushruti"],["deogarh","deoghar"],["devghar","deoghar"],["bangalore","bengaluru"],["calcutta","kolkata"],["isthabhriti","ishtabhriti"],["istabhrity","ishtabhriti"],["prarthona","prarthana"],["prathana","prarthana"],["sandhya","evening"],["sondhya","evening"],["সন্ধ্যা","evening"],["প্রার্থনা","prayer"],["संध्या","evening"],["प्रार्थना","prayer"],["anukul chandra","anukulchandra"],["radhasoami","radhaswami"],["pratah","morning"],["prabhat","morning"],["sakaler","morning"],["সকালের","morning"],["প্রাতঃকালীন","morning"],["प्रातः","morning"],["सुबह","morning"]];
 function norm(s){s=String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,"").trim();VARIANTS.forEach(([a,b])=>{s=s.split(a).join(b)});return s}
