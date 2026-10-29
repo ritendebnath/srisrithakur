@@ -1,0 +1,238 @@
+{
+ "site": "https://srisrithakur.com",
+ "dateModified": "2026-10-29",
+ "pages": {
+  "morning": {
+   "base": "satsang-morning-prayer",
+   "ogImage": "https://srisrithakur.com/images/prayers/satsang-morning-prayer-og.jpg",
+   "ogImageAlt": "Morning Prayer of Sri Sri Thakur Anukulchandra",
+   "primaryImage": "https://srisrithakur.com/images/prayers/satsang-morning-prayer-1-radhaswami-naam-jo-gaawe.jpg",
+   "englishTags": [
+    "Satsang morning prayer",
+    "Satsang morning prayer lyrics",
+    "Sri Sri Thakur morning prayer",
+    "Sri Sri Thakur morning prayer lyrics",
+    "Srisri Thakur morning prayer lyrics",
+    "Shree Shree Thakur morning prayer",
+    "Sree Sree Thakur morning prayer",
+    "Thakur Anukulchandra morning prayer",
+    "Thakur Anukul Chandra morning prayer",
+    "Anukul Thakur morning prayer",
+    "Sri Sri Thakur Anukulchandra prayer",
+    "Satsang pratah prarthana",
+    "Thakur sakaler prarthana",
+    "Satsang prayer lyrics in English",
+    "Satsang Deoghar morning prayer",
+    "Radhaswami naam jo gaawe soi tare lyrics",
+    "Karoon bandage Radhaswami aage lyrics",
+    "Bar bar kar jor kar lyrics",
+    "Radhaswami prayer Satsang",
+    "Gururbrahma Gururvishnu lyrics",
+    "Guru Brahma Guru Vishnu Satsang prayer",
+    "Guru Stotram Satsang",
+    "Joy Radhe Radhe Krishna Krishna lyrics",
+    "Satsang kirtan lyrics"
+   ],
+   "englishNativeTags": [
+    [
+     "bn",
+     "শ্রীশ্রীঠাকুর অনুকূলচন্দ্রের সকালের প্রার্থনা"
+    ],
+    [
+     "bn",
+     "সৎসঙ্গ প্রাতঃকালীন প্রার্থনা"
+    ],
+    [
+     "hi",
+     "श्री श्री ठाकुर अनुकूलचंद्र प्रातः प्रार्थना"
+    ],
+    [
+     "hi",
+     "सत्संग सुबह की प्रार्थना"
+    ]
+   ],
+   "prayers": [
+    {
+     "id": "prayer-1",
+     "kind": "prayer",
+     "title": "Radhaswami Naam Jo Gaawe Soi Tare",
+     "alternateName": "Karoon Bandage Radhaswami Aage",
+     "sourceLanguage": "hi",
+     "numbered": false,
+     "image": {
+      "webp760": "/images/prayers/satsang-morning-prayer-1-radhaswami-naam-jo-gaawe-760.webp",
+      "webp": "/images/prayers/satsang-morning-prayer-1-radhaswami-naam-jo-gaawe.webp",
+      "jpg": "/images/prayers/satsang-morning-prayer-1-radhaswami-naam-jo-gaawe.jpg",
+      "width": 1086,
+      "height": 1448,
+      "altEnglish": "Morning Prayer of Sri Sri Thakur Anukulchandra, Prayer #1: Radhaswami naam jo gaawe soi tare, full lyrics"
+     }
+    },
+    {
+     "id": "prayer-2",
+     "kind": "prayer",
+     "title": "Bar Bar Kar Jor Kar Savinay Karoon Pookar",
+     "alternateName": "Satsang morning prayer Prayer #2",
+     "sourceLanguage": "hi",
+     "numbered": false,
+     "image": {
+      "webp760": "/images/prayers/satsang-morning-prayer-2-bar-bar-kar-jor-kar-760.webp",
+      "webp": "/images/prayers/satsang-morning-prayer-2-bar-bar-kar-jor-kar.webp",
+      "jpg": "/images/prayers/satsang-morning-prayer-2-bar-bar-kar-jor-kar.jpg",
+      "width": 1086,
+      "height": 1448,
+      "altEnglish": "Morning Prayer of Sri Sri Thakur Anukulchandra, Prayer #2: Bar bar kar jor kar savinay karoon pookar, full lyrics"
+     }
+    },
+    {
+     "id": "prayer-3",
+     "kind": "prayer",
+     "title": "Gururbrahmaa Gururvishnu Gururdevo Maheshwarah",
+     "alternateName": "Guru Stotram: Gururbrahmaa Gururvishnu, Akhandamandalaakaarang",
+     "sourceLanguage": "sa",
+     "numbered": true,
+     "image": {
+      "webp760": "/images/prayers/satsang-morning-prayer-3-gururbrahma-guru-stotram-760.webp",
+      "webp": "/images/prayers/satsang-morning-prayer-3-gururbrahma-guru-stotram.webp",
+      "jpg": "/images/prayers/satsang-morning-prayer-3-gururbrahma-guru-stotram.jpg",
+      "width": 1086,
+      "height": 1448,
+      "altEnglish": "Morning Prayer of Sri Sri Thakur Anukulchandra, Prayer #3: Gururbrahmaa Gururvishnu Gururdevo Maheshwarah, nine verses, full lyrics"
+     }
+    },
+    {
+     "id": "kirtan",
+     "kind": "kirtan",
+     "title": "Joy Radhe Radhe, Krishna Krishna Kirtan",
+     "alternateName": "Joy Radhe Radhe Krishna Krishna Gobindo Gobindo Bolo Re",
+     "sourceLanguage": "bn",
+     "numbered": false,
+     "image": {
+      "webp760": "/images/prayers/morning-joy-radhe-radhe-krishna-krishna-kirtan-760.webp",
+      "webp": "/images/prayers/morning-joy-radhe-radhe-krishna-krishna-kirtan.webp",
+      "jpg": "/images/prayers/morning-joy-radhe-radhe-krishna-krishna-kirtan.jpg",
+      "width": 1086,
+      "height": 1448,
+      "altEnglish": "Joy Radhe Radhe, Krishna Krishna Kirtan, full lyrics, sung with the Satsang morning prayer"
+     }
+    }
+   ]
+  },
+  "evening": {
+   "base": "satsang-evening-prayer",
+   "ogImage": "https://srisrithakur.com/images/prayers/satsang-evening-prayer-og.jpg",
+   "ogImageAlt": "Evening Prayer of Sri Sri Thakur Anukulchandra",
+   "primaryImage": "https://srisrithakur.com/images/prayers/satsang-evening-prayer-1-bar-bar-karoon-binati.jpg",
+   "englishTags": [
+    "Satsang evening prayer",
+    "Satsang evening prayer lyrics",
+    "Sri Sri Thakur evening prayer",
+    "Sri Sri Thakur evening prayer lyrics",
+    "Srisri Thakur evening prayer lyrics",
+    "Shree Shree Thakur evening prayer",
+    "Sree Sree Thakur prayer",
+    "Thakur Anukulchandra evening prayer",
+    "Thakur Anukul Chandra evening prayer",
+    "Anukul Thakur evening prayer",
+    "Sri Sri Thakur Anukulchandra prayer",
+    "Satsang sandhya prarthana",
+    "Thakur sandhya prarthana lyrics",
+    "Satsang prayer lyrics in English",
+    "Satsang Deoghar evening prayer",
+    "Bar bar karoon binati lyrics",
+    "Bar bar kar jor kar lyrics",
+    "Radhaswami prayer Satsang",
+    "Gururbrahma Gururvishnu lyrics",
+    "Guru Brahma Guru Vishnu Satsang prayer",
+    "Akhanda Mandalakaram lyrics",
+    "Guru Stotram Satsang",
+    "Joy Radhe Radhe Krishna Krishna lyrics",
+    "Satsang kirtan lyrics"
+   ],
+   "englishNativeTags": [
+    [
+     "bn",
+     "শ্রীশ্রীঠাকুর অনুকূলচন্দ্রের সন্ধ্যা প্রার্থনা"
+    ],
+    [
+     "bn",
+     "সৎসঙ্গ সন্ধ্যা প্রার্থনা"
+    ],
+    [
+     "hi",
+     "श्री श्री ठाकुर अनुकूलचंद्र संध्या प्रार्थना"
+    ],
+    [
+     "hi",
+     "सत्संग संध्या प्रार्थना"
+    ]
+   ],
+   "prayers": [
+    {
+     "id": "prayer-1",
+     "kind": "prayer",
+     "title": "Bar Bar Karoon Binati Radhaswami Aage",
+     "alternateName": "Satsang evening prayer Prayer #1",
+     "sourceLanguage": "hi",
+     "numbered": false,
+     "image": {
+      "webp760": "/images/prayers/satsang-evening-prayer-1-bar-bar-karoon-binati-760.webp",
+      "webp": "/images/prayers/satsang-evening-prayer-1-bar-bar-karoon-binati.webp",
+      "jpg": "/images/prayers/satsang-evening-prayer-1-bar-bar-karoon-binati.jpg",
+      "width": 1086,
+      "height": 1448,
+      "altEnglish": "Evening Prayer of Sri Sri Thakur Anukulchandra, Prayer #1: Bar bar karoon binati Radhaswami aage, full lyrics"
+     }
+    },
+    {
+     "id": "prayer-2",
+     "kind": "prayer",
+     "title": "Bar Bar Kar Jor Kar Savinay Karoon Pookar",
+     "alternateName": "Satsang evening prayer Prayer #2",
+     "sourceLanguage": "hi",
+     "numbered": false,
+     "image": {
+      "webp760": "/images/prayers/satsang-evening-prayer-2-bar-bar-kar-jor-kar-760.webp",
+      "webp": "/images/prayers/satsang-evening-prayer-2-bar-bar-kar-jor-kar.webp",
+      "jpg": "/images/prayers/satsang-evening-prayer-2-bar-bar-kar-jor-kar.jpg",
+      "width": 1086,
+      "height": 1448,
+      "altEnglish": "Evening Prayer of Sri Sri Thakur Anukulchandra, Prayer #2: Bar bar kar jor kar savinay karoon pookar, full lyrics"
+     }
+    },
+    {
+     "id": "prayer-3",
+     "kind": "prayer",
+     "title": "Gururbrahmaa Gururvishnu Gururdevo Maheshwarah",
+     "alternateName": "Guru Stotram: Gururbrahmaa Gururvishnu, Akhandamandalaakaarang",
+     "sourceLanguage": "sa",
+     "numbered": true,
+     "image": {
+      "webp760": "/images/prayers/satsang-evening-prayer-3-gururbrahma-guru-stotram-760.webp",
+      "webp": "/images/prayers/satsang-evening-prayer-3-gururbrahma-guru-stotram.webp",
+      "jpg": "/images/prayers/satsang-evening-prayer-3-gururbrahma-guru-stotram.jpg",
+      "width": 1086,
+      "height": 1448,
+      "altEnglish": "Evening Prayer of Sri Sri Thakur Anukulchandra, Prayer #3: Gururbrahmaa Gururvishnu Gururdevo Maheshwarah, nine verses, full lyrics"
+     }
+    },
+    {
+     "id": "kirtan",
+     "kind": "kirtan",
+     "title": "Joy Radhe Radhe, Krishna Krishna Kirtan",
+     "alternateName": "Joy Radhe Radhe Krishna Krishna Gobindo Gobindo Bolo Re",
+     "sourceLanguage": "bn",
+     "numbered": false,
+     "image": {
+      "webp760": "/images/prayers/joy-radhe-radhe-krishna-krishna-kirtan-760.webp",
+      "webp": "/images/prayers/joy-radhe-radhe-krishna-krishna-kirtan.webp",
+      "jpg": "/images/prayers/joy-radhe-radhe-krishna-krishna-kirtan.jpg",
+      "width": 1086,
+      "height": 1448,
+      "altEnglish": "Joy Radhe Radhe, Krishna Krishna Kirtan, full lyrics, sung with the Satsang evening prayer"
+     }
+    }
+   ]
+  }
+ }
+}
