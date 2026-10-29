@@ -64,7 +64,7 @@ function resolve(page, prayer, lang) {
   if (T.convertTarget) {
     const hindi = readLyrics(page.base, prayer.id, "hindi");
     if (hindi) {
-      const text = convertDevanagari(hindi.text, T.convertTarget);
+      const text = convertDevanagari(hindi.text, T.convertTarget, prayer.sourceLanguage);
       return { text, stanzas: text.split("\n\n").map((s) => s.split("\n")), source: hindi.source, status: "converted" };
     }
   }
