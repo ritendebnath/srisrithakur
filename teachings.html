@@ -23,7 +23,7 @@
   --fg:#1F211D; --fg-2:#5A5C56; --fg-3:#8C8D87;
   --line:#ECEBE6; --line-2:#DEDDD6;
   --saffron:#B87532; --saffron-soft:#FBF3EA; --saffron-ink:#9A5F24;
-  --forest:#465B48; --forest-soft:#EDF2EC;
+  --blue:#13235B; --blue-soft:#EBEEF7;
   --pending:#9A6B1F; --pending-soft:#FBF4E6;
   --font-display:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --font-body:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -77,7 +77,7 @@ p{margin:0}
 .declare h2{color:var(--saffron-ink)}
 .points{display:grid;gap:0;border-top:1px solid var(--line)}
 .points div{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
-.points svg{width:20px;height:20px;color:var(--forest);margin-top:3px}
+.points svg{width:20px;height:20px;color:var(--blue);margin-top:3px}
 .points b{display:block;font-weight:500;margin-bottom:4px;letter-spacing:-.015em}
 .points p{color:var(--fg-2);font-size:.94rem}
 .letter{max-width:var(--read);display:grid;gap:16px;font-size:1.06rem;color:var(--fg-2)}
@@ -111,16 +111,16 @@ nav.primary a[aria-current="page"]{color:var(--fg);background:var(--bg-2)}
 /* Buttons & chips */
 .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:inherit;font-size:.95rem;font-weight:500;padding:13px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s,border-color .2s}
 .btn-primary{background:var(--fg);color:var(--bg)}
-.btn-primary:hover{background:var(--forest);color:#fff}
+.btn-primary:hover{background:var(--blue);color:#fff}
 .btn-ghost{border-color:var(--line-2);color:var(--fg);background:transparent}
 .btn-ghost:hover{border-color:var(--fg)}
 .btn svg{width:16px;height:16px}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:500;letter-spacing:.02em;padding:4px 10px;border-radius:999px;white-space:nowrap}
 .chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
-.chip.verified{background:var(--forest-soft);color:var(--forest)}
+.chip.verified{background:var(--blue-soft);color:var(--blue)}
 .chip.pending{background:var(--pending-soft);color:var(--pending)}
 .chip.sample{background:var(--bg-2);color:var(--fg-2)}
-.chip.open{background:var(--forest-soft);color:var(--forest)}
+.chip.open{background:var(--blue-soft);color:var(--blue)}
 .chip.closed{background:var(--bg-2);color:var(--fg-3)}
 .filter-row{display:flex;flex-wrap:wrap;gap:8px}
 .fchip{font:inherit;font-size:.86rem;border:1px solid var(--line-2);background:var(--surface);color:var(--fg-2);padding:8px 14px;border-radius:999px;cursor:pointer;transition:all .2s}
@@ -139,7 +139,7 @@ main section.view{padding-block:0 40px}
 .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,88px);align-items:center;padding-block:clamp(40px,7vw,96px) clamp(48px,7vw,88px)}
 .hero-copy{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;min-width:0}
 .hero .bn-name{font-family:var(--font-bn);font-size:1.15rem;color:var(--saffron-ink)}
-.hero h1 em{font-style:normal;color:var(--forest)}
+.hero h1 em{font-style:normal;color:var(--blue)}
 .hero-search{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line-2);border-radius:999px;padding:6px 6px 6px 20px;max-width:520px;box-shadow:0 1px 2px rgba(20,20,15,.04),0 14px 34px -20px rgba(20,20,15,.22)}
 .hero-search svg{width:18px;height:18px;color:var(--fg-3);flex-shrink:0}
 .hero-search input{flex:1;min-width:0;border:0;background:none;font:inherit;color:var(--fg);outline:none;padding-block:8px}
@@ -202,47 +202,47 @@ main section.view{padding-block:0 40px}
 .spine{aspect-ratio:3/4.3;max-width:100%;border-radius:4px 8px 8px 4px;display:grid;place-items:center;padding:8px;color:#FAF8F3;font-family:var(--font-bn);font-size:.82rem;text-align:center;line-height:1.3;box-shadow:inset 6px 0 0 rgba(0,0,0,.12)}
 
 /* Community band */
-.band{background:var(--forest);color:#F3F1EA;border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:340px}
+.band{background:var(--blue);color:#F3F1EA;border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:340px}
 .band .copy{padding:clamp(28px,5vw,56px);display:grid;gap:18px;align-content:center}
 .band .eyebrow{color:#E7C7A1}
-.band p{color:#D7DDD3}
+.band p{color:#D3D9EA}
 .band .btn-ghost{color:#F3F1EA;border-color:rgba(255,255,255,.35)}
 .band .btn-ghost:hover{border-color:#fff}
 /* Home: Global Community map (static SVG land + pins/labels drawn from CENTRES) */
 .wm{margin:0;min-width:0;align-self:center;padding:clamp(24px,3vw,40px) clamp(16px,2.4vw,28px) clamp(24px,3vw,40px) 0}
 .wm-frame{position:relative;aspect-ratio:1000/491}
 .wm-svg{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.wm-land path{fill:#5A6C5B;stroke:var(--forest);stroke-width:.6px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.wm-land path{fill:#2B3C78;stroke:var(--blue);stroke-width:.6px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .wm-land path.has{fill:#E7C7A1;transition:fill-opacity .15s}
 .wm-land path.has[tabindex]{cursor:pointer;outline:none}
 .wm-land path.has[tabindex]:hover,.wm-land path.has[tabindex]:focus-visible{fill-opacity:1!important}
 .wm-leaders line{stroke:rgba(243,241,234,.45);stroke-width:1px;vector-effect:non-scaling-stroke}
 .wm-lbl{position:absolute;white-space:nowrap;pointer-events:none;font-size:12.5px;line-height:1.15;color:#F3F1EA;letter-spacing:0}
 .wm-lbl b{font-weight:500}
-.wm-lbl em{font-style:normal;color:#C4CCC1;margin-left:4px;font-variant-numeric:tabular-nums}
-.wm-lbl.t1{font-size:16px}.wm-lbl.t1 b{font-weight:600}.wm-lbl.t1 em{color:#D7DDD3}
+.wm-lbl em{font-style:normal;color:#BAC3DD;margin-left:4px;font-variant-numeric:tabular-nums}
+.wm-lbl.t1{font-size:16px}.wm-lbl.t1 b{font-weight:600}.wm-lbl.t1 em{color:#D3D9EA}
 .wm-lbl.t2{font-size:13.5px}
 .wm-lbl.c{transform:translate(-50%,-50%)}.wm-lbl.l{transform:translate(8px,-50%)}.wm-lbl.r{transform:translate(calc(-100% - 8px),-50%)}
 .wm-pin{position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;pointer-events:none}
 .wm-pin::before{content:"";position:absolute;inset:4px;border-radius:50%;background:#E7C7A1;opacity:.22;transition:opacity .15s;pointer-events:auto}
-.wm-pin::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#E7C7A1;box-shadow:0 0 0 2px var(--forest)}
+.wm-pin::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#E7C7A1;box-shadow:0 0 0 2px var(--blue)}
 .wm-pin:hover::before,.wm-pin:focus-visible::before{opacity:.5}
 .wm-pin:focus-visible{outline:2px solid #F3F1EA;outline-offset:1px}
 .wm-tip{position:absolute;z-index:5;pointer-events:none;width:max-content;max-width:260px;background:#F3F1EA;color:var(--fg);border-radius:10px;padding:9px 12px;font-size:13px;line-height:1.4;box-shadow:0 8px 24px rgba(0,0,0,.22);transform:translate(-50%,calc(-100% - 14px));opacity:0;transition:opacity .12s}
 .wm-tip.on{opacity:1}.wm-tip b{font-weight:600}.wm-tip span{color:var(--fg-2)}
-.wm-key{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;margin-top:16px;padding-left:4%;font-size:13px;color:#C4CCC1}
+.wm-key{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;margin-top:16px;padding-left:4%;font-size:13px;color:#BAC3DD}
 .wm-key i{display:inline-block;vertical-align:-1px;margin-right:8px}
 .wm-key .ramp{width:40px;height:10px;border-radius:3px;background:linear-gradient(90deg,rgba(231,199,161,.32),#E7C7A1)}
 .wm-key .dot{margin-left:4px;width:8px;height:8px;border-radius:50%;background:#E7C7A1;box-shadow:0 0 0 4px rgba(231,199,161,.22)}
 .wm-list{display:none;list-style:none;margin:16px 0 0;padding:0;columns:2;column-gap:24px}
 .wm-list li{display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid rgba(243,241,234,.14);font-size:14px;break-inside:avoid;color:#F3F1EA}
-.wm-list em{font-style:normal;color:#D7DDD3;font-variant-numeric:tabular-nums}
+.wm-list em{font-style:normal;color:#D3D9EA;font-variant-numeric:tabular-nums}
 @media (max-width:820px){.wm{padding:0 clamp(16px,4vw,28px) 28px}.wm-key{padding-left:0}}
 @media (max-width:560px){.wm-frame{margin:0 -8px}.wm-lbl.t2,.wm-lbl.t3,.wm-leaders{display:none}.wm-lbl.t1{font-size:13px;transform:translate(-80%,-30%)}.wm-pin{width:20px;height:20px;margin:-10px 0 0 -10px}.wm-pin::before{inset:3px}.wm-pin::after{inset:7px}.wm-list{display:block}.wm-key .wm-hint{display:none}}
 @media (prefers-reduced-motion:reduce){.wm-land path.has,.wm-pin::before,.wm-tip{transition:none}}
 .stats{display:flex;gap:32px;flex-wrap:wrap}
 .stats b{display:block;font-family:var(--font-display);font-size:2rem;font-weight:500;line-height:1}
-.stats span{font-size:.8rem;color:#C9D1C5}
+.stats span{font-size:.8rem;color:#C2CAE1}
 @media (max-width:820px){.band{grid-template-columns:1fr}}
 
 .invite{display:grid;gap:22px;justify-items:center;text-align:center;padding-block:clamp(56px,8vw,96px)}
@@ -327,7 +327,7 @@ form.f{display:grid;gap:16px}
 .field textarea{min-height:110px;resize:vertical}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media (max-width:560px){.two{grid-template-columns:1fr}}
-.toast{font-size:.9rem;color:var(--forest);background:var(--forest-soft);padding:12px 16px;border-radius:10px}
+.toast{font-size:.9rem;color:var(--blue);background:var(--blue-soft);padding:12px 16px;border-radius:10px}
 /* Contact: direct email, WhatsApp, call */
 .reach{display:grid;gap:10px}
 .reach a{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line-2);border-radius:12px;text-decoration:none;color:var(--fg);transition:border-color .2s,background .2s}
@@ -341,7 +341,7 @@ form.f{display:grid;gap:16px}
 /* Contribute */
 .communities{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .community{background:var(--bg);padding:24px;display:grid;gap:8px}
-.community svg{width:24px;height:24px;color:var(--forest)}
+.community svg{width:24px;height:24px;color:var(--blue)}
 .community b{font-family:var(--font-display);font-size:1.04rem;font-weight:500}
 .community span{font-size:.86rem;color:var(--fg-2)}
 .opp .skills{display:flex;flex-wrap:wrap;gap:6px}
@@ -937,22 +937,22 @@ const LSRC={
 
 const BOOKS=[
  {t:"Satyanusaran",bn:"সত্যানুসরণ",href:"/satyanusaran",type:"Books",lang:"Bengali",tr:"English, Hindi, Odia, Assamese, Telugu and 9 more",d:"Written in his own hand in 1910, when he was 22, to guide a devotee, Atulchandra Bhattacharya. The English translation, The Pursuit of Truth, first appeared in 1950.",color:"#8E5520",src:["pt","wd","sp"],f:true},
- {t:"Anushruti",bn:"অনুশ্রুতি",type:"Books",lang:"Bengali",tr:"Hindi",d:"Teachings in rhyming verse on many subjects of daily life, published in several volumes.",color:"#465B48",src:["bp","sp"],f:true},
+ {t:"Anushruti",bn:"অনুশ্রুতি",type:"Books",lang:"Bengali",tr:"Hindi",d:"Teachings in rhyming verse on many subjects of daily life, published in several volumes.",color:"#13235B",src:["bp","sp"],f:true},
  {t:"Alochana Prasange",bn:"আলোচনা প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"English, Hindi, Odia",d:"Conversations with devotees and visitors, compiled by Prafulla Kumar Das across many volumes.",color:"#5E4A3A",src:["tp","bl","sp"],f:true},
  {t:"Punya Punthi",bn:"পুণ্যপুঁথি",type:"Books",lang:"Bengali",d:"A collection of the words he uttered while in states of devotional trance.",color:"#6B5B3E",src:["bp","sp"]},
  {t:"Chalar Sathi",bn:"চলার সাথী",type:"Books",lang:"Bengali",tr:"Hindi, Odia, Assamese",d:"Short sayings to keep close in daily life. The title means companion on the way.",color:"#7A6A4F",src:["bp","sp"]},
  {t:"Shashwati",bn:"শাশ্বতী",type:"Books",lang:"Bengali",tr:"Hindi, Odia",d:"Sayings on eternal truths, published in three volumes.",color:"#3F5560",src:["bp","bl","sp"]},
  {t:"Preeti Binayak",bn:"প্রীতি বিনায়ক",type:"Books",lang:"Bengali",tr:"Hindi, Odia",d:"Sayings on love and on directing it toward the Ideal, in two volumes.",color:"#8A7560",src:["bp","bl","sp"]},
- {t:"Dhriti Vidhayana",bn:"ধৃতি বিধায়না",type:"Books",lang:"Bengali",d:"Sayings on the principles that uphold and sustain life, in more than one volume.",color:"#55604A",src:["wd","bl","sp"]},
+ {t:"Dhriti Vidhayana",bn:"ধৃতি বিধায়না",type:"Books",lang:"Bengali",d:"Sayings on the principles that uphold and sustain life, in more than one volume.",color:"#2F4280",src:["wd","bl","sp"]},
  {t:"Narir Niti",bn:"নারীর নীতি",type:"Books",lang:"Bengali",tr:"Hindi, Odia, Telugu, Assamese, Santhali, Nepali, Bodo",d:"Guidance for women on conduct, character and family life.",color:"#4A4F5C",src:["sp","bl"]},
  {t:"Upasana",bn:"উপাসনা",type:"Books",lang:"Bengali",tr:"Hindi, Odia, Telugu, Assamese, Santhali, Marathi, Tamil",d:"On prayer and worship in daily life.",color:"#6E6252",src:["sp"]},
  {t:"Nana Prasange",bn:"নানা প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"Odia",d:"Conversations on a wide range of subjects, from family and work to society.",color:"#8E5520",src:["sp","bl"]},
- {t:"Islam Prasange",bn:"ইসলাম প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"Hindi",d:"Discussions on Islam, aimed at easing sectarian conflict and showing the common ground between faiths.",color:"#465B48",src:["bl","sp"]},
+ {t:"Islam Prasange",bn:"ইসলাম প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"Hindi",d:"Discussions on Islam, aimed at easing sectarian conflict and showing the common ground between faiths.",color:"#13235B",src:["bl","sp"]},
  {t:"Ishta Prasange",bn:"ইষ্ট প্রসঙ্গে",type:"Discourses",lang:"Bengali",tr:"Hindi, Odia",d:"Conversations centred on the Ishta, the living Ideal.",color:"#5E4A3A",src:["sp"]},
  {t:"Sri Sri Thakur O Deshbandhu Chittaranjan Das",bn:"শ্রীশ্রীঠাকুর ও দেশবন্ধু",type:"Discourses",lang:"Bengali",tr:"Hindi",d:"His conversations with Deshbandhu Chittaranjan Das on Indian independence and social reform.",color:"#6B5B3E",src:["bl","sp"]},
  {t:"The Message",bn:"দি মেসেজ",en:"The Message",type:"Books",lang:"English",d:"His sayings in English on religion, education, society, politics, industry and more, in a multi-volume set.",color:"#3F5560",src:["sp","bl"]},
  {t:"Magna Dicta",bn:"ম্যাগনা ডিক্টা",en:"Magna Dicta",type:"Books",lang:"English",d:"Sayings in English that offer analytical answers to the many problems people face.",color:"#7A6A4F",src:["sp","bl"]},
- {t:"Discourses",bn:"ডিসকোর্সেস",en:"Discourses",type:"Discourses",lang:"English",d:"A short record, in English, of his discussions with eminent visitors.",color:"#55604A",src:["bl","sp"]},
+ {t:"Discourses",bn:"ডিসকোর্সেস",en:"Discourses",type:"Discourses",lang:"English",d:"A short record, in English, of his discussions with eminent visitors.",color:"#2F4280",src:["bl","sp"]},
  {t:"Who Thou the Revolutionary?",bn:"হু দাউ দ্য রেভোলিউশনারি",en:"Who Thou the Revolutionary?",type:"Books",lang:"English",d:"An account of several days spent with Sri Sri Thakur by a visitor who came as a political agnostic.",color:"#8A7560",src:["bl","sp"]},
  {t:"Satsang monthly magazines",bn:"মাসিক পত্রিকা",type:"Magazines",lang:"Bengali, Hindi, Odia, English, Assamese",d:"Alochana (Bengali), Sattwati (Hindi), Urjana (Odia), Ligate (English) and Agamvani (Assamese), published monthly by Satsang.",color:"#4A4F5C",src:["wa","sp"]}];
 
@@ -1108,7 +1108,7 @@ function renderMap(){
 }
 /* Leaflet map (loaded only on the map page) */
 let LM=null,MK=[];
-function pinStyle(on,sel){return {radius:sel?9:5,color:"#FFFFFF",weight:sel?2:1.2,fillColor:sel?"#B87532":"#465B48",fillOpacity:on?.95:.12,opacity:on?1:.15}}
+function pinStyle(on,sel){return {radius:sel?9:5,color:"#FFFFFF",weight:sel?2:1.2,fillColor:sel?"#B87532":"#13235B",fillOpacity:on?.95:.12,opacity:on?1:.15}}
 function updateMarkers(){
   if(!LM)return;
   const vis=new Set(filteredCentres().map(f=>f.i));
