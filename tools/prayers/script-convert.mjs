@@ -8,7 +8,7 @@
 //          glide form (Bengali/Assamese য়, Odia ୟ). Odia also writes ya-phala with ୟ.
 //   - va:  Bengali writes ব everywhere. Assamese writes ৱ between vowels (দেৱ, জীৱন) and ব
 //          at the start of a word, in a conjunct or before i/ii (গোবিন্দ). Odia writes ବ, and ୱ
-//          when subjoined (ସ୍ୱ). Assamese va is partly lexical, so a native-script file wins.
+//          when subjoined (ସ୍ୱ) but not after reph (ସର୍ବ). Assamese va is partly lexical, so a native-script file wins.
 //   - ra:  Assamese uses ৰ.
 //   - Final or pre-sibilant t+virama becomes khanda ta (ৎ) in Bengali and Assamese.
 //   - Anusvara in Hindi and Bengali text (mode "hi"/"bn"): before a stop it becomes the
@@ -79,7 +79,7 @@ export function convertDevanagari(text, target, mode = "hi") {
     }
     if (c === 0x0930) { out.push(String.fromCodePoint(t.ra)); continue; }
     if (c === 0x0935) { // va
-      if (prev === VIRAMA && t.vaSubjoined) { out.push(String.fromCodePoint(t.vaSubjoined)); continue; }
+      if (prev === VIRAMA && t.vaSubjoined && src[i - 2] !== 0x0930) { out.push(String.fromCodePoint(t.vaSubjoined)); continue; } // ସ୍ୱ, but reph keeps ବ (ସର୍ବ)
       if (t.vaMedial && !wordStart && prev !== VIRAMA && next !== VIRAMA && next !== 0x093f && next !== 0x0940) { out.push(String.fromCodePoint(t.vaMedial)); continue; }
       out.push(String.fromCodePoint(t.va));
       continue;
