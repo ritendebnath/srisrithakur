@@ -233,6 +233,25 @@ main section.view{padding-block:0 40px}
 .wm-key i{display:inline-block;vertical-align:-1px;margin-right:8px}
 .wm-key .ramp{width:40px;height:10px;border-radius:3px;background:linear-gradient(90deg,rgba(231,199,161,.32),#E7C7A1)}
 .wm-key .dot{margin-left:4px;width:8px;height:8px;border-radius:50%;background:#E7C7A1;box-shadow:0 0 0 4px rgba(231,199,161,.22)}
+/* Home: photo archive carousel, two rows moving right to left (copies added by script) */
+.gal{background:var(--bg-2);padding-block:64px 52px;margin-top:56px;overflow:hidden}
+.gal-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;margin-bottom:28px}
+.gal-rows{display:grid;gap:16px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.gal-row{--h:270px;overflow:hidden}
+.gal-row.sm{--h:190px}
+.gal-track{display:flex;width:max-content}
+.gal.gal-on .gal-track{animation:gal-rtl var(--dur,80s) linear infinite}
+.gal-row:hover .gal-track,.gal-row:focus-within .gal-track{animation-play-state:paused}
+@keyframes gal-rtl{to{transform:translateX(-33.3333%)}}
+.gal-item{position:relative;margin:0 16px 0 0;flex:none}
+.gal-item img{display:block;height:var(--h);width:auto;border-radius:16px;background:#E4E1DA;object-fit:cover}
+.gal-item figcaption{position:absolute;left:10px;bottom:10px;max-width:calc(100% - 20px);background:rgba(255,255,255,.94);color:var(--fg);border-radius:10px;padding:6px 10px;font-size:12.5px;line-height:1.3;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.gal-item figcaption b{display:block;font-weight:600}
+.gal-item figcaption span{display:block;color:var(--fg-2)}
+.gal-note{margin-top:22px;margin-bottom:0;font-size:.88rem;color:var(--fg-2)}
+.gal-note a{color:var(--fg)}
+@media (max-width:640px){.gal{padding-block:48px 40px;margin-top:40px}.gal-row{--h:200px}.gal-row.sm{--h:140px}.gal-item figcaption{font-size:11.5px;padding:5px 8px}}
+@media (prefers-reduced-motion:reduce){.gal-row{overflow-x:auto}}
 .wm-list{display:none;list-style:none;margin:16px 0 0;padding:0;columns:2;column-gap:24px}
 .wm-list li{display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid rgba(243,241,234,.14);font-size:14px;break-inside:avoid;color:#F3F1EA}
 .wm-list em{font-style:normal;color:#D3D9EA;font-variant-numeric:tabular-nums}
@@ -557,6 +576,37 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:56px 40px;
       </figure>
     </div>
   </div>
+
+  <section class="gal" id="homeGallery" aria-labelledby="galTitle">
+    <div class="wrap gal-head">
+      <div><p class="eyebrow" data-k="galEyebrow">Photo archive</p><h2 id="galTitle" data-k="galTitle">Rare photographs of Sri Sri Thakur Anukulchandra</h2></div>
+      <a class="textlink" href="/photos" data-k="galAll">See all photos</a>
+    </div>
+    <div class="gal-rows">
+      <div class="gal-row">
+        <div class="gal-track" style="--dur:90s">
+          <figure class="gal-item"><img src="/images/gallery/sri-sri-thakur-with-family-and-disciples-pabna-ashram.webp" alt="Sri Sri Thakur Anukulchandra seated with Sri Sri Boroma, young Kajalda and disciples at the Pabna Ashram, Himaitpur" width="557" height="270" loading="lazy" decoding="async"><figcaption><b>With family and disciples</b><span>Pabna Ashram</span></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/sri-sri-thakur-on-the-beach-at-puri-1923.webp" alt="Young Sri Sri Thakur Anukulchandra standing in the sea at Puri, wrapped in a white shawl" width="166" height="270" loading="lazy" decoding="async"><figcaption><b>At Puri beach</b><span>Winter 1922-23</span></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/dr-anugrah-narayan-sinha-visits-sri-sri-thakur-deoghar-1955.webp" alt="Bihar Finance Minister Dr Anugrah Narayan Sinha seated among devotees during a visit to Sri Sri Thakur Anukulchandra in Deoghar, 1955" width="385" height="270" loading="lazy" decoding="async"><figcaption><b>Dr Anugrah Narayan Sinha visits</b><span>Deoghar, 30 Oct 1955</span></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/sri-sri-thakur-with-youngest-daughter-santwana-devi.webp" alt="Sri Sri Thakur Anukulchandra standing with his hand on the head of his youngest daughter, Santwana Devi" width="174" height="270" loading="lazy" decoding="async"><figcaption><b>With daughter Santwana Devi</b><span>About 1933</span></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/sri-sri-thakur-with-mother-family-and-disciples-himaitpur.webp" alt="Group photograph of Sri Sri Thakur Anukulchandra with his mother Manomohini Devi, his brothers, his sons Amarendranath and Vivekranjan, and disciples at Himaitpur" width="534" height="270" loading="lazy" decoding="async"><figcaption><b>With his mother and family</b><span>Himaitpur, Pabna</span></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/sri-sri-thakur-beneath-the-babla-tree-himaitpur.webp" alt="Sri Sri Thakur Anukulchandra standing beneath the Babla tree at Himaitpur, Pabna" width="174" height="270" loading="lazy" decoding="async"><figcaption><b>Beneath the Babla tree</b><span>Himaitpur</span></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/sri-sri-thakur-walking-to-boral-deoghar-1951.webp" alt="Sri Sri Thakur Anukulchandra walking with devotees under a canvas canopy towards Boral in Deoghar, 1951" width="384" height="270" loading="lazy" decoding="async"><figcaption><b>Walking to Boral</b><span>Deoghar, 1951</span></figcaption></figure>
+        </div>
+      </div>
+      <div class="gal-row sm">
+        <div class="gal-track" style="--dur:60s">
+          <figure class="gal-item"><img src="/images/gallery/manomohini-devi-mother-of-sri-sri-thakur.webp" alt="Manomohini Devi, mother of Sri Sri Thakur Anukulchandra, seated in a white sari" width="121" height="190" loading="lazy" decoding="async"><figcaption><b>Mother, Manomohini Devi</b></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/sri-sri-thakur-with-his-father-shivchandra-and-devotees.webp" alt="Sri Sri Thakur Anukulchandra standing behind his father Shivchandra Chakravarty, who is seated among devotees" width="378" height="190" loading="lazy" decoding="async"><figcaption><b>With his father, Shivchandra</b></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/sri-sri-thakur-bathing-in-the-padma.webp" alt="Sri Sri Thakur Anukulchandra and devotees bathing in the Padma river near the Himaitpur ashram" width="281" height="190" loading="lazy" decoding="async"><figcaption><b>Bathing in the Padma</b></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/sri-sri-thakur-resting-in-his-mothers-lap.webp" alt="Sri Sri Thakur Anukulchandra lying with his head in the lap of his mother, Manomohini Devi" width="298" height="190" loading="lazy" decoding="async"><figcaption><b>In his mother's lap</b></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/satsang-chemical-works-himaitpur.webp" alt="Exterior of the Satsang Chemical Works building at Himaitpur, Pabna" width="302" height="190" loading="lazy" decoding="async"><figcaption><b>Satsang Chemical Works</b></figcaption></figure>
+          <figure class="gal-item"><img src="/images/gallery/bankim-chandra-mukherjee-darshan-of-sri-sri-thakur-1957.webp" alt="West Bengal MLA Bankim Chandra Mukherjee in conversation with Sri Sri Thakur Anukulchandra, 16 April 1957" width="254" height="190" loading="lazy" decoding="async"><figcaption><b>Bankim Chandra Mukherjee, 1957</b></figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <p class="wrap gal-note"><span data-k="galNote">Photographs from 1922 to 1957, reproduced from published sources for devotional, non-commercial use. Hover to pause.</span> <a href="/contact" data-k="galFix">Suggest a correction or removal</a></p>
+  </section>
 
   <div class="wrap invite">
     <svg class="lotus-sm" viewBox="0 0 64 40" aria-hidden="true"><use href="#i-lotus"/></svg>
@@ -974,9 +1024,9 @@ const OPPS=[
 
 /* ---------- I18N (navigation labels) ---------- */
 const I18N={
- en:{home:"Home",prayers:"Prayers",morningPrayer:"Morning Prayer",eveningPrayer:"Evening Prayer",teachings:"Teachings",life:"Life and Legacy",library:"Library",map:"Global Map",contribute:"Contribute",about:"About this initiative",searchShort:"Search teachings, books, centres",gcEyebrow:"Global Community",gcTitle:"From Deoghar to Toronto, find Satsang near you.",gcLede:"A searchable directory of Satsang centres worldwide. Every listing shows when it was last verified, and private addresses are never published.",gcVihar:"Satsang Vihar",gcCountries:"Countries",gcCta:"Open the directory",wmShade:"Shade = number of centres",wmAbroad:"Centre outside South Asia",wmHint:"Hover for details, click a dot to open it"},
- bn:{home:"হোম",prayers:"প্রার্থনা",morningPrayer:"প্রাতঃকালীন প্রার্থনা",eveningPrayer:"সান্ধ্য প্রার্থনা",teachings:"বাণী",life:"জীবন ও উত্তরাধিকার",library:"গ্রন্থাগার",map:"বিশ্ব মানচিত্র",contribute:"অবদান",about:"এই উদ্যোগ সম্পর্কে",searchShort:"বাণী, গ্রন্থ, কেন্দ্র খুঁজুন",gcEyebrow:"বিশ্বজুড়ে সৎসঙ্গ",gcTitle:"দেওঘর থেকে টরন্টো, আপনার কাছের সৎসঙ্গ খুঁজে নিন।",gcLede:"বিশ্বজুড়ে সৎসঙ্গ কেন্দ্রগুলির একটি অনুসন্ধানযোগ্য তালিকা। প্রতিটি কেন্দ্রের তথ্য শেষ কবে যাচাই করা হয়েছে তা দেখানো হয়, এবং ব্যক্তিগত ঠিকানা কখনও প্রকাশ করা হয় না।",gcVihar:"সৎসঙ্গ বিহার",gcCountries:"দেশ",gcCta:"তালিকা খুলুন",wmShade:"রঙের গাঢ়তা = কেন্দ্রের সংখ্যা",wmAbroad:"দক্ষিণ এশিয়ার বাইরের কেন্দ্র",wmHint:"বিস্তারিত দেখতে মাউস রাখুন, খুলতে বিন্দুতে ক্লিক করুন"},
- hi:{home:"होम",prayers:"प्रार्थना",morningPrayer:"प्रातः प्रार्थना",eveningPrayer:"संध्या प्रार्थना",teachings:"उपदेश",life:"जीवन और विरासत",library:"पुस्तकालय",map:"विश्व मानचित्र",contribute:"योगदान",about:"इस पहल के बारे में",searchShort:"उपदेश, पुस्तकें, केंद्र खोजें",gcEyebrow:"विश्वभर में सत्संग",gcTitle:"देवघर से टोरंटो तक, अपने पास सत्संग खोजें।",gcLede:"दुनिया भर के सत्संग केंद्रों की खोज योग्य सूची। हर प्रविष्टि में दिखता है कि उसे आख़िरी बार कब सत्यापित किया गया, और निजी पते कभी प्रकाशित नहीं किए जाते।",gcVihar:"सत्संग विहार",gcCountries:"देश",gcCta:"सूची खोलें",wmShade:"रंग की गहराई = केंद्रों की संख्या",wmAbroad:"दक्षिण एशिया के बाहर केंद्र",wmHint:"विवरण के लिए माउस रखें, खोलने के लिए बिंदु पर क्लिक करें"}};
+ en:{home:"Home",prayers:"Prayers",morningPrayer:"Morning Prayer",eveningPrayer:"Evening Prayer",teachings:"Teachings",life:"Life and Legacy",library:"Library",map:"Global Map",contribute:"Contribute",about:"About this initiative",searchShort:"Search teachings, books, centres",gcEyebrow:"Global Community",gcTitle:"From Deoghar to Toronto, find Satsang near you.",gcLede:"A searchable directory of Satsang centres worldwide. Every listing shows when it was last verified, and private addresses are never published.",gcVihar:"Satsang Vihar",gcCountries:"Countries",gcCta:"Open the directory",wmShade:"Shade = number of centres",wmAbroad:"Centre outside South Asia",wmHint:"Hover for details, click a dot to open it",galEyebrow:"Photo archive",galTitle:"Rare photographs of Sri Sri Thakur Anukulchandra",galAll:"See all photos",galNote:"Photographs from 1922 to 1957, reproduced from published sources for devotional, non-commercial use. Hover to pause.",galFix:"Suggest a correction or removal"},
+ bn:{home:"হোম",prayers:"প্রার্থনা",morningPrayer:"প্রাতঃকালীন প্রার্থনা",eveningPrayer:"সান্ধ্য প্রার্থনা",teachings:"বাণী",life:"জীবন ও উত্তরাধিকার",library:"গ্রন্থাগার",map:"বিশ্ব মানচিত্র",contribute:"অবদান",about:"এই উদ্যোগ সম্পর্কে",searchShort:"বাণী, গ্রন্থ, কেন্দ্র খুঁজুন",gcEyebrow:"বিশ্বজুড়ে সৎসঙ্গ",gcTitle:"দেওঘর থেকে টরন্টো, আপনার কাছের সৎসঙ্গ খুঁজে নিন।",gcLede:"বিশ্বজুড়ে সৎসঙ্গ কেন্দ্রগুলির একটি অনুসন্ধানযোগ্য তালিকা। প্রতিটি কেন্দ্রের তথ্য শেষ কবে যাচাই করা হয়েছে তা দেখানো হয়, এবং ব্যক্তিগত ঠিকানা কখনও প্রকাশ করা হয় না।",gcVihar:"সৎসঙ্গ বিহার",gcCountries:"দেশ",gcCta:"তালিকা খুলুন",wmShade:"রঙের গাঢ়তা = কেন্দ্রের সংখ্যা",wmAbroad:"দক্ষিণ এশিয়ার বাইরের কেন্দ্র",wmHint:"বিস্তারিত দেখতে মাউস রাখুন, খুলতে বিন্দুতে ক্লিক করুন",galEyebrow:"আলোকচিত্র সংগ্রহ",galTitle:"শ্রীশ্রীঠাকুর অনুকূলচন্দ্রের দুর্লভ আলোকচিত্র",galAll:"সব ছবি দেখুন",galNote:"১৯২২ থেকে ১৯৫৭ সালের ছবি, প্রকাশিত উৎস থেকে নেওয়া, ভক্তিমূলক ও অবাণিজ্যিক ব্যবহারের জন্য। থামাতে মাউস রাখুন।",galFix:"সংশোধন বা সরানোর অনুরোধ জানান"},
+ hi:{home:"होम",prayers:"प्रार्थना",morningPrayer:"प्रातः प्रार्थना",eveningPrayer:"संध्या प्रार्थना",teachings:"उपदेश",life:"जीवन और विरासत",library:"पुस्तकालय",map:"विश्व मानचित्र",contribute:"योगदान",about:"इस पहल के बारे में",searchShort:"उपदेश, पुस्तकें, केंद्र खोजें",gcEyebrow:"विश्वभर में सत्संग",gcTitle:"देवघर से टोरंटो तक, अपने पास सत्संग खोजें।",gcLede:"दुनिया भर के सत्संग केंद्रों की खोज योग्य सूची। हर प्रविष्टि में दिखता है कि उसे आख़िरी बार कब सत्यापित किया गया, और निजी पते कभी प्रकाशित नहीं किए जाते।",gcVihar:"सत्संग विहार",gcCountries:"देश",gcCta:"सूची खोलें",wmShade:"रंग की गहराई = केंद्रों की संख्या",wmAbroad:"दक्षिण एशिया के बाहर केंद्र",wmHint:"विवरण के लिए माउस रखें, खोलने के लिए बिंदु पर क्लिक करें",galEyebrow:"चित्र संग्रह",galTitle:"श्रीश्री ठाकुर अनुकूलचंद्र के दुर्लभ चित्र",galAll:"सभी चित्र देखें",galNote:"1922 से 1957 तक के चित्र, प्रकाशित स्रोतों से, भक्ति और गैर-व्यावसायिक उपयोग के लिए। रोकने के लिए माउस रखें।",galFix:"सुधार या हटाने का अनुरोध करें"}};
 function setLang(l){
   document.documentElement.lang=l;
   $$("[data-k]").forEach(el=>{const v=I18N[l][el.dataset.k]; if(v){el.textContent=v; el.classList.toggle("bn",l==="bn"); el.classList.toggle("hi",l==="hi");}});
@@ -1260,6 +1310,15 @@ function drawBand(){
   frame.addEventListener("pointerleave",hide);
   frame.addEventListener("focusin",e=>{const el=e.target.closest("[data-tip]");if(!el)return;const b=el.getBoundingClientRect();show(el,b.left+b.width/2,b.top+b.height/2)});
   frame.addEventListener("focusout",hide);
+})();
+/* ---------- HOME: PHOTO ARCHIVE CAROUSEL ---------- */
+(function(){
+  const sec=$("#homeGallery");if(!sec)return;
+  // Two hidden copies of each row make the right-to-left loop seamless (copies carry no alt text and are hidden from screen readers)
+  $$("#homeGallery .gal-track").forEach(t=>{const items=[...t.children];for(let k=0;k<2;k++)items.forEach(n=>{const c=n.cloneNode(true);c.setAttribute("aria-hidden","true");c.querySelectorAll("img").forEach(i=>{i.alt=""});t.appendChild(c)})});
+  sec.classList.add("gal-on");
+  // Load every photo shortly before the section scrolls into view, so none pop in while moving
+  if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){$$("#homeGallery img").forEach(i=>{i.loading="eager"});io.disconnect()}},{rootMargin:"800px 0px"});io.observe(sec)}
 })();
 function drawAll(){drawBand()}
 
