@@ -115,7 +115,7 @@
     },
     {
      "q": "Can I use the photos on this site?",
-     "a": "The photographs on the <a href=\"/photos\">Photos page</a> were taken before 1958 and are shared for devotional, non-commercial use. Please keep the caption and credit when you share one."
+     "a": "The photographs on the <a href=\"/photos\">Photos page</a> are shared for devotional, non-commercial use, and the line under each one says where it comes from. Please keep the caption and credit when you share one."
     },
     {
      "q": "I found a mistake. How do I tell you?",
@@ -128,9 +128,9 @@
    "crumb": "Photos",
    "eyebrow": "Photo archive",
    "h1": "Rare photographs of Sri Sri Thakur Anukulchandra",
-   "title": "Sri Sri Thakur Photos: Rare Photographs, 1922 to 1957",
-   "description": "Rare photographs of Sri Sri Thakur Anukulchandra with his mother, father, wife, sons and daughter at Himaitpur, Puri and Deoghar, 1922 to 1957, each with its caption and source.",
-   "lede": "Thirteen photographs from 1922 to 1957: Sri Sri Thakur with his mother, father, wife, sons and daughter at Himaitpur and Puri, and in Deoghar after 1946. Each caption gives the place, the date where it is known and where the photograph comes from.",
+   "title": "Sri Sri Thakur Photos: Rare Photographs from Himaitpur to Deoghar",
+   "description": "Rare photographs of Sri Sri Thakur Anukulchandra: as a young man at Himaitpur, with his mother, father, wife, sons and daughter, and in his later years at Deoghar, each with a caption and source.",
+   "lede": "Twenty-seven photographs, from his early years at Himaitpur and Puri to his later years at Deoghar: Sri Sri Thakur with his mother, father, wife, sons and daughter, among devotees, and on his own. Each caption gives the place, the date where it is known and where the photograph comes from.",
    "schemaType": "ImageGallery",
    "ogImage": "/images/gallery/sri-sri-thakur-photos-og.jpg",
    "ogImageAlt": "Sri Sri Thakur Anukulchandra with family and disciples at the Pabna Ashram",
@@ -274,6 +274,118 @@
        "name": "Deoghar, Jharkhand"
       },
       "dateCreated": "1957-04-16"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-early-portrait-in-a-white-shawl.webp",
+      "url": "https://srisrithakur.com/photos#early-portrait-in-a-white-shawl",
+      "name": "Early portrait in a white shawl",
+      "caption": "Head-and-shoulders portrait of Sri Sri Thakur as a young man, a white shawl around his shoulders.",
+      "creditText": "Original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-seated-on-a-cane-stool.webp",
+      "url": "https://srisrithakur.com/photos#seated-on-a-cane-stool",
+      "name": "Seated on a cane stool",
+      "caption": "Sri Sri Thakur as a young man, seated on a cane stool in a white dhoti and his sacred thread, hands resting in his lap and feet crossed.",
+      "creditText": "Original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-resting-his-head-on-his-hand.webp",
+      "url": "https://srisrithakur.com/photos#resting-his-head-on-his-hand",
+      "name": "Resting his head on his hand",
+      "caption": "Close-up of Sri Sri Thakur in his later years, his head resting on his hand, looking towards the camera.",
+      "creditText": "Original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-seated-against-pillows-on-his-bed.webp",
+      "url": "https://srisrithakur.com/photos#seated-against-pillows-on-his-bed",
+      "name": "Seated against the pillows on his bed",
+      "caption": "Sri Sri Thakur in his later years, seated on his bed among white pillows, an iron bedstead behind him.",
+      "creditText": "Colourised copy, shown here in black and white; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-with-his-hookah-on-the-verandah.webp",
+      "url": "https://srisrithakur.com/photos#with-his-hookah-on-the-verandah",
+      "name": "With his hookah on the verandah",
+      "caption": "Sri Sri Thakur seated in a wooden chair on a plank-walled verandah, drawing on the long pipe of his hookah.",
+      "creditText": "Colourised copy, shown here in black and white; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-seated-outdoors-on-his-bed.webp",
+      "url": "https://srisrithakur.com/photos#seated-outdoors-on-his-bed",
+      "name": "Seated outdoors on his bed",
+      "caption": "Sri Sri Thakur in his later years, seated on a bed set out in the open beneath a canopy, with trees behind him.",
+      "creditText": "Colourised copy, shown here in black and white; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-portrait-in-later-years.webp",
+      "url": "https://srisrithakur.com/photos#portrait-in-later-years",
+      "name": "Portrait in later years",
+      "caption": "Head-and-shoulders portrait of Sri Sri Thakur in his later years, in a white kurta.",
+      "creditText": "Scan of a printed page; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-resting-in-an-armchair-outdoors.webp",
+      "url": "https://srisrithakur.com/photos#resting-in-an-armchair-outdoors",
+      "name": "Resting in an armchair outdoors",
+      "caption": "Sri Sri Thakur in a white kurta and dhoti, resting in a wooden armchair set out in an open field, a bucket beside him.",
+      "creditText": "Colourised copy, shown here in black and white; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-smiling-hands-joined-in-pranam.webp",
+      "url": "https://srisrithakur.com/photos#smiling-hands-joined-in-pranam",
+      "name": "Smiling, hands joined in pranam",
+      "caption": "Sri Sri Thakur in his later years, smiling, with his hands joined in pranam.",
+      "creditText": "From a Satwata Katha photo collage; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-hands-folded-in-a-white-kurta.webp",
+      "url": "https://srisrithakur.com/photos#hands-folded-in-a-white-kurta",
+      "name": "Hands folded, in a white kurta",
+      "caption": "Sri Sri Thakur in his later years, seated in a white kurta with his hands folded in pranam.",
+      "creditText": "Via MyGodPictures.com, watermark kept; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-smiling-pipe-in-hand.webp",
+      "url": "https://srisrithakur.com/photos#smiling-pipe-in-hand",
+      "name": "Smiling, pipe in hand",
+      "caption": "Sri Sri Thakur in his later years, smiling as he sits on his bed with a pipe in his raised hand.",
+      "creditText": "Via MyGodPictures.com, watermark kept; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-walking-with-the-support-of-devotees.webp",
+      "url": "https://srisrithakur.com/photos#walking-with-the-support-of-devotees",
+      "name": "Walking with the support of devotees",
+      "caption": "Sri Sri Thakur in his later years, walking with devotees supporting him on either side as others look on.",
+      "creditText": "From a Satwata Katha photo collage; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-reclining-on-his-bed.webp",
+      "url": "https://srisrithakur.com/photos#reclining-on-his-bed",
+      "name": "Reclining on his bed",
+      "caption": "Sri Sri Thakur in his later years, reclining on his bed against a pillow, with bookshelves behind him.",
+      "creditText": "Via MyGodPictures.com, watermark kept; original source not yet traced"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-bathing-in-a-river-with-devotees.webp",
+      "url": "https://srisrithakur.com/photos#bathing-in-a-river-with-devotees",
+      "name": "Bathing in a river with devotees",
+      "caption": "Sri Sri Thakur bathing in a river in his later years, with devotees beside him in the water.",
+      "creditText": "Colourised copy, shown here in black and white; original source not yet traced"
      }
     ],
     "primaryImageOfPage": "https://srisrithakur.com/images/gallery/sri-sri-thakur-with-family-and-disciples-pabna-ashram.webp"
