@@ -74,7 +74,7 @@ for (const p of DATA.pages) {
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">${p.crumb}</span></nav>
   <div class="page-head hub-head">
     <p class="eyebrow">${p.eyebrow}</p>
-    <h1>${p.h1}</h1>
+    <h1>${p.h1.replace(/Sri Sri/g, "Sri&nbsp;Sri")}</h1>
     <p class="lede">${p.lede}</p>
   </div>
 </div>
