@@ -1,0 +1,321 @@
+{
+ "dateModified": "2026-10-30",
+ "ogImage": "/satsang-deoghar-sri-sri-thakur.jpeg",
+ "ogImageAlt": "Gateway of Satsang Ashram, Deoghar, with a world map of light above it",
+ "pages": [
+  {
+   "slug": "about-sri-sri-thakur",
+   "crumb": "Life",
+   "eyebrow": "Life and legacy",
+   "h1": "Sri Sri Thakur Anukulchandra",
+   "title": "Sri Sri Thakur Anukulchandra: Life and Biography, 1888 to 1969",
+   "description": "The life of Sri Sri Thakur Anukulchandra: born at Himaitpur, Pabna on 14 September 1888, physician and founder of Satsang, moved to Deoghar in 1946, passed away on 27 January 1969.",
+   "lede": "Physician, spiritual teacher and founder of Satsang. He spent 58 years at Himaitpur in Pabna, now in Bangladesh, and the last 22 at Deoghar in present-day Jharkhand, where Satsang has its headquarters.",
+   "schemaType": "ProfilePage",
+   "ogImage": "/images/gallery/sri-sri-thakur-photos-og.jpg",
+   "ogImageAlt": "Sri Sri Thakur Anukulchandra with family and disciples at the Pabna Ashram"
+  },
+  {
+   "slug": "prayers",
+   "crumb": "Prayers",
+   "eyebrow": "Prayers",
+   "h1": "Satsang morning and evening prayers",
+   "title": "Satsang Prayers: Morning and Evening Prayer in 5 Languages",
+   "description": "The Satsang morning prayer (Pratah Prarthana) and evening prayer (Sandhya Prarthana) of Sri Sri Thakur Anukulchandra, with full lyrics in English, Hindi, Bengali, Odia and Assamese.",
+   "lede": "The morning prayer (Pratah Prarthana) and evening prayer (Sandhya Prarthana) sung in Satsang, with the full words in English letters, Hindi, Bengali, Odia and Assamese. Each has its own page to save, print or share.",
+   "schemaType": "CollectionPage",
+   "ogImage": "/images/prayers/satsang-morning-prayer-og.jpg",
+   "ogImageAlt": "Morning Prayer of Sri Sri Thakur Anukulchandra"
+  },
+  {
+   "slug": "books",
+   "crumb": "Books",
+   "eyebrow": "Books",
+   "h1": "Books of Sri Sri Thakur Anukulchandra",
+   "title": "Books by Sri Sri Thakur Anukulchandra: Satyanusaran, Anushruti, The Message and More",
+   "description": "The main books of Sri Sri Thakur Anukulchandra: Satyanusaran, Punya Punthi, Anushruti, Chalar Sathi, Alochana Prasange, The Message and more, with what each contains and where to get them.",
+   "lede": "His teachings come down to us in about 94 books, 82 in Bengali and 12 in English, many translated into Hindi, Odia, Assamese and other languages. Here are the main ones, what each contains, and where to find them.",
+   "schemaType": "CollectionPage"
+  },
+  {
+   "slug": "bani-teachings",
+   "crumb": "Teachings",
+   "eyebrow": "Teachings",
+   "h1": "The teachings of Sri Sri Thakur",
+   "title": "Teachings of Sri Sri Thakur Anukulchandra: Ishtabhriti, Jajan, Yajan and Being and Becoming",
+   "description": "The core teachings of Sri Sri Thakur Anukulchandra in plain English: Being and Becoming, Ishtabhriti, Jajan, Yajan, Swastyayani and Sadachar, and the four ideals of Satsang.",
+   "lede": "At the heart of his teaching is a simple aim: to live and to grow, in body, mind and spirit, and to help others do the same. These are the ideas and practices his followers return to most."
+  },
+  {
+   "slug": "centres",
+   "crumb": "Centres",
+   "eyebrow": "Satsang centres",
+   "h1": "Find a Satsang centre",
+   "title": "Satsang Centres: 956 Satsang Vihars in India, Bangladesh, Nepal and Abroad",
+   "description": "Find a Satsang Vihar near you: 956 Satsang centres in 9 countries, by state and country, from Assam, West Bengal and Odisha to Bangladesh, Nepal, the USA and the UK.",
+   "lede": "Our directory lists 956 Satsang Vihars and centres in 9 countries, each pinned on the Global Map with its address and source. Here is where they are.",
+   "schemaType": "CollectionPage"
+  },
+  {
+   "slug": "faq",
+   "crumb": "FAQ",
+   "eyebrow": "FAQ",
+   "h1": "Questions about Sri Sri Thakur and Satsang",
+   "title": "Sri Sri Thakur and Satsang: Frequently Asked Questions",
+   "description": "Answers to common questions about Sri Sri Thakur Anukulchandra and Satsang: his life, Satsang Ashram Deoghar, the prayers, Ishtabhriti, Swastyayani, his books and finding a centre.",
+   "lede": "Short answers to the questions people ask most about Sri Sri Thakur, Satsang and this site.",
+   "faq": [
+    {
+     "q": "Who was Sri Sri Thakur Anukulchandra?",
+     "a": "A physician and spiritual teacher, and the founder of Satsang. He was born at Himaitpur in Pabna, now in Bangladesh, on 14 September 1888, and passed away at Deoghar, Jharkhand, on 27 January 1969. <a href=\"/about-sri-sri-thakur\">Read his life</a>."
+    },
+    {
+     "q": "Where was Sri Sri Thakur born?",
+     "a": "In the village of Himaitpur, in Pabna district, Bengal, which is now in Bangladesh. The Satsang Ashram at Himaitpur still stands there."
+    },
+    {
+     "q": "What is Satsang?",
+     "a": "The community and organisation that grew around Sri Sri Thakur at Himaitpur. It was registered in Pabna in 1925 as a public charitable institution, moved with him to Deoghar in 1946 and was registered again in India in 1951. Its headquarters is Satsang Ashram, Deoghar."
+    },
+    {
+     "q": "Where is Satsang Ashram, Deoghar?",
+     "a": "At Satsang Nagar, Deoghar, Jharkhand 814116, in the south-west of the town, about 6 km from Jasidih Junction railway station. <a href=\"/satsang-deoghar\">Visitor guide</a>."
+    },
+    {
+     "q": "What are the Satsang morning and evening prayers?",
+     "a": "Each is a sequence of three prayers followed by the Joy Radhe Radhe kirtan, in Hindi, Sanskrit and Bengali. This site has the full words in English letters, Hindi, Bengali, Odia and Assamese. <a href=\"/prayers\">Open the prayers</a>."
+    },
+    {
+     "q": "What is Ishtabhriti (Istavrity)?",
+     "a": "A daily offering made with love to the Ideal before attending to one's own needs, practised as a discipline of devotion. <a href=\"/istavrity\">More on Ishtabhriti</a>."
+    },
+    {
+     "q": "What is Swastyayani?",
+     "a": "A set of vows for wellbeing that ties care of one's own health and character to service of the family and community. <a href=\"/swastyayani\">More on Swastyayani</a>."
+    },
+    {
+     "q": "What do Jajan and Yajan mean?",
+     "a": "Jajan is cultivating oneself through spiritual practice, study and living by one's ideals. Yajan is sharing what one has received with others through conduct and conversation."
+    },
+    {
+     "q": "What is Satyanusaran?",
+     "a": "His first book, written in Bengali in 1910 when he was 22, to guide a devotee. Its English translation, The Pursuit of Truth, first appeared in 1950. <a href=\"/satyanusaran\">About Satyanusaran</a>."
+    },
+    {
+     "q": "How many books did Sri Sri Thakur write?",
+     "a": "About 94: 82 in Bengali and 12 in English, many of them records of his conversations. <a href=\"/books\">See the main books</a>."
+    },
+    {
+     "q": "How do I find a Satsang centre near me?",
+     "a": "Open the <a href=\"/map\">Global Map</a> and search by town, district or state. It lists 956 Satsang Vihars and centres in 9 countries. <a href=\"/centres\">Centres by state and country</a>."
+    },
+    {
+     "q": "Is this website run by Satsang?",
+     "a": "No. srisrithakur.com is an independent, non-commercial site made by devotees. It is not affiliated with Satsang, Deoghar, any Satsang Vihar or any official body, and it earns no money."
+    },
+    {
+     "q": "Can I use the photos on this site?",
+     "a": "The photographs on the <a href=\"/photos\">Photos page</a> were taken before 1958 and are shared for devotional, non-commercial use. Please keep the caption and credit when you share one."
+    },
+    {
+     "q": "I found a mistake. How do I tell you?",
+     "a": "Send it on WhatsApp or by email from the <a href=\"/contact\">contact page</a>. If you can, include the book, page or photo that shows the correct detail."
+    }
+   ]
+  },
+  {
+   "slug": "photos",
+   "crumb": "Photos",
+   "eyebrow": "Photo archive",
+   "h1": "Rare photographs of Sri Sri Thakur Anukulchandra",
+   "title": "Sri Sri Thakur Photos: Rare Photographs, 1922 to 1957",
+   "description": "Rare photographs of Sri Sri Thakur Anukulchandra with his mother, father, wife, sons and daughter at Himaitpur, Puri and Deoghar, 1922 to 1957, each with its caption and source.",
+   "lede": "Thirteen photographs from 1922 to 1957: Sri Sri Thakur with his mother, father, wife, sons and daughter at Himaitpur and Puri, and in Deoghar after 1946. Each caption gives the place, the date where it is known and where the photograph comes from.",
+   "schemaType": "ImageGallery",
+   "ogImage": "/images/gallery/sri-sri-thakur-photos-og.jpg",
+   "ogImageAlt": "Sri Sri Thakur Anukulchandra with family and disciples at the Pabna Ashram",
+   "schema": {
+    "associatedMedia": [
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-on-the-beach-at-puri-1923.webp",
+      "url": "https://srisrithakur.com/photos#puri-1923",
+      "name": "On the beach at Puri",
+      "caption": "Sri Sri Thakur standing in the sea at Puri, wrapped in a white shawl. The original Bengali caption dates the photograph to the month of Paush, Bengali year 1329.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album",
+      "contentLocation": {
+       "@type": "Place",
+       "name": "Puri, Odisha"
+      }
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-with-youngest-daughter-santwana-devi.webp",
+      "url": "https://srisrithakur.com/photos#with-daughter-santwana-devi",
+      "name": "With his youngest daughter, Santwana Devi",
+      "caption": "Sri Sri Thakur with his hand on the head of his youngest daughter, Santwana Devi. The original Bengali caption places the photograph in his 45th year.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-with-mother-family-and-disciples-himaitpur.webp",
+      "url": "https://srisrithakur.com/photos#with-mother-family-and-disciples",
+      "name": "With his mother, family and disciples",
+      "caption": "Sri Sri Thakur and his mother Manomohini Devi at the centre, surrounded by family and disciples. The original Bengali caption names, in the front row from the left, his brothers Prabhaschandra and Kumudchandra and his sons Amarendranath and Vivekranjan.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-with-his-father-shivchandra-and-devotees.webp",
+      "url": "https://srisrithakur.com/photos#with-father-shivchandra",
+      "name": "With his father, Shivchandra Chakravarty",
+      "caption": "Sri Sri Thakur standing, third from the left, behind his father Shivchandra Chakravarty, who is seated third from the left among devotees, as given in the original Bengali caption.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/manomohini-devi-mother-of-sri-sri-thakur.webp",
+      "url": "https://srisrithakur.com/photos#mother-manomohini-devi",
+      "name": "Mother, Manomohini Devi",
+      "caption": "Manomohini Devi, mother of Sri Sri Thakur Anukulchandra, seated in a white sari.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-resting-in-his-mothers-lap.webp",
+      "url": "https://srisrithakur.com/photos#in-his-mothers-lap",
+      "name": "Resting in his mother's lap",
+      "caption": "Sri Sri Thakur lying with his head in the lap of his mother, Manomohini Devi.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-beneath-the-babla-tree-himaitpur.webp",
+      "url": "https://srisrithakur.com/photos#beneath-the-babla-tree",
+      "name": "Beneath the Babla tree",
+      "caption": "Sri Sri Thakur standing beneath the Babla tree at Himaitpur.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album",
+      "contentLocation": {
+       "@type": "Place",
+       "name": "Himaitpur, Pabna"
+      }
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-bathing-in-the-padma.webp",
+      "url": "https://srisrithakur.com/photos#bathing-in-the-padma",
+      "name": "Bathing in the Padma",
+      "caption": "Sri Sri Thakur and devotees bathing in the Padma river beside the Himaitpur ashram.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album",
+      "contentLocation": {
+       "@type": "Place",
+       "name": "Himaitpur, Pabna"
+      }
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-with-family-and-disciples-pabna-ashram.webp",
+      "url": "https://srisrithakur.com/photos#pabna-ashram-with-family",
+      "name": "With family and disciples at the Pabna Ashram",
+      "caption": "Sri Sri Thakur seated with disciples at the Pabna Ashram. Sri Sri Boroma sits beside him, with the young Kajalda between them.",
+      "creditText": "Photograph of a framed print, via the srisrithakuranukulchandra.com album",
+      "contentLocation": {
+       "@type": "Place",
+       "name": "Himaitpur, Pabna"
+      }
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/satsang-chemical-works-himaitpur.webp",
+      "url": "https://srisrithakur.com/photos#satsang-chemical-works",
+      "name": "Satsang Chemical Works",
+      "caption": "Exterior of the Satsang Chemical Works building at Himaitpur.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album",
+      "contentLocation": {
+       "@type": "Place",
+       "name": "Himaitpur, Pabna"
+      }
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/sri-sri-thakur-walking-to-boral-deoghar-1951.webp",
+      "url": "https://srisrithakur.com/photos#walking-to-boral-1951",
+      "name": "Walking to Boral",
+      "caption": "Sri Sri Thakur walking towards Boral under a tarpaulin canopy, before the parlour was built. Haripada Saha walks on the right. The original Bengali caption dates the photograph to 1951.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album",
+      "contentLocation": {
+       "@type": "Place",
+       "name": "Deoghar, Jharkhand"
+      },
+      "dateCreated": "1951"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/dr-anugrah-narayan-sinha-visits-sri-sri-thakur-deoghar-1955.webp",
+      "url": "https://srisrithakur.com/photos#anugrah-narayan-sinha-1955",
+      "name": "Dr Anugrah Narayan Sinha visits",
+      "caption": "Dr Anugrah Narayan Sinha, Finance Minister of Bihar, seated among devotees during a visit to Sri Sri Thakur. The original Hindi caption gives the date.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album",
+      "contentLocation": {
+       "@type": "Place",
+       "name": "Deoghar, Jharkhand"
+      },
+      "dateCreated": "1955-10-30"
+     },
+     {
+      "@type": "ImageObject",
+      "contentUrl": "https://srisrithakur.com/images/gallery/bankim-chandra-mukherjee-darshan-of-sri-sri-thakur-1957.webp",
+      "url": "https://srisrithakur.com/photos#bankim-chandra-mukherjee-1957",
+      "name": "Bankim Chandra Mukherjee in conversation",
+      "caption": "Bankim Chandra Mukherjee, Communist leader and member of the West Bengal Legislative Assembly, in conversation with Sri Sri Thakur, as given in the original caption.",
+      "creditText": "Scan of a printed book, via the srisrithakuranukulchandra.com album",
+      "contentLocation": {
+       "@type": "Place",
+       "name": "Deoghar, Jharkhand"
+      },
+      "dateCreated": "1957-04-16"
+     }
+    ],
+    "primaryImageOfPage": "https://srisrithakur.com/images/gallery/sri-sri-thakur-with-family-and-disciples-pabna-ashram.webp"
+   }
+  },
+  {
+   "slug": "istavrity",
+   "crumb": "Ishtabhriti",
+   "eyebrow": "Practice",
+   "h1": "What is Ishtabhriti (Istavrity)?",
+   "title": "What is Ishtabhriti (Istavrity)? Meaning and Practice in Satsang",
+   "description": "Ishtabhriti, also written Istavrity, is the daily loving offering to the Ideal taught by Sri Sri Thakur Anukulchandra. What the word means and how it fits with Jajan, Yajan and Swastyayani.",
+   "lede": "Ishtabhriti is the daily practice, taught by Sri Sri Thakur, of offering something with love to the Ideal before attending to one's own needs."
+  },
+  {
+   "slug": "swastyayani",
+   "crumb": "Swastyayani",
+   "eyebrow": "Practice",
+   "h1": "What is Swastyayani?",
+   "title": "What is Swastyayani? Vows for Wellbeing in Satsang",
+   "description": "Swastyayani is the set of vows for wellbeing given by Sri Sri Thakur Anukulchandra, linking care of one's own health and character to service of family and community.",
+   "lede": "Swastyayani is a set of vows for wellbeing given by Sri Sri Thakur, linking care of one's own health and character to service of the family and community."
+  },
+  {
+   "slug": "five-principles-satsang",
+   "crumb": "Core practices",
+   "eyebrow": "Practice",
+   "h1": "The core practices of Satsang",
+   "title": "Five Principles of Satsang: Jajan, Yajan, Ishtabhriti, Swastyayani and Sadachar",
+   "description": "The daily practices of Satsang most often named by devotees: Jajan, Yajan, Ishtabhriti, Swastyayani and Sadachar, explained in plain English.",
+   "lede": "The daily practices devotees of Sri Sri Thakur name most often, each explained in plain English."
+  },
+  {
+   "slug": "satsang-deoghar",
+   "crumb": "Satsang Deoghar",
+   "eyebrow": "Visit",
+   "h1": "Satsang Ashram, Deoghar",
+   "title": "Satsang Ashram Deoghar: Address, How to Reach and History",
+   "description": "Satsang Ashram, Deoghar: address at Satsang Nagar, Deoghar, Jharkhand 814116, how to reach it from Jasidih Junction and Deoghar Airport, and its history since 1946.",
+   "lede": "The headquarters of Satsang and the place where Sri Sri Thakur lived from 1946 until 1969. Devotees from India, Bangladesh and abroad come here on pilgrimage.",
+   "ogImage": "/images/gallery/sri-sri-thakur-photos-og.jpg",
+   "ogImageAlt": "Sri Sri Thakur Anukulchandra with family and disciples at the Pabna Ashram"
+  }
+ ]
+}
