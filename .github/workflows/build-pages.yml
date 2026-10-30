@@ -2,7 +2,7 @@ name: Build section pages
 on:
   push:
     branches: [main]
-    paths: ["index.html", "tools/build-pages.mjs", "tools/build-prayer-pages.mjs", "tools/prayers/**", "data/prayers/**"]
+    paths: ["index.html", "tools/build-pages.mjs", "tools/build-prayer-pages.mjs", "tools/build-hub-pages.mjs", "tools/prayers/**", "tools/hubs/**", "data/prayers/**", "data/hubs/**"]
 permissions:
   contents: write
 jobs:
@@ -15,12 +15,13 @@ jobs:
           node-version: 20
       - run: node tools/build-pages.mjs
       - run: node tools/build-prayer-pages.mjs
+      - run: node tools/build-hub-pages.mjs
       - name: Commit regenerated pages
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "Regenerate section and prayer pages"
+            git commit -m "Regenerate section, prayer and content pages"
             git push
           fi
